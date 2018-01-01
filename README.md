@@ -1,6 +1,6 @@
 # freeCodeCamp
 
-### Algorithms
+### Basic Algorithms
 
 - 01 ✅ Reverse a String
 - 02 ✅ Factorialize a Number
