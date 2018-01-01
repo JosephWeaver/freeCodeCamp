@@ -15,6 +15,6 @@
 - 11 ✅ Slasher Flick
 - 12 ✅ Mutations
 - 13 ✅ Falsy Bouncer
-- 14 Seek and Destroy
-- 15 Where Do I Belong
-- 16 Caesar's Cipher
+- 14 ✅ Seek and Destroy
+- 15 ✅ Where Do I Belong
+- 16 ✅ Caesar's Cipher
