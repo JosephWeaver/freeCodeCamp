@@ -1,0 +1,73 @@
+// https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css
+// https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css
+// https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+
+body {
+  background: url("http://www.joeweaver.me/codepenassets/freecodecamp/randomquotemachine/bg.png") center center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  font-family: "Lato", serif;
+  height: 100vh;
+  justify-content: center;
+  min-width: 320px;
+  overflow-x: hidden;
+  padding-bottom: 1.84%;
+  text-align: center;
+}
+h1 {
+  color: #5d5;
+  font-size: calc(28px + 5vw);
+  font-family: "Roboto Slab", sans-serif;
+  line-height: calc(28px + 5vw);
+  margin: 3vw;
+  text-align: center;
+  text-shadow: 1px 1px .5vw #080808,
+               1px 1px 1vw #080808;
+}
+.quote-background {
+  background: rgba(#bfb, .16);
+  margin: 0 5vw 2.8vw;
+  -webkit-transform: skewX(7deg);
+      -ms-transform: skewX(7deg);
+          transform: skewX(7deg);
+}
+.quote-container {
+  font-size: calc(12px + 2vw);
+  line-height: calc(14px + 2.4vw);
+  padding: 2.8vw;
+  text-shadow: 1px 1px 3px #000,
+               1px 1px 10px #000,
+               1px 1px 28px #000;
+  -webkit-transform: skewX(-7deg);
+      -ms-transform: skewX(-7deg);
+          transform: skewX(-7deg);
+}
+#author {
+  color: #7f7;
+  margin: 2.43vw 2vw 0 0;
+  text-align: right;
+}
+button, .buttons a {
+  font-size: calc(10px + 1vw) !important;
+  font-weight: bold !important;
+  margin: 0 .84vw 2.43vw !important;
+  outline: 0 !important;
+  text-shadow: .5px .5px 2px #282828;
+  &.btn-twitter {
+    &, &:focus {
+      background-color: #00aced;
+      color: #fff;
+    }
+    &:hover {
+      background-color: #0084b4;
+      color: #fff;
+    }
+  }
+}
+.copyright {
+  font-size: calc(7px + .84vw) !important;
+  a {
+    color: #5d5;
+  }
+}
