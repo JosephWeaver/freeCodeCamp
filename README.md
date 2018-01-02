@@ -18,3 +18,8 @@
 - 14 ✅ Seek and Destroy
 - 15 ✅ Where Do I Belong
 - 16 ✅ Caesar's Cipher
+
+### Challenges
+
+- 01 ✅ [Personal Portfolio Project](https://codepen.io/JosephWeaver/pen/aEJzog)
+- 02 ✅ [Random Quote Machine](https://codepen.io/JosephWeaver/pen/dJRPbE)
