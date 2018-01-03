@@ -2,3 +2,40 @@
 // https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js
 // https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css
 
+body {
+  align-items: center;
+  background: url(http://www.joeweaver.me/codepenassets/freecodecamp/showthelocalweather/weather.png),radial-gradient(circle, #434343, #161616) no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  overflow: hidden;
+  &.sf {
+    background: url(http://www.joeweaver.me/codepenassets/freecodecamp/showthelocalweather/sf.jpg) no-repeat center center fixed;
+    background-size: cover;
+  }
+}
+#location {
+  color: rgba(255,255,255,.69);
+  font-family: "Alfa Slab One", sans-serif;
+  font-size: 12.84vw;
+  line-height: 10.84vw;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+  z-index: -1;
+}
+#data {
+  border: 3px dashed #434343;
+  border-radius: 15px;
+  font-size: 184%;
+  line-height: 114%;
+  margin: 20px;
+  padding: 15px;
+  position: absolute;
+  right: 0;
+  text-align: right;
+  top: 0;
+}
