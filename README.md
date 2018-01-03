@@ -2,8 +2,8 @@
 
 ### Basic Front-End Development Projects
 
-- 01 ✅ [Tribute Page for Richard Petty](https://codepen.io/JosephWeaver/pen/VreEvV)
-- 02 ✅ [Personal Portfolio Project](https://codepen.io/JosephWeaver/pen/aEJzog)
+- 01 ✅ [Tribute Page for Richard Petty](https://codepen.io/JoeWeaver/pen/VreEvV)
+- 02 ✅ [Personal Portfolio Project](https://codepen.io/JoeWeaver/pen/aEJzog)
 
 ### Basic Algorithm Scripting
 
@@ -26,7 +26,7 @@
 
 ### Intermediate Front-End Development Projects
 
-- 03 ✅ [Random Quote Machine](https://codepen.io/JosephWeaver/pen/dJRPbE)
+- 03 ✅ [Random Quote Machine](https://codepen.io/JoeWeaver/pen/dJRPbE)
 - 04 ✅ [Show the Local Weather](https://codepen.io/JoeWeaver/pen/qpXWwr)
 - 05 ❌ Build a Wikipedia Viewer
 - 06 ❌ Use the Twitch.tv JSON API
