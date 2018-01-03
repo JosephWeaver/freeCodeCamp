@@ -27,15 +27,34 @@ body {
   width: 100%;
   z-index: -1;
 }
-#data {
-  border: 3px dashed #434343;
-  border-radius: 15px;
-  font-size: 184%;
+#info {
   line-height: 114%;
-  margin: 20px;
-  padding: 15px;
+  padding: 1.43vw 1.84vw;
   position: absolute;
   right: 0;
   text-align: right;
   top: 0;
+  .main-info {
+    font-family: "Russo One", sans-serif;
+    font-size: 4vw;
+    line-height: 4.43vw;
+    div {
+      display: inline-block;
+      #c {
+        display: none;
+      }
+      .c,.f {
+        font-weight: bold;
+      }
+    }
+  }
+  .other-info {
+    font-size: 1.28vw;
+    font-weight: bold;
+    line-height: 1.84vw;
+    text-transform: uppercase;
+    span {
+      font-size: 128%;
+    }
+  }
 }
