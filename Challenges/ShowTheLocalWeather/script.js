@@ -14,7 +14,7 @@ $(function(){
       $("#temp .c").html(Math.round(data.main.temp * 10 ) / 10);
       $("#temp .f").html(Math.round(((Math.round(data.main.temp * 10 ) / 10) * 9 / 5 + 32) * 10 ) / 10);
       $("#humidity span").html(data.main.humidity);
-      $("#icon span").html(data.description);
+      $("#icon span").html(data.weather[0].description);
       $("#location").html(data.name.split(" ").join("<br>"));
       $("#wind span").html(data.wind.speed);
       if(data.name.includes("San Francisco")){ $("body").addClass("sf"); }
