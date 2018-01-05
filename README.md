@@ -28,7 +28,7 @@
 
 - 03 ✅ [Random Quote Machine](https://codepen.io/JoeWeaver/pen/dJRPbE)
 - 04 ✅ [Show the Local Weather](https://codepen.io/JoeWeaver/pen/qpXWwr)
-- 05 ❌ Build a Wikipedia Viewer
+- 05 ✅ [Build a Wikipedia Viewer](https://codepen.io/JoeWeaver/full/ppWbdo)
 - 06 ❌ Use the Twitch.tv JSON API
 
 ### Intermediate Algorithm Scripting
