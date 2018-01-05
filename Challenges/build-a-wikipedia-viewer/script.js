@@ -12,21 +12,21 @@ const $articles = $("#articles ul"),
       // declare API string cheese
       WP_API = "https://en.wikipedia.org/w/api.php",
       action = "?action=query", // query WP API
-//      // search = "&list=search", // article search
+      search = "&list=search", // article search
       callback = "&callback=?", // blank callback
       format = "&format=json", // format is JSON
       version = "&formatversion=2", // new format
-//       rand = "&generator=random", // get random pages
+      rand = "&generator=random", // get random pages
       rand2 = "&list=random", // get random articles
-//       // notalk = "&grnnamespace=0", // no Talk: namespace
+      notalk = "&grnnamespace=0", // no Talk: namespace
       notalk2 = "&rnnamespace=0", // no Talk: namespace
       rnlimit = "&rnlimit=", // set number of articles
-//       extracts = "&prop=extracts", // get extracts
-//       // exlength = "&exchars=", // set excerpt length
-//       // exintro = "&exintro=1", // set excerpt intro
-//       // expltext = "&explaintext=1", // set explain text
-//       // revisions = "&prop=revisions", // get page revisions
-//       // rvcontent = "&rvprop=content", // get page content
+      extracts = "&prop=extracts", // get extracts
+      exlength = "&exchars=", // set excerpt length
+      exintro = "&exintro=1", // set excerpt intro
+      expltext = "&explaintext=1", // set explain text
+      revisions = "&prop=revisions", // get page revisions
+      rvcontent = "&rvprop=content", // get page content
 
       // construct API query for random pages
       randomQuery = WP_API + action + format + version + rand2 + notalk2 + rnlimit + "15" + "&titles=Main_page" + callback;
@@ -40,25 +40,25 @@ const $articles = $("#articles ul"),
 
 // declare search  results container array
 let searchResults = [
-  {
-    title: "Ayyy fam",
-    snippet: "this is the shit"
-  },
-  {
-    title: "2 real",
-    snippet: "this is not the shit"
-  },
-  {
-    title: "third time's the charm",
-    snippet: "this is the tits"
-  }
+  // {
+  //   title: "Ayyy fam",
+  //   snippet: "this is the shit"
+  // },
+  // {
+  //   title: "2 real",
+  //   snippet: "this is not the shit"
+  // },
+  // {
+  //   title: "third time's the charm",
+  //   snippet: "this is the tits"
+  // }
 ];
 
 // document ready
 $(function(){
 
-    // prevent default on #search form submit
-    $("#search").on("submit", e => e.preventDefault());
+  // prevent default on #search form submit
+  $("#search").on("submit", e => e.preventDefault());
 
   // when input field is changed
   $("input").on("input", function(e) {
@@ -71,7 +71,7 @@ $(function(){
     searchFor($(this).val());
 
     // log search results
-    console.log(searchResults[0].title);
+    // console.log(searchResults[0].title);
 
     // display new search results list
     makeUL(searchResults);
@@ -103,9 +103,9 @@ $(function(){
     $.getJSON(randomQuery, function(data) {
       for (var i = 0; i < data.query.random.length; i++) {
         // console.log("Random Title: " + data.query.random[i].title);
-        // makeLI(data.query.random[i].title);
-        var title = data.query.random[i].title;
-        console.log(title);
+        makeLI(data.query.random[i].title);
+        // var title = data.query.random[i].title;
+        // console.log(title);
         // $.getJSON("https://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&format=json&formatversion=2&titles=" + title + "&callback=?", function(data){
         //   // console.log("content: " + data.pages[i].revisions[0].content);
         //   var snippet = data.pages[i].revisions[0].content;
