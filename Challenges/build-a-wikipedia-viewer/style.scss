@@ -78,7 +78,7 @@ body {
 }
 #random {
   font: normal 12px / 14px sans-serif;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   span {
     display: inline-block;
     max-width: 50px;
@@ -98,29 +98,51 @@ body {
     padding-left: 0;
     text-align: left;
     li {
-      $leftBorder: 7px;
-      $padding: 20px;
-      background: #efefef;
-      padding: $padding $padding + $leftBorder;
-      margin: 3px 0;
-      // transition: border .28s, padding .28s;
-      h2 {
-        font-family: "PT Serif", serif;
-        font-size: 28px;
-        font-weight: bold;
-        letter-spacing: -1px;
-        margin: 10px 0 15px;
-      }
-      p {
-        font-family: Roboto, sans-serif;
-      }
-              transition: border .28s, padding .28s !important;
-
-      &:hover {
-        background: #e4e4e4;
-        padding-left: $padding + $leftBorder;
-        border-left: $leftBorder solid #447FF5;
-        transition: border .28s, padding .28s;
+      a {
+        display: block;
+        $leftBorder: 5px;
+        $padding: 20px;
+        background: linear-gradient(#efefef, #f6f6f6);
+        border-radius: 4px;
+        padding: $padding $padding + $leftBorder;
+        margin: 3px 0;
+        text-decoration: none;
+        &:hover {
+          background: linear-gradient(#e6e6e6, #efefef);
+          padding-left: $padding;
+          border-left: $leftBorder solid #358bc7;
+          transition: border .28s, padding .28s;
+          h2 {
+            color: #282828;
+          }
+          p {
+            color: #161616;
+          }
+        }
+        h2 {
+          color: #434343;
+          font-family: "PT Serif", serif;
+          font-size: 28px;
+          font-weight: bold;
+          letter-spacing: -1px;
+          margin: 5px 0 0;
+        }
+        p {
+          color: #282828;
+          font: normal 14px / 18px Roboto, sans-serif;
+          margin-top: 15px;
+          text-align: justify;
+        }
+        .searchmatch {
+          background: #ffd;
+          border: 1px solid #dd9;
+          border-radius: 2px;
+          color: #770;
+          display: inline-block;
+          font-weight: bold;
+          margin: -1px 0;
+          padding: 0 4px 0 3px;
+        }
       }
     }
   }
