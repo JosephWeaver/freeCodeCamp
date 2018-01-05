@@ -4,35 +4,52 @@
   </a>
 </h1>
 <form id="search">
-  <input type="text" placeholder="Search Wikipedia" />
+  <input id="input" type="text" placeholder="Search Wikipedia" />
   <button type="submit" value="submit">
     <i class="fa fa-search" aria-hidden="true"></i>
   </button>
 </form>
 <p id="random">
-  <span>Search...? What is this bollocks!&nbsp;</span><a id="random" href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">Show me random articles</a><span>, Jeeves</span>!
+  <span>Search...?! What is this bollocks?!&nbsp;</span><a id="random" href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">Show me random articles</a><span>, Jeeves</span>!
 </p>
 <div id="articles">
+  <ul><!-- will be populated with articles via API --></ul>
   <ul>
     <li>
-      <h2>This is the title</h2>
-      <p>This is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this </p>
+      <a href="http://www.google.com">
+        <h2>This is an <span class="searchmatch">Example Article</span></h2>
+        <p>There was once a really awesome <span class="searchmatch">Example Article</span> which lived under a rock under the sun. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget congue lectus. Mauris vitae tellus metus. In hac habitasse platea dictumst. Duis aliquam ornare commodo. Duis eget congue erat, in maximus augue. Aliquam erat volutpat.</p>
+      </a>
     </li>
     <li>
-      <h2>This is the title</h2>
-      <p>This is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this </p>
+      <a href="http://www.google.com">
+        <h2>This is a Dummy Article</h2>
+        <p>There was once a really lame Dummy Article which lived under a rock under the sun. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget congue lectus. Mauris vitae tellus metus. In hac habitasse platea dictumst. Duis aliquam ornare commodo. Duis eget congue erat, in maximus augue. Aliquam erat volutpat.</p>
+      </a>
     </li>
     <li>
-      <h2>This is the title</h2>
-      <p>This is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this </p>
+      <a href="http://www.google.com">
+        <h2>This is a Dummy Article</h2>
+        <p>There was once a really lame Dummy Article which lived under a rock under the sun. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget congue lectus. Mauris vitae tellus metus. In hac habitasse platea dictumst. Duis aliquam ornare commodo. Duis eget congue erat, in maximus augue. Aliquam erat volutpat.</p>
+      </a>
     </li>
     <li>
-      <h2>This is the title</h2>
-      <p>This is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this </p>
+      <a href="http://www.google.com">
+        <h2>This is a Dummy Article</h2>
+        <p>There was once a really lame Dummy Article which lived under a rock under the sun. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget congue lectus. Mauris vitae tellus metus. In hac habitasse platea dictumst. Duis aliquam ornare commodo. Duis eget congue erat, in maximus augue. Aliquam erat volutpat.</p>
+      </a>
     </li>
     <li>
-      <h2>This is the title</h2>
-      <p>This is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this is the copy this </p>
+      <a href="http://www.google.com">
+        <h2>This is a Dummy Article</h2>
+        <p>There was once a really lame Dummy Article which lived under a rock under the sun. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget congue lectus. Mauris vitae tellus metus. In hac habitasse platea dictumst. Duis aliquam ornare commodo. Duis eget congue erat, in maximus augue. Aliquam erat volutpat.</p>
+      </a>
     </li>
-    <!-- will be populated with articles via API --></ul>
+    <li>
+      <a href="http://www.google.com">
+        <h2>This is a Dummy Article</h2>
+        <p>There was once a really lame Dummy Article which lived under a rock under the sun. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget congue lectus. Mauris vitae tellus metus. In hac habitasse platea dictumst. Duis aliquam ornare commodo. Duis eget congue erat, in maximus augue. Aliquam erat volutpat.</p>
+      </a>
+    </li>
+  </ul>
 </div>
