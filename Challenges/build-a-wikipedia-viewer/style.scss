@@ -1,0 +1,203 @@
+// https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css
+// https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+// https://fonts.googleapis.com/css?family=PT+Serif:700,700i|Roboto
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font: normal 16px / 24px sans-serif;
+  min-width: 160px;
+  overflow-x: hidden;
+  padding: 0 16px 16px;
+  text-align: center;
+}
+#logo {
+  a {
+    margin: auto;
+    max-width: 484px;
+    width: 100%;
+    img {
+      max-width: 270px;
+      min-width: 135px;
+      width: 67%;
+    }
+  }
+}
+#search {
+  display: flex;
+  margin: 16px auto 9px;
+  max-width: 484px;
+  input {
+    border: 1px solid #AAB;
+    border-radius: 3px 0 0 3px;
+    border-right-width: 0;
+    flex-basis: 80%;
+    font: 16px / 24px sans-serif;
+    margin-left: auto;
+    max-width: 80%;
+    outline: 0;
+    padding: 8px 12px 7px;
+    transition: all .43s;
+    &:hover {
+      border-color: #889;
+    }
+    &:focus {
+      border-color: #36c;
+      flex-basis: 100%;
+      max-width: 100%;
+      transition: all .84s ease;
+    }
+    &::-webkit-input-placeholder { color: #999; }
+         &:-ms-input-placeholder { color: #999; }
+             &::-moz-placeholder { color: #999; }
+              &:-moz-placeholder { color: #999; }
+  }
+  button {
+    background: #36c;
+    border: 1px solid #258;
+    border-radius: 0 3px 3px 0;
+    color: white;
+    font: 20px / 24px sans-serif;
+    font-weight: bold;
+    margin-right: auto;
+    max-width: 30%;
+    outline: 0;
+    padding: 8px 21px;
+    text-shadow: 1px 1px 2px #258, 1px 1px 3px #258;
+    transition: all .43s;
+    &:hover {
+      background: #447FF5;
+      border-color: #36c;
+      text-shadow: 1px 1px 2px #36c, 1px 1px 3px #36c;
+    }
+    &:focus {
+      box-shadow: 0 0 0 1px #fff inset;
+    }
+  }
+}
+#random {
+  font: normal 12px / 14px sans-serif;
+  margin-bottom: 20px;
+  span {
+    display: inline-block;
+    max-width: 50px;
+    opacity: 1;
+    position: relative;
+    transition: all .43s ease;
+    white-space: nowrap;
+    z-index: -1;
+    &:first-child {
+      max-width: 184px;
+    }
+  }
+}
+#articles {
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+    text-align: left;
+    li {
+      $leftBorder: 7px;
+      $padding: 20px;
+      background: #efefef;
+      padding: $padding $padding + $leftBorder;
+      margin: 3px 0;
+      // transition: border .28s, padding .28s;
+      h2 {
+        font-family: "PT Serif", serif;
+        font-size: 28px;
+        font-weight: bold;
+        letter-spacing: -1px;
+        margin: 10px 0 15px;
+      }
+      p {
+        font-family: Roboto, sans-serif;
+      }
+              transition: border .28s, padding .28s !important;
+
+      &:hover {
+        background: #e4e4e4;
+        padding-left: $padding + $leftBorder;
+        border-left: $leftBorder solid #447FF5;
+        transition: border .28s, padding .28s;
+      }
+    }
+  }
+}
+@media all and (max-width: 450px){
+  p#random {
+    transition: font-size .28s;
+    span {
+      max-width: 0 !important;
+      opacity: 0;
+    }
+  }
+  #search {
+    margin: 12px auto 8px;
+    transition: all .28s;
+    input {
+      font: 12px / 18px sans-serif;
+      max-width: 70%;
+      padding: 6px 8px;
+      transition: all .28s;
+      &:focus {
+        max-width: 75%;
+      }
+    }
+    button {
+      font: 16px / 18px sans-serif;
+      padding: 5px 13px;
+      transition: all .28s;
+    }
+  }
+}
+@media all and (max-width: 200px){
+  body {
+    padding: 0 0 7px;
+  }
+  #search {
+    margin: 8px 8px 5px;
+    * {
+      border-width: 0;
+      &:focus {
+        border-color: #aab !important;
+      }
+    }
+    &:hover * {
+      border-color: #555 !important;
+      &:focus {
+        border-color: #555 !important;
+      }
+    }
+    input {
+      border-color: #aab;
+      font: 11px / 16px sans-serif;
+      padding: 0 0 0 5px;
+      &:focus {
+        max-width: 80%;
+      }
+    }
+    button {
+      background: white;
+      border-color: #aab;
+      border-left-width: 0;
+      color: #777;
+      font: 16px / 16px sans-serif;
+      overflow: hidden;
+      padding: 3px 5px 4px 5px;
+      text-shadow: none;
+      &:hover {
+        background: #fff;
+        border-color: #555 !important;
+        color: #555;
+        text-shadow: none;
+      }
+    }
+  }
+  p#random {
+    &, a {
+      font: normal 11px / 13px sans-serif;
+    }
+  }
+}
