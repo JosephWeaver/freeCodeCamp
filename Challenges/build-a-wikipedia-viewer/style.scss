@@ -110,6 +110,11 @@ body {
         margin: 3px 0;
         text-decoration: none;
         transition:  font-size .28s, line-height .28s;
+        &:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
         &:hover {
           h2 { color: #282828; }
           p { color: #161616; }
@@ -133,6 +138,13 @@ body {
           margin-top: 15px;
           text-align: justify;
           transition: all .28s;
+        }
+        img {
+          float: right;
+          margin: 11px 0 5px 10px;
+          border-radius: 6px;
+          padding: 2px;
+          border: 1px solid #ccc;
         }
         .searchmatch {
           background: #ffd;
@@ -263,6 +275,11 @@ body {
       font-size: 11px;
       line-height: 15px;
       margin-top: 7px;
+    }
+    img {
+      float: none;
+      width: 100%;
+      margin: 5px 0;
     }
   }
 }

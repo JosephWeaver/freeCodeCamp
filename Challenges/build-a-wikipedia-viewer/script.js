@@ -1,78 +1,97 @@
 // https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js
 // https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js
 
-$(function () {
-    var articles = $('#articles ul');
-    var input = $('input');
-    var button = $('button');
-    var toSearch = '';
-    var searchUrl = 'https://en.wikipedia.org/w/api.php';
+// TO DO
+//
+// 1. FIX RANDOM ARTICLE VIEWER SO IT ACTUALLY LOADS 😅
+// 2. FIX SEARCH KEYWORD HIGHLIGHT SO IT:
+//    A. WORKS PROPERLY, AND
+//    B. DOESN'T OVERFLOW BUFFER 😒
+// 3. FIX IT SO RESULTS END UP IN THE PROPER ORDER! (i.e. "Kylo Ren" should show up FIRST)
+// 4. POLISH OFF STUFF SO IT LOOKS EVEN BETTER!! 😎
 
-    var ajaxArticleData = function () {
-        $.ajax({
-            url: searchUrl,
-            dataType: 'jsonp',
-            data: {
-                //main parameters
-                action: 'query',
-                format: 'json',
+$(()=>{ // jQuery document ready
 
-                generator: 'search',
-                    //parameters for generator
-                    gsrsearch: toSearch,
-                    gsrnamespace: 0,
-                    gsrlimit: 10,
+  var articles = $("#articles ul"),
+      button = $("button"),
+      input = $("input"),
+      random = $("#random"),
+      search = $("#search"),
+      Wikipedia = "https://en.wikipedia.org",
+      WP_API = Wikipedia + "/w/api.php";
 
-                prop: 'extracts|pageimages',
-                    //parameters for extracts
-                    exchars: 200,
-                    exlimit: 'max',
-                    explaintext: true,
-                    exintro: true,
-
-                    //parameters for pageimages
-                    piprop: 'thumbnail',
-                    pilimit: 'max',
-                    pithumbsize: 200
-            },
-            success: function (data) {
-                var pages = data.query.pages;
-                $.map(pages, function (page) {
-                    var pageElement = $('<li>');
-
-                    //get the article title
-                    pageElement.append(
-                      $('<a>').attr('href', 'http://en.wikipedia.org/wiki/' + page.title).append(
-                        $('<h2>').text(page.title)
-                      ).append(
-                        $('<p>').text(page.extract)
-                      )
-                      .append(
-                        page.thumbnail ? $('<img>').attr('width', 184).attr('src', page.thumbnail.source) : ""
-                      )
-                    );
-                    $("body *:contains("+input.val()+")").html(function(_, html) {
-                       return html.split(input.val()).join("<span class='smallcaps'>"+input.val()+"</span>");
-                    });
-
-                    //get the article image (if exists)
-
-
-                    //get the article text
-                    // pageElement.append($('<p>').text(page.extract));
-
-                    // pageElement.append($('<hr>'));
-
-                    articles.append(pageElement);
-                });
-            }
+  var queryAPI = searchTerms => {
+    $.ajax({
+      url: WP_API,
+      dataType: "jsonp",
+      data: {
+        action: "query",
+        format: "json",
+        generator: "search",
+        gsrsearch: searchTerms,
+        gsrnamespace: 0,
+        gsrlimit: 10,
+        prop: "extracts|pageimages",
+        exchars: 484,
+        exlimit: "max",
+        explaintext: true,
+        exintro: true,
+        pilimit: "max",
+        piprop: "thumbnail",
+        pithumbsize: 256
+      },
+      success: data => {
+        var results = data.query.pages;
+        $.map(results, result => {
+          var el = $('<li>');
+          result.title.split(input.val()).join("<span class='searchmatch'>"+input.val()+"</span>");
+          result.extract.split(input.val()).join("<span class='searchmatch'>"+input.val()+"</span>");
+          // $("body *:contains("+input.val()+")").html(function(_, html) {
+          //   return html.split(input.val()).join("<span class='searchmatch'>"+input.val()+"</span>");
+          // });
+          el.append( $('<a>').attr('href',Wikipedia+"/wiki/"+result.title).append($('<h2>').text(result.title)).append(result.thumbnail?$('<img>').attr('width',128).attr('src',result.thumbnail.source):"").append($('<p>').text(result.extract)));
+          articles.append(el).hide().fadeIn(284);
         });
-    };
-    input.on("load input", processSearchResults);
-    button.click(processSearchResults);
-    function processSearchResults(){
-        articles.empty();
-        toSearch = input.val();
-        ajaxArticleData();
-    }
+      }
+    });
+  };
+  var queryAPIRandom = () => {
+    $.ajax({
+      url: WP_API,
+      dataType: "jsonp",
+      data: {
+        action: "query",
+        format: "json",
+        formatversion: 2,
+        list: "random",
+        rnnamespace: 0,
+        rnlimit: 5,
+        titles: "Main_page",
+        callback: "?"
+      },
+      success: data => {
+        var results = data.query.pages;
+        $.map(results, result => {
+          var el = $('<li>');
+          el.append($('<h2>').append($('<a>').attr('href',Wikipedia+"/wiki/"+result.title).text(result.title)));
+          if (result.thumbnail) el.append($('<img>').attr('width',128).attr('src',result.thumbnail.source));
+          el.append($('<p>').text(result.extract));
+          articles.append(el).hide().fadeIn(284);
+        });
+      }
+    });
+  };
+
+  input.on("input", doSearch);
+  button.click(doSearch);
+  // search.on("submit", e => e.preventDefault());
+  search.on("submit", function(){ return false; });
+  random.click(e => {
+    e.preventDefault();
+    queryAPIRandom();
+  });
+  function doSearch(){
+    articles.empty();
+    queryAPI(input.val());
+  }
 });
