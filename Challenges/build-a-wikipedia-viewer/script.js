@@ -68,25 +68,6 @@ $(function () {
             }
         });
     };
-
-    // input.autocomplete({
-    //     source: function (request, response) {
-    //         $.ajax({
-    //             url: searchUrl,
-    //             dataType: 'jsonp',
-    //             data: {
-    //                 'action': "opensearch",
-    //                 'format': "json",
-    //                 'search': request.term
-    //             },
-    //             success: function (data) {
-    //                 response(data[1]);
-    //             }
-    //         });
-    //     }
-    // });
-
-
     input.on("load input", processSearchResults);
     button.click(processSearchResults);
     function processSearchResults(){
