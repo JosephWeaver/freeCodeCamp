@@ -1,6 +1,5 @@
 // https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js
 // https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js
-// http://www.joeweaver.me/codepenassets/freecodecamp/buildawikipediaviewer/jquery.wikiblurb.js
 
 $(function () {
     var articles = $('#articles ul');
