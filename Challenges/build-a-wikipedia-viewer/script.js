@@ -30,7 +30,7 @@ $(()=>{ // jQuery document ready
         generator: "search",
         gsrsearch: searchTerms,
         gsrnamespace: 0,
-        gsrlimit: 10,
+        gsrlimit: 1,
         prop: "extracts|pageimages",
         exchars: 484,
         exlimit: "max",
@@ -44,8 +44,15 @@ $(()=>{ // jQuery document ready
         var results = data.query.pages;
         $.map(results, result => {
           var el = $('<li>');
-          result.title.split(input.val()).join("<span class='searchmatch'>"+input.val()+"</span>");
-          result.extract.split(input.val()).join("<span class='searchmatch'>"+input.val()+"</span>");
+
+//           console.log("original title: "+result.title);
+//           console.extract("original title: "+result.extract);
+//           var newTitle = result.title.split(input.val()).join("<span class='searchmatch'>"+input.val()+"</span>");
+
+//           var newExtract = result.extract.split(input.val()).join("<span class='searchmatch'>"+input.val()+"</span>");
+//           console.log("new title: "+newTitle);
+//           console.extract("new title: "+newExtract);
+
           // $("body *:contains("+input.val()+")").html(function(_, html) {
           //   return html.split(input.val()).join("<span class='searchmatch'>"+input.val()+"</span>");
           // });

@@ -118,6 +118,7 @@ body {
         &:hover {
           h2 { color: #282828; }
           p { color: #161616; }
+          img { border-color: #358bc7; }
           background: linear-gradient(#e6e6e6, #efefef);
           border-left: $leftBorder solid #358bc7;
           transition: border .43s;
@@ -268,7 +269,7 @@ body {
       border-left: $leftBorder solid #358bc7;
     }
     h2 {
-      font-size: 16px;
+      font-size: 18px;
       line-height: 146%;
     }
     p {
