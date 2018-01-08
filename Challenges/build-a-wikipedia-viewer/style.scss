@@ -9,6 +9,7 @@ body {
   font: normal 16px / 24px sans-serif;
   min-width: 160px;
   overflow-x: hidden;
+  overflow-y: scroll;
   padding: 0 16px 16px;
   text-align: center;
   transition: padding .28s;
@@ -59,8 +60,7 @@ body {
     border: 1px solid #258;
     border-radius: 0 3px 3px 0;
     color: white;
-    font: 20px / 24px sans-serif;
-    font-weight: bold;
+    font: bold 20px / 24px sans-serif;
     margin-right: auto;
     max-width: 30%;
     outline: 0;
@@ -99,29 +99,32 @@ body {
     padding-left: 0;
     text-align: left;
     li {
+      &.random a h2 {
+        margin-top: 0 !important;
+      }
       a {
-        display: block;
         $leftBorder: 5px;
-        $padding: 20px;
+        $padding: 15px;
         background: linear-gradient(#efefef, #f6f6f6);
         border-radius: 4px;
         border-left: $leftBorder solid #ccc;
-        padding: $padding $padding + $leftBorder $padding $padding;
+        display: block;
         margin: 3px 0;
+        padding: $padding - $leftBorder $padding + $leftBorder $padding - $leftBorder $padding;
         text-decoration: none;
-        transition:  font-size .28s, line-height .28s;
+        transition: font-size .28s, line-height .28s;
         &:after {
+          clear: both;
           content: "";
           display: table;
-          clear: both;
         }
         &:hover {
-          h2 { color: #282828; }
-          p { color: #161616; }
-          img { border-color: #358bc7; }
           background: linear-gradient(#e6e6e6, #efefef);
           border-left: $leftBorder solid #358bc7;
           transition: border .43s;
+          h2 { color: #282828; }
+          p { color: #161616; }
+          img { border-color: #358bc7; }
         }
         h2 {
           color: #434343;
@@ -138,14 +141,18 @@ body {
           font: normal 14px / 18px Roboto, sans-serif;
           margin-top: 15px;
           text-align: justify;
+          text-indent: 18px;
           transition: all .28s;
         }
         img {
-          float: right;
-          margin: 11px 0 5px 10px;
-          border-radius: 6px;
-          padding: 2px;
           border: 1px solid #ccc;
+          border-radius: 6px;
+          float: right;
+          margin: 17px 0 3px 17px;
+          max-width: 150px;
+          padding: 2px;
+          transition: all .28s;
+          width: 33%;
         }
         .searchmatch {
           background: #ffd;
@@ -159,6 +166,9 @@ body {
   }
 }
 @media all and (max-width: 450px){
+  body {
+      padding: 0 12px 12px;
+  }
   #search {
     margin: 12px auto 0;
     transition: all .28s;
@@ -189,7 +199,7 @@ body {
     $leftBorder: 4px;
     $padding: 15px;
     border-left: $leftBorder solid #ccc;
-    padding: $padding $padding + $leftBorder $padding $padding;
+    padding: $padding - $leftBorder * 2 $padding + $leftBorder $padding - $leftBorder * 2 $padding;
     &:hover {
       border-left: $leftBorder solid #358bc7;
     }
@@ -198,13 +208,19 @@ body {
       line-height: 140%;
     }
     p {
-      font-size: 13px;
+      font-size: 12px;
       line-height: 18px;
       margin-top: 11px;
+      text-indent: 15px;
+    }
+    img {
+      margin-left: 15px;
+      margin-top: 15px;
+      width: 50%;
     }
   }
 }
-@media all and (max-width: 284px){
+@media all and (max-width: 343px){
   body {
     padding: 0 0 7px;
   }
@@ -255,17 +271,11 @@ body {
   }
   #articles ul li a {
     $leftBorder: 3px;
-    $padding: 10px;
+    $padding: 15px;
     border-left: $leftBorder solid #ccc;
-    padding: $padding $padding + $leftBorder $padding $padding;
-    &:hover {
-      border-left: $leftBorder solid #358bc7;
-    }
-    $leftBorder: 3px;
-    $padding: 10px;
     border-radius: 0;
+    padding: $padding - $leftBorder * 2 $padding + $leftBorder $padding - $leftBorder * 2 $padding;
     &:hover {
-      padding-left: $padding;
       border-left: $leftBorder solid #358bc7;
     }
     h2 {
@@ -273,14 +283,15 @@ body {
       line-height: 146%;
     }
     p {
-      font-size: 11px;
-      line-height: 15px;
+      font-size: 12px;
+      line-height: 16px;
       margin-top: 7px;
+      word-spacing: 1px;
     }
     img {
-      float: none;
+      margin: 10px 0;
+      max-width: 100%;
       width: 100%;
-      margin: 5px 0;
     }
   }
 }
