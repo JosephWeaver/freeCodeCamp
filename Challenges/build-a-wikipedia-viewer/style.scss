@@ -80,6 +80,9 @@ body {
 #random {
   font: normal 12px / 14px sans-serif;
   margin: 9px 0 24px;
+  a:hover span {
+    text-decoration: underline;
+  }
   span {
     display: inline-block;
     max-width: 50px;
@@ -99,8 +102,10 @@ body {
     padding-left: 0;
     text-align: left;
     li {
-      &.random a h2 {
-        margin-top: 0 !important;
+      &.random a {
+        h1, h2 {
+          margin-top: 0 !important;
+        }
       }
       a {
         $leftBorder: 5px;
@@ -109,7 +114,7 @@ body {
         border-radius: 4px;
         border-left: $leftBorder solid #ccc;
         display: block;
-        margin: 3px 0;
+        margin: 0 0 5px;
         padding: $padding - $leftBorder $padding + $leftBorder $padding - $leftBorder $padding;
         text-decoration: none;
         transition: font-size .28s, line-height .28s;
@@ -122,21 +127,36 @@ body {
           background: linear-gradient(#e6e6e6, #efefef);
           border-left: $leftBorder solid #358bc7;
           transition: border .43s;
-          h2 { color: #282828; }
+          h1, h2 { color: #282828; }
           p { color: #161616; }
           img { border-color: #358bc7; }
         }
-        h2 {
+        h1, h2 {
           color: #434343;
           font-family: "PT Serif", serif;
-          font-size: 28px;
           font-weight: bold;
           letter-spacing: -1px;
           line-height: 137.5%;
           margin: 5px 0 0;
           transition: all .28s;
         }
-        p {
+        h1 {
+          font-size: 28px;
+        }
+        h2 {
+          font-size: 18px;
+          text-indent: 0;
+        }
+        h2, h3, h4, h5, h6, br {
+          display: none;
+        }
+        blockquote {
+          padding: 0;
+        }
+        div, p {
+          &:empty {
+            display: none;
+          }
           color: #282828;
           font: normal 14px / 18px Roboto, sans-serif;
           margin-top: 15px;
@@ -203,11 +223,16 @@ body {
     &:hover {
       border-left: $leftBorder solid #358bc7;
     }
-    h2 {
-      font-size: 21px;
+    h1, h2 {
       line-height: 140%;
     }
-    p {
+    h1 {
+      font-size: 25px;
+    }
+    h2 {
+      font-size: 16px;
+    }
+    div, p {
       font-size: 12px;
       line-height: 18px;
       margin-top: 11px;
@@ -278,11 +303,16 @@ body {
     &:hover {
       border-left: $leftBorder solid #358bc7;
     }
-    h2 {
-      font-size: 18px;
+    h1, h2 {
       line-height: 146%;
     }
-    p {
+    h1 {
+      font-size: 21px;
+    }
+    h2 {
+      font-size: 15px;
+    }
+    div, p {
       font-size: 12px;
       line-height: 16px;
       margin-top: 7px;
