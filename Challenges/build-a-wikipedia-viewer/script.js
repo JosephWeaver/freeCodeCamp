@@ -22,7 +22,7 @@ $(()=>{ // jQuery document.ready
 
   function getArticles(searchTerm = undefined){
     searchTerm === undefined ?
-      $.getJSON(WP_API + "?action=query&format=json&list=random&rnnamespace=0&rnlimit=10&titles=&callback=?", data => {
+      $.getJSON(WP_API + "?action=query&format=json&list=random&rnnamespace=0&rnlimit=28&titles=&callback=?", data => {
         $.map(data.query.random, result => getDetails(result, "random"));
       }) :
       $.ajax({
@@ -33,7 +33,7 @@ $(()=>{ // jQuery document.ready
           format: "json",
           list: "search",
           srsearch: searchTerm,
-          srlimit: 10,
+          srlimit: 43,
           srwhat: "text"
         },
         success: data => {
@@ -50,7 +50,7 @@ $(()=>{ // jQuery document.ready
         action: "query",
         exchars: "884",
         format: "json",
-        pilimit: 10,
+        pilimit: 43,
         piprop: "thumbnail",
         pithumbsize: 256,
         prop: "extracts|pageimages",
@@ -62,9 +62,6 @@ $(()=>{ // jQuery document.ready
             var title = data.query.pages[id].title,
                 stuff = data.query.pages[id].extract,
                 image = data.query.pages[id].thumbnail.source || undefined;
-            // console.log(title);
-            // console.log(stuff);
-            // console.log(image ? image : "");
             displayResults(title, stuff, random ? random : undefined, image ? image : undefined);
           }
         }
