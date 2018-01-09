@@ -29,7 +29,7 @@
 - 03 ✅ [Random Quote Machine](https://codepen.io/JoeWeaver/pen/dJRPbE)
 - 04 ✅ [Show the Local Weather](https://codepen.io/JoeWeaver/pen/qpXWwr)
 - 05 ✅ [Build a Wikipedia Viewer](https://codepen.io/JoeWeaver/full/ppWbdo)
-- 06 ❌ Use the Twitch.tv JSON API
+- 06 ❌ [Use the Twitch.tv JSON API](https://codepen.io/JoeWeaver/pen/opEYwQ)
 
 ### Intermediate Algorithm Scripting
 
