@@ -1,7 +1,7 @@
 // https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js
 // https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js
 
-$(()=>{ // jQuery document.ready
+$(()=>{
 
   const articles = $("#articles ul"),
         input = $("input"),
@@ -43,8 +43,6 @@ $(()=>{ // jQuery document.ready
   }
   function getDetails(result){
     $.ajax({
-      url: WP_API,
-      dataType: "jsonp",
       data: {
         action: "query",
         exchars: "884",
@@ -55,6 +53,7 @@ $(()=>{ // jQuery document.ready
         prop: "extracts|pageimages",
         titles: result.title
       },
+      dataType: "jsonp",
       success: data => {
         for (var id in data.query.pages){
           if (data.query.pages.hasOwnProperty(id)){
@@ -64,19 +63,21 @@ $(()=>{ // jQuery document.ready
             displayResults(title, stuff, image ? image : undefined);
           }
         }
-      }
+      },
+      url: WP_API
     });
   }
   function displayResults(title, extract, image = undefined){
     var li = $('<li>');
     li.append($("<a>").attr("href", Wikipedia + "/wiki/" + title).attr("target", "_blank")
-              .append($("<h1>").html(title))
-              .append($("<p>").html("<br>"))
-              .append(image ? $("<img>").attr("src", image) : "")
-              .append($("<div>").html(extract)));
+      .append($("<h1>").html(title))
+      .append($("<p>").html("<br>"))
+      .append(image ? $("<img>").attr("src", image) : "")
+      .append($("<div>").html(extract)));
     articles.prepend(li.hide().delay().slideDown(284));
     if ( articles.children().length > 10 ) {
       $("#articles ul li:nth-child(n + 10)").delay().slideUp(284, () => $(this).remove());
     }
   }
+
 });
