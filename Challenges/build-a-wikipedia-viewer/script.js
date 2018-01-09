@@ -21,28 +21,27 @@ $(()=>{ // jQuery document.ready
   });
 
   function getArticles(searchTerm = undefined){
-    searchTerm === undefined ?
-      $.getJSON(WP_API + "?action=query&format=json&list=random&rnnamespace=0&rnlimit=28&titles=&callback=?", data => {
-        $.map(data.query.random, result => getDetails(result, "random"));
-      }) :
+    if (searchTerm){
       $.ajax({
-        url: WP_API,
-        dataType: "jsonp",
         data: {
           action: "query",
           format: "json",
           list: "search",
-          srsearch: searchTerm,
           srlimit: 43,
+          srsearch: searchTerm,
           srwhat: "text"
         },
-        success: data => {
-          var Mystuff = data.query.search.reverse();
-          Mystuff.forEach(result => getDetails(result, searchTerm));
-        }
+        dataType: "jsonp",
+        success: data => data.query.search.reverse().forEach(result => getDetails(result, searchTerm)),
+        url: WP_API
       });
+    } else {
+      $.getJSON(WP_API + "?action=query&format=json&list=random&rnnamespace=0&rnlimit=28&titles=&callback=?", data => {
+        $.map(data.query.random, result => getDetails(result));
+      });
+    }
   }
-  function getDetails(result, random = undefined){
+  function getDetails(result){
     $.ajax({
       url: WP_API,
       dataType: "jsonp",
@@ -52,7 +51,7 @@ $(()=>{ // jQuery document.ready
         format: "json",
         pilimit: 43,
         piprop: "thumbnail",
-        pithumbsize: 256,
+        pithumbsize: 680,
         prop: "extracts|pageimages",
         titles: result.title
       },
@@ -62,20 +61,19 @@ $(()=>{ // jQuery document.ready
             var title = data.query.pages[id].title,
                 stuff = data.query.pages[id].extract,
                 image = data.query.pages[id].thumbnail.source || undefined;
-            displayResults(title, stuff, random ? random : undefined, image ? image : undefined);
+            displayResults(title, stuff, image ? image : undefined);
           }
         }
       }
     });
   }
-  function displayResults(title, extract, random = undefined, image = undefined){
+  function displayResults(title, extract, image = undefined){
     var li = $('<li>');
-    if (random) li.attr("class", "random");
     li.append($("<a>").attr("href", Wikipedia + "/wiki/" + title).attr("target", "_blank")
-      .append($("<h1>").html(title))
-      .append($("<p>").html("<br>"))
-      .append(image ? $("<img>").attr("width", 128).attr("src", image) : "")
-      .append($("<div>").html(extract)));
+              .append($("<h1>").html(title))
+              .append($("<p>").html("<br>"))
+              .append(image ? $("<img>").attr("src", image) : "")
+              .append($("<div>").html(extract)));
     articles.prepend(li.hide().delay().slideDown(284));
     if ( articles.children().length > 10 ) {
       $("#articles ul li:nth-child(n + 10)").delay().slideUp(284, () => $(this).remove());
