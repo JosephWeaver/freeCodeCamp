@@ -97,6 +97,8 @@ body {
   }
 }
 #articles {
+  margin: 0 auto;
+  max-width: 684px;
   ul {
     list-style-type: none;
     padding-left: 0;
@@ -157,9 +159,10 @@ body {
           border: 1px solid #ccc;
           border-radius: 6px;
           float: right;
-          margin: 17px 0 3px 17px;
+          margin: 0 0 3px 17px;
           max-width: 150px;
           padding: 2px;
+          position: relative;
           transition: all .28s;
           width: 33%;
         }
@@ -212,8 +215,6 @@ body {
     &:hover {
       border-left: $leftBorder solid #358bc7;
     }
-    h1, h2 {
-    }
     h1 {
       font-size: 25px;
       line-height: 140%;
@@ -226,7 +227,7 @@ body {
     }
     img {
       margin-left: 15px;
-      margin-top: 15px;
+      // margin-top: 15px;
       width: 50%;
     }
   }
