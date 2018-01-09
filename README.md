@@ -3,7 +3,7 @@
 ### Basic Front-End Development Projects
 
 - 01 ✅ [Tribute Page for Richard Petty](https://codepen.io/JoeWeaver/pen/VreEvV)
-- 02 ✅ [Personal Portfolio Project](https://codepen.io/JoeWeaver/pen/aEJzog)
+- 02 ✅ [Personal Portfolio Project](https://codepen.io/JoeWeaver/pen/aEJzog) (update this!)
 
 ### Basic Algorithm Scripting
 
