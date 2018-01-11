@@ -75,8 +75,8 @@ $(()=>{
     }
 
     // function for watching twitch stream (extra)
-	function watchStream(){
+    function watchStream(){
 
-	}
+    }
 
   });
