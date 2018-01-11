@@ -1,3 +1,5 @@
+// https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css
+// https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js
 // https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css
 // https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
 
@@ -13,6 +15,7 @@ body {
   width: 100%;
   background: #6441a4;
   nav {
+    align-items: center;
     background: #6441a4;
     display: flex;
     a {
@@ -20,16 +23,33 @@ body {
       flex: 1;
       padding: 15px;
       text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      &:hover, &.selected {
+        background: lighten(#6441a4, 7);
+      }
       &.selected {
-        background: aqua;
+        background: lighten(#6441a4, 7);
+        font-weight: bold;
+      }
+      &#live {
+        font-size: 120%;
+        font-weight: bold;
+        padding-right: 20px;
+        &:before {
+          color: red;
+          content: "\23FA";
+          display: inline-block;
+          font-weight: normal;
+          margin-right: .16em;
+        }
       }
     }
   }
-
   #search {
     background: lighten(#6441a4, 43);
     display: flex;
-    padding: 10px;
+    padding: 10px 11px;
     & > * {
       border: 1px solid #6441a4;
       padding: 10px;
@@ -40,20 +60,30 @@ body {
     button {
       background: #6441a4;
       color: #fff;
+      padding: 10px 17px;
+      &:hover {
+        background: lighten(#6441a4, 7);
+      }
     }
   }
   #main {
-    background: #6441a4;
-    #streamers {
+    background: lighten(#6441a4, 8);
+    #streams {
       list-style: none;
       padding-left: 0;
       li {
+        background-position: center top;
+        background-repeat: no-repeat;
+        background-size: contain;
         color: #fff;
         display: flex;
         & > * {
           flex: 1;
           align-items: center;
           justify-content: center;
+        }
+        &:hover {
+          // background: lighten(#6441a4, 12);
         }
         .avatar {
           flex-basis: 50px;
@@ -65,7 +95,6 @@ body {
           }
         }
         .info {
-          background: lighten(#6441a4, 16);
           display: flex;
           flex-direction: column;
           align-items: flex-start;
