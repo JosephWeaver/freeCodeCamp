@@ -2,6 +2,7 @@
 
 $(()=>{
 
+
   // define variables for DOM elements
 
   // define variables for list of Twitch channels
