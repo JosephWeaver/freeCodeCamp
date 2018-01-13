@@ -14,18 +14,19 @@ body {
 }
 #logo {
   $width: 284px;
+  $max-width: 60%;
   $ratio: 212 / 794;
   background: url(http://www.joeweaver.me/codepenassets/freecodecamp/usetwitchjsonapi/twitch.png) no-repeat center;
   background-size: contain;
   font: normal 0/0 sans-serif;
   margin: 0 auto;
-  max-width: 60%;
+  max-width: $max-width;
   overflow: hidden;
   padding-top: $width * $ratio;
   text-indent: -99999px;
   width: $width;
-  @media all and (max-width: 500px){
-    padding-top: 60% * $ratio;
+  @media all and (max-width: 504px){
+    padding-top: $max-width * $ratio;
   }
 }
 #app {
