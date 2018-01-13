@@ -12,7 +12,7 @@ $(()=>{
   let $navLink =  $("nav a"),
       $search =   $("#search"),
       $input =    $("#input"),
-      // $streams =  $("#streams"),
+      $streams =  $("#streams"),
 
       // cache API URL
       API_URL =  "https://wind-bow.gomix.me/twitch-api",
@@ -23,35 +23,22 @@ $(()=>{
         "esl_sc2",
         "day9tv"
       ],
-      streamsInfo = [];
-      // liveStreams = [];
 
-  // let Stream = function(streamInfo) {
-  //   console.log(streamInfo);
-  //   // if (streamInfo.stream){
-  //   //   this.name = streamInfo.display_name || "Example";
-  //   //   this.logo = streamInfo.logo || "https://static-cdn.jtvnw.net/jtv_user_pictures/freecodecamp-profile_image-d9514f2df0962329-300x300.png";
-  //   //   this.bgimage = streamInfo.profile_banner || "https://static-cdn.jtvnw.net/jtv_user_pictures/freecodecamp-profile_banner-6f5e3445ff474aec-480.png";
-  //   //   this.bgcolor = streamInfo.profile_banner_background_color || "#000";
-  //   //   this.status = streamInfo.status || "example status";
-  //   // } else {
-  //   //   this.name = "oops";
-  //   // }
-  // };
-  // let streamsInfoListMaster = [];
-
-// Only change code below this line.
-
-
+      streamsData = [], // stores all data from streams
+      liveStreams = []; // stores which streams are live
 
   // get stream data from Twitch
-  for (let i = 0; i < streams.length; i++){
-    streamsInfo.push(getStreamData(streams[i]));
-    // let myStream = new Stream(getStreamData(streams[i]));
-    // streamsInfoListMaster.push(myStream);
-  }
 
-  // console.log(streamsInfoListMaster);
+  streamsData.push(getStreamData("freecodecamp"));
+  console.log(streamsData);
+
+  // for (let i = 0; i < streams.length; i++){
+  //   getStreamData(streams[i]);
+  // }
+  // for (let i = 0; i < streamsInfo.length; i++){
+  //   $streams.html(streamsInfo[i]).hide().delay().slideDown(284);
+  // }
+
   // update stream status every few seconds
   // setInterval(getStreamData(streams, "live"), 2843);
 
@@ -59,33 +46,42 @@ $(()=>{
   $navLink.on("click", e => showStreams(e));
   $input.on("input", e => searchStreams(e));
   $search.on("submit", e => searchStreams(e));
-
-  console.log(streamsInfo);
   // setInterval(() => console.log(liveStreams), 2843);
 
   // define function to pull JSON from Twitch API
-  function getStreamData(stream, live = null){
-    if (live === null) {
-      $.getJSON(API_URL + "/streams/"+stream+"?callback=?", data => {
-        if (data.stream){
-          return data.stream;
-        } else {
-          return data;
-        }
-        // let li = $("<li>");
-        // li.attr("style","background: url(" + data.stream.channel.profile_banner + ")").attr("class","live").append($("<div>").attr("class", "avatar").append($("<img>").attr("src", data.stream.channel.logo))).append($("<div>").attr("class", "info").append($("<a>").attr("href", "https://www.twitch.tv/" + stream).attr("target", "_blank").append($("<div>").attr("class", "name").html(data.stream.channel.display_name)).append($("<div>").attr("class", "stream").html(data.stream.channel.display_name)))).append($("<div>").attr("class", "status").html(live ? "LIVE" : "Offline"));
-      });
-    } else {
-      $.getJSON(API_URL + "/channels/"+stream+"?callback=?", data => {
-        return data;
-        // console.log(data);
-        // let li = $("<li>");
-        // li.attr("style","background: url(" + data.profile_banner + ")");
-        // li.append($("<div>").attr("class", "avatar").append($("<img>").attr("src", data.logo)));
-        // li.append($("<div>").attr("class", "info").append($("<a>").attr("href", "https://www.twitch.tv/" + stream).attr("target", "_blank").append($("<div>").attr("class", "name").html(data.display_name)).append($("<div>").attr("class", "stream").html(data.display_name)))).append($("<div>").attr("class", "status").html(live ? "LIVE" : "Offline"));
-        // $streams.prepend(li).hide().delay().slideDown(284);
-      });
-    }
+  function getStreamData(stream){
+    // return stream;
+    return getStreamInfo(stream);
+    // return streams;
+    // for (var i = 0; i < stream.length; i++) {
+      // let stream = stream[i];
+      // $.getJSON(API_URL + "/streams/" + stream + "?callback=?", data => {
+      //   if(data.stream){
+      //     streamsInfo.push(LIify(data.stream.channel, "live"));
+      //   } else {
+      //     $.getJSON(API_URL + "/channels/" + stream + "?callback=?", data => {
+      //     streamsInfo.push(LIify(data));
+      //     });
+      //   }
+      //   // $streams.html(li).hide().delay().slideDown(284);
+      // });
+    // }
+  }
+
+  function LIify(data, live = null){
+    // console.clear();
+    // console.log(data);
+    var li = "<li id='" + data.name + "'" + (live? " class='live'" : "") + "'>";
+        li+= "  <div class='bg' style='background-image: url(" + data.profile_banner + ")'></div>";
+        li+= "  <div class='avatar'><img src='" + data.logo + "'></div>";
+        li+= "  <div class='info'>";
+        li+= "    <a href='https://www.twitch.tv/" + data.name + "' target='_blank'>";
+        li+= "      <div class='name'>" + data.display_name + "</div>";
+        li+= live ? "<div class='stream'>Streaming: " + data.status + "</div>" : "";
+        li+= "    </a>";
+        li+= "  </div>";
+        li+= "</li>";
+    return li;
   }
 
   // function fired when nav links are clickedfor clicking all, live, offline
@@ -108,6 +104,29 @@ $(()=>{
   // function for watching twitch stream (extra)
   // function watchStream(e){
   //   // watch stream
+  // }
+
+  // function to get stream or channel info
+  function getStreamInfo(channelName){
+    // console.log(channelName);
+    return channelName;
+    $.getJSON(API_URL + "/streams/" + channelName + "?callback=?", data => {
+      if (data.stream){
+        // console.log(data.stream);
+        return data.stream.channel;
+      } else {
+        $.getJSON(API_URL + "/channels/" + channelName + "?callback=?", data => {
+          // console.log(data.display_name);
+          return data.display_name;
+        });
+      }
+    });
+  }
+  // function getStreamInfo3(c){
+  //   $.getJSON(API_URL+"/streams/"+c+"?callback=?",data=>{
+  //      data.stream ? data.stream.channel :
+  //     $.getJSON(API_URL+"/channels/"+c+"?callback=?",data=>data);
+  //   });
   // }
 
 });
