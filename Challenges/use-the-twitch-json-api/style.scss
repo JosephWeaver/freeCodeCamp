@@ -43,43 +43,36 @@ body {
   width: 100%;
   nav {
     align-items: center;
-    background: $twitchColor;
     display: flex;
     a {
+      background: $twitchColor;
       color: white;
       flex: 1;
       font-size: 15px;
       font-weight: bold;
       line-height: 24px;
+      margin-left: 1px;
       padding: 15px 7px 13px;
       text-align: center;
       text-decoration: none;
       text-shadow: 0 0 18px darken($twitchColor, 28);
       text-transform: uppercase;
+      transition: all .28s ease;
       white-space: nowrap;
-      &:hover, &.selected {
-        background: darken($twitchColor, 5);
+      &:first-child {
+        margin-left: 0;
       }
-      &.selected {
+      &:hover, &.selected {
         background: lighten($twitchColor, 5);
       }
-      &#live {
-        font-size: 17px;
-        font-weight: bold;
-        letter-spacing: .43px;
-        &:before {
-          color: $liveColor;
-          content: "\23FA";
-          display: inline-block;
-          font-weight: normal;
-          margin-right: 2px;
-        }
+      &.selected {
+        background: lighten($twitchColor, 10);
       }
     }
   }
   #search {
     background: lighten($twitchColor, 43);
-    border-top: 2px solid lighten($twitchColor, 14);
+    border-top: 2px solid lighten($twitchColor, 10);
     display: flex;
     overflow: hidden;
     padding: 8px 8px 7px;
@@ -132,6 +125,17 @@ body {
         display: flex;
         overflow: hidden;
         position: relative;
+        &:not(:first-child){
+          margin-top: 1px;
+        }
+        &:hover {
+          .bg {
+            opacity: .43;
+            transition: all .28s ease;
+            -webkit-filter: blur(1px) grayscale(28%);
+                    filter: blur(1px) grayscale(28%);
+          }
+        }
         & > * {
           align-items: center;
           justify-content: center;
@@ -141,7 +145,7 @@ body {
         a {
           color: #dcdcdc;
           text-shadow: 0 0 13px #000;
-          transition: all .28s ease;
+          transition: color .28s ease;
           &:hover {
             color: #fefefe;
             text-decoration: none;
@@ -152,7 +156,7 @@ body {
           img {
             border-radius: 50%;
             height: 60px;
-            margin: 10px 10px 10px 16px;
+            margin: 10px 10px 10px 13px;
             width: 60px;
           }
         }
@@ -162,7 +166,7 @@ body {
           background-size: cover;
           bottom: 0;
           left: 0;
-          opacity: .43;
+          opacity: .28;
           position: absolute;
           right: 0;
           top: 0;
@@ -176,14 +180,17 @@ body {
           padding: 10px 0;
           a {
             .name {
-              background: rgba(0,0,0,.43);
-              border-radius: 5px 0 0 5px;
+              background: rgba(0, 0, 0, .43);
+              border-radius: 5px 0 0 0;
               font-size: 18px;
-              padding: 3px 6px 1px;
+              padding: 5px 9px 3px;
             }
             .stream {
+              background: rgba(0, 0, 0, .28);
+              border-radius: 0 0 0 5px;
               font: normal 12px / 15px sans-serif;
-              padding: 3px 2px;
+              padding: 4px 12px 3px 87px;
+              text-indent: -76px;
             }
           }
         }
@@ -191,22 +198,26 @@ body {
           -webkit-animation: border-pulse 1.5s infinite;
           animation: border-pulse 1.5s infinite;
           .avatar img {
-            margin-left: 10px;
+            margin-left: 7px;
           }
           .name {
             font-weight: bold;
             &:before {
               color: $liveColor;
-              content: "\23FA";
+              content: "\23FA \00A0 LIVE";
               display: inline-block;
               font-size: 84%;
-              font-weight: normal;
-              margin-right: 4px;
+              font-weight: bold;
+              margin-right: 9px;
               position: relative;
               top: -1px;
               -webkit-animation: pulse 1.5s infinite;
               animation: pulse 1.5s infinite;
             }
+          }
+          .info a .stream {
+            padding: 3px 12px 3px 72px;
+            text-indent: -66px;
           }
         }
       }
@@ -224,12 +235,12 @@ body {
   100% { border-left: 6px solid $liveColor; }
 }
 @keyframes pulse {
-  0%   { opacity: 1; }
-  50%  { opacity: .43; }
-  100% { opacity: 1; }
+  0%   { opacity: 1.0; }
+  50%  { opacity: 0.5; }
+  100% { opacity: 1.0; }
 }
 @-webkit-keyframes pulse {
-  0%   { opacity: 1; }
-  50%  { opacity: .43; }
-  100% { opacity: 1; }
+  0%   { opacity: 1.0; }
+  50%  { opacity: 0.5; }
+  100% { opacity: 1.0; }
 }
