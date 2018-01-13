@@ -3,11 +3,14 @@
 // https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css
 // https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
 
+$liveColor: #fc3636;
+$twitchColor: #6441a4;
+
 * {
   box-sizing: border-box;
 }
 body {
-  background: lighten(#6441a4, 28);
+  background: lighten($twitchColor, 28);
   min-width: 320px;
   overflow-x: hidden;
   padding: 14px 10px;
@@ -30,7 +33,7 @@ body {
   }
 }
 #app {
-  background: #6441a4;
+  background: $twitchColor;
   margin: 10px auto;
   max-width: 484px;
   border-radius: 10px;
@@ -38,10 +41,10 @@ body {
   width: 100%;
   nav {
     align-items: center;
-    background: #6441a4;
+    background: $twitchColor;
     display: flex;
     a {
-      color: white;
+      color: #fefefe;
       flex: 1;
       font-size: 15px;
       font-weight: bold;
@@ -53,16 +56,16 @@ body {
       text-transform: uppercase;
       white-space: nowrap;
       &:hover, &.selected {
-        background: darken(#6441a4, 3);
+        background: darken($twitchColor, 4);
       }
       &.selected {
-        background: lighten(#6441a4, 7);
+        background: lighten($twitchColor, 3);
       }
       &#live {
         font-size: 120%;
         font-weight: bold;
         &:before {
-          color: #fc3636;
+          color: $liveColor;
           content: "\23FA";
           display: inline-block;
           font-weight: normal;
@@ -72,11 +75,11 @@ body {
     }
   }
   #search {
-    background: lighten(#6441a4, 43);
+    background: lighten($twitchColor, 43);
     display: flex;
     padding: 10px 11px;
     & > * {
-      border: 1px solid #6441a4;
+      border: 1px solid $twitchColor;
       padding: 10px;
     }
     input {
@@ -84,17 +87,17 @@ body {
       flex: 1;
     }
     button {
-      background: #6441a4;
+      background: $twitchColor;
       border-radius: 0 5px 5px 0;
-      color: #fff;
+      color: #fefefe;
       padding: 10px 17px;
       &:hover {
-        background: lighten(#6441a4, 7);
+        background: lighten($twitchColor, 7);
       }
     }
   }
   #main {
-    // background: lighten(#6441a4, 8);
+    // background: lighten($twitchColor, 8);
     #streams {
       list-style: none;
       margin-bottom: 0;
@@ -103,7 +106,7 @@ body {
         align-items: center;
         background: #434343;
         border-radius: 6px 0 0 6px;
-        color: #fff;
+        color: #fefefe;
         display: flex;
         margin: 6px 0 6px 12px;
         overflow: hidden;
@@ -115,7 +118,7 @@ body {
           .name {
             font-weight: bold;
             &:before {
-              color: #fc3636;
+              color: $liveColor;
               content: "\23FA";
               display: inline-block;
               font-size: 84%;
@@ -135,11 +138,11 @@ body {
           z-index: 2;
         }
         a {
-          color: #ddd;
+          color: #dcdcdc;
           text-shadow: 0 0 13px #000;
           transition: all .28s ease;
           &:hover {
-            color: #fff;
+            color: #fefefe;
             text-decoration: none;
           }
         }
@@ -188,14 +191,14 @@ body {
   }
 }
 @keyframes border-pulse {
-  0%   { border-left: 6px solid #fc3636; }
+  0%   { border-left: 6px solid $liveColor; }
   50%  { border-left: 6px solid transparent; }
-  100% { border-left: 6px solid #fc3636; }
+  100% { border-left: 6px solid $liveColor; }
 }
 @-webkit-keyframes border-pulse {
-  0%   { border-left: 6px solid #fc3636; }
+  0%   { border-left: 6px solid $liveColor; }
   50%  { border-left: 6px solid transparent; }
-  100% { border-left: 6px solid #fc3636; }
+  100% { border-left: 6px solid $liveColor; }
 }
 @keyframes pulse {
   0%   { opacity: 1; }
