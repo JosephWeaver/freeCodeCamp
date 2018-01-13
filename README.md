@@ -29,11 +29,11 @@
 - 03 ✅ [Random Quote Machine](https://codepen.io/JoeWeaver/pen/dJRPbE)
 - 04 ✅ [Show the Local Weather](https://codepen.io/JoeWeaver/pen/qpXWwr)
 - 05 ✅ [Build a Wikipedia Viewer](https://codepen.io/JoeWeaver/full/ppWbdo)
-- 06 🚧 [Use the Twitch.tv JSON API](https://codepen.io/JoeWeaver/pen/opEYwQ)
+- 06 ✅ [Use the Twitch.tv JSON API](https://codepen.io/JoeWeaver/pen/opEYwQ)
 
 ### Intermediate Algorithm Scripting
 
-- 16 ❌ Sum All Numbers in a Range   
+- 16 🚧 Sum All Numbers in a Range   
 - 17 ❌ Diff Two Arrays   
 - 18 ❌ Roman Numeral Converter   
 - 19 ❌ Wherefore art thou   
