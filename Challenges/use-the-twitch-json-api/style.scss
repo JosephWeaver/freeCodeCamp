@@ -5,7 +5,6 @@
 
 $liveColor: #fc3636;
 $twitchColor: #6441a4;
-
 * {
   box-sizing: border-box;
 }
@@ -34,9 +33,12 @@ body {
 }
 #app {
   background: $twitchColor;
-  margin: 10px auto;
+  margin: 20px auto 43px;
   max-width: 484px;
   border-radius: 10px;
+  box-shadow: 1px 4px 12px lighten($twitchColor, 24),
+              1px 4px 12px lighten($twitchColor, 24),
+              0 1px 2px 1px lighten($twitchColor, 14);
   overflow: hidden;
   width: 100%;
   nav {
@@ -78,7 +80,8 @@ body {
   #search {
     background: lighten($twitchColor, 43);
     display: flex;
-    padding: 10px 11px;
+    overflow: hidden;
+    padding: 7px 8px;
     & > * {
       outline: 0;
       padding: 10px;
@@ -86,7 +89,8 @@ body {
     input {
       border: 1px solid $twitchColor;
       border-right-width: 0;
-      border-radius: 5px 0 0 5px;
+      border-radius: 6px 0 0 6px;
+      font-size: 21px;
       flex: 1;
       &:focus {
         border-width: 2px 0 2px 2px;
@@ -95,11 +99,15 @@ body {
       &:hover {
         border-color: lighten($twitchColor, 7);
       }
+      &::-webkit-input-placeholder { opacity: .5; }
+           &:-ms-input-placeholder { opacity: .5; }
+               &::-moz-placeholder { opacity: .5; }
+                &:-moz-placeholder { opacity: .5; }
     }
     button {
       background: $twitchColor;
       border: 0;
-      border-radius: 0 5px 5px 0;
+      border-radius: 0 6px 6px 0;
       color: #fefefe;
       padding: 10px 17px;
       &:focus {
@@ -111,7 +119,6 @@ body {
     }
   }
   #main {
-    // background: lighten($twitchColor, 8);
     #streams {
       list-style: none;
       margin-bottom: 0;
