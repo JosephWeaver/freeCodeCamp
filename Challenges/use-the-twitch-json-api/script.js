@@ -82,7 +82,7 @@ $(()=>{
       $n.removeClass("selected");
     }
     $s.children("li").each(function(){
-      if ($(this).attr("id").indexOf($i.val())){
+      if ($(this).attr("id").indexOf($i.val().toLowerCase())){
         $(this).slideUp();
       } else {
         $(this).slideDown();
