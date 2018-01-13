@@ -18,7 +18,7 @@ body {
 #logo {
   $width: 284px;
   $max-width: 60%;
-  $ratio: 212 / 794;
+  $ratio: 152 / 568;
   background: url(http://www.joeweaver.me/codepenassets/freecodecamp/usetwitchjsonapi/twitch.png) no-repeat center;
   background-size: contain;
   font: normal 0/0 sans-serif;
@@ -44,7 +44,7 @@ body {
     background: $twitchColor;
     display: flex;
     a {
-      color: #fefefe;
+      color: white;
       flex: 1;
       font-size: 15px;
       font-weight: bold;
@@ -52,7 +52,7 @@ body {
       padding: 15px 7px;
       text-align: center;
       text-decoration: none;
-      text-shadow: 0 1px 5px rgba(0, 0, 0, .84);
+      text-shadow: 0 0 28px darken($twitchColor, 84);
       text-transform: uppercase;
       white-space: nowrap;
       &:hover, &.selected {
@@ -62,14 +62,15 @@ body {
         background: lighten($twitchColor, 3);
       }
       &#live {
-        font-size: 120%;
+        font-size: 17px;
         font-weight: bold;
+        letter-spacing: .43px;
         &:before {
           color: $liveColor;
           content: "\23FA";
           display: inline-block;
           font-weight: normal;
-          margin-right: .16em;
+          margin-right: 2px;
         }
       }
     }
@@ -79,18 +80,28 @@ body {
     display: flex;
     padding: 10px 11px;
     & > * {
-      border: 1px solid $twitchColor;
+      outline: 0;
       padding: 10px;
+
     }
     input {
+      border: 1px solid $twitchColor;
+      border-right-width: 0;
       border-radius: 5px 0 0 5px;
       flex: 1;
+      &:focus {
+        border-width: 2px;
+        padding: 9px;
+      }
     }
     button {
       background: $twitchColor;
       border-radius: 0 5px 5px 0;
       color: #fefefe;
       padding: 10px 17px;
+      &:focus {
+        padding: 9px 16px;
+      }
       &:hover {
         background: lighten($twitchColor, 7);
       }
