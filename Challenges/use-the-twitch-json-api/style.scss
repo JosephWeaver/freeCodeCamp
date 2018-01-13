@@ -8,22 +8,29 @@
 }
 body {
   background: lighten(#6441a4, 28);
-  padding: 10px;
+  min-width: 320px;
+  overflow-x: hidden;
+  padding: 14px 10px;
 }
 #logo {
+  $width: 284px;
+  $ratio: 212 / 794;
   background: url(http://www.joeweaver.me/codepenassets/freecodecamp/usetwitchjsonapi/twitch.png) no-repeat center;
   background-size: contain;
   font: normal 0/0 sans-serif;
-  margin: 0 auto 8px;
-  max-width: 100%;
+  margin: 0 auto;
+  max-width: 60%;
   overflow: hidden;
-  padding-top: calc((212/794) * 233 * 1px);
+  padding-top: $width * $ratio;
   text-indent: -99999px;
-  width: 233px;
+  width: $width;
+  @media all and (max-width: 500px){
+    padding-top: 60% * $ratio;
+  }
 }
 #app {
   background: #6441a4;
-  margin: 0 auto;
+  margin: 10px auto;
   max-width: 484px;
   border-radius: 10px;
   overflow: hidden;
@@ -36,6 +43,7 @@ body {
       color: white;
       flex: 1;
       font-size: 15px;
+      font-weight: bold;
       line-height: 24px;
       padding: 15px 7px;
       text-align: center;
@@ -44,13 +52,13 @@ body {
       text-transform: uppercase;
       white-space: nowrap;
       &:hover, &.selected {
-        background: darken(#6441a4, 7);
-        font-weight: bold;
-        line-height: 24px;
+        background: darken(#6441a4, 3);
+      }
+      &.selected {
+        background: lighten(#6441a4, 7);
       }
       &#live {
         font-size: 120%;
-        line-height: 24px;
         font-weight: bold;
         &:before {
           color: #fc3636;
@@ -59,10 +67,6 @@ body {
           font-weight: normal;
           margin-right: .16em;
         }
-      }
-      &.selected {
-        background: lighten(#6441a4, 7);
-        font-weight: bold;
       }
     }
   }
