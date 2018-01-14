@@ -34,25 +34,25 @@
 ### Intermediate Algorithm Scripting
 
 - 17 ✅ [Sum All Numbers in a Range](https://www.freecodecamp.org/challenges/sum-all-numbers-in-a-range)
-- 18 🚧 Diff Two Arrays   
-- 19 ❌ Roman Numeral Converter   
-- 20 ❌ Wherefore art thou   
-- 21 ❌ Search and Replace   
-- 22 ❌ Pig Latin   
-- 23 ❌ DNA Pairing   
-- 24 ❌ Missing letters   
-- 25 ❌ Boo who   
-- 26 ❌ Sorted Union   
-- 27 ❌ Convert HTML Entities   
-- 28 ❌ Spinal Tap Case   
-- 29 ❌ Sum All Odd Fibonacci Numbers   
-- 30 ❌ Sum All Primes   
-- 31 ❌ Smallest Common Multiple   
-- 32 ❌ Finders Keepers   
-- 33 ❌ Drop it   
-- 34 ❌ Steamroller   
-- 35 ❌ Binary Agents   
-- 36 ❌ Everything Be True   
+- 18 ✅ [Diff Two Arrays](https://www.freecodecamp.org/challenges/diff-two-arrays)
+- 19 🚧 Roman Numeral Converter
+- 20 ❌ Wherefore Art Thou
+- 21 ❌ Search and Replace
+- 22 ❌ Pig Latin
+- 23 ❌ DNA Pairing
+- 24 ❌ Missing letters
+- 25 ❌ Boo who
+- 26 ❌ Sorted Union
+- 27 ❌ Convert HTML Entities
+- 28 ❌ Spinal Tap Case
+- 29 ❌ Sum All Odd Fibonacci Numbers
+- 30 ❌ Sum All Primes
+- 31 ❌ Smallest Common Multiple
+- 32 ❌ Finders Keepers
+- 33 ❌ Drop it
+- 34 ❌ Steamroller
+- 35 ❌ Binary Agents
+- 36 ❌ Everything Be True
 - 37 ❌ Arguments Optional
 
 ### Advanced Algorithm Scripting
@@ -70,6 +70,6 @@
 ### Advanced Front-End Development Projects
 
 - 07 ❌ Build a JavaScript Calculator
-- 08 ❌ Build a Pomodoro Clock   
-- 09 ❌ Build a Tic Tac Toe Game   
-- 10 ❌ Build a Simon Game   
+- 08 ❌ Build a Pomodoro Clock
+- 09 ❌ Build a Tic-Tac-Toe Game
+- 10 ❌ Build a Simon Game
