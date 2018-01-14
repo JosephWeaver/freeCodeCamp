@@ -33,39 +33,39 @@
 
 ### Intermediate Algorithm Scripting
 
-- 16 🚧 Sum All Numbers in a Range   
-- 17 ❌ Diff Two Arrays   
-- 18 ❌ Roman Numeral Converter   
-- 19 ❌ Wherefore art thou   
-- 20 ❌ Search and Replace   
-- 21 ❌ Pig Latin   
-- 22 ❌ DNA Pairing   
-- 23 ❌ Missing letters   
-- 24 ❌ Boo who   
-- 25 ❌ Sorted Union   
-- 26 ❌ Convert HTML Entities   
-- 27 ❌ Spinal Tap Case   
-- 28 ❌ Sum All Odd Fibonacci Numbers   
-- 29 ❌ Sum All Primes   
-- 30 ❌ Smallest Common Multiple   
-- 11 ❌ Finders Keepers   
-- 32 ❌ Drop it   
-- 33 ❌ Steamroller   
-- 34 ❌ Binary Agents   
-- 35 ❌ Everything Be True   
-- 36 ❌ Arguments Optional
+- 17 ✅ [Sum All Numbers in a Range](https://www.freecodecamp.org/challenges/sum-all-numbers-in-a-range)
+- 18 🚧 Diff Two Arrays   
+- 19 ❌ Roman Numeral Converter   
+- 20 ❌ Wherefore art thou   
+- 21 ❌ Search and Replace   
+- 22 ❌ Pig Latin   
+- 23 ❌ DNA Pairing   
+- 24 ❌ Missing letters   
+- 25 ❌ Boo who   
+- 26 ❌ Sorted Union   
+- 27 ❌ Convert HTML Entities   
+- 28 ❌ Spinal Tap Case   
+- 29 ❌ Sum All Odd Fibonacci Numbers   
+- 30 ❌ Sum All Primes   
+- 31 ❌ Smallest Common Multiple   
+- 32 ❌ Finders Keepers   
+- 33 ❌ Drop it   
+- 34 ❌ Steamroller   
+- 35 ❌ Binary Agents   
+- 36 ❌ Everything Be True   
+- 37 ❌ Arguments Optional
 
 ### Advanced Algorithm Scripting
 
-- 37 ❌ Validate US Telephone Numbers
-- 38 ❌ Record Collection
-- 39 ❌ Symmetric Difference
-- 40 ❌ Exact Change
-- 41 ❌ Inventory Update
-- 42 ❌ No repeats please
-- 43 ❌ Make a Person
-- 44 ❌ Map the Debris
-- 45 ❌ Pairwise
+- 38 ❌ Validate US Telephone Numbers
+- 39 ❌ Record Collection
+- 40 ❌ Symmetric Difference
+- 41 ❌ Exact Change
+- 42 ❌ Inventory Update
+- 43 ❌ No repeats please
+- 44 ❌ Make a Person
+- 45 ❌ Map the Debris
+- 46 ❌ Pairwise
 
 ### Advanced Front-End Development Projects
 
