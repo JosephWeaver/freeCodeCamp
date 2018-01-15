@@ -38,8 +38,8 @@
 - 19 ✅ [Roman Numeral Converter](https://www.freecodecamp.org/challenges/roman-numeral-converter)
 - 20 ✅ [Wherefore Art Thou](https://www.freecodecamp.org/challenges/wherefore-art-thou)
 - 21 ✅ [Search and Replace](https://www.freecodecamp.org/challenges/search-and-replace)
-- 22 🚧 [Pig Latin](https://www.freecodecamp.org/challenges/pig-latin)
-- 23 ❌ DNA Pairing
+- 22 ✅ [Pig Latin](https://www.freecodecamp.org/challenges/pig-latin)
+- 23 🚧 DNA Pairing
 - 24 ❌ Missing letters
 - 25 ❌ Boo who
 - 26 ❌ Sorted Union
