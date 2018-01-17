@@ -1,0 +1,118 @@
+// https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css
+// https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Lato, sans-serif;
+  min-width: 584px;
+  overflow-x: hidden;
+}
+nav {
+  min-width: inherit;
+  position: fixed;
+  width: 100%;
+  .bar {
+    align-items: center;
+    display: flex;
+    font-weight: bold;
+    a {
+      flex: 0;
+      text-align: center;
+      text-decoration: none;
+    }
+    form {
+      flex: 1;
+      padding: 0 3px;
+      input {
+        border: 1px solid gray;
+        border-radius: 3px;
+        padding: 5px;
+        width: 100%;
+      }
+    }
+    &.primary {
+      background-color: darkgreen;
+      font-size: 16px;
+      line-height: 16px;
+      padding-top: 1px;
+      a {
+        color: #efefef;
+        padding: 10px;
+        &:hover {
+          background-color: #efefef;
+          color: darkgreen;
+        }
+        &#logo {
+          font-size: 34px;
+          padding: 1px 5px 0;
+          @media all and (min-width: 900px){
+            background: url(https://s3.amazonaws.com/freecodecamp/freecodecamp_logo.svg) no-repeat center center;
+            background-size: contain;
+            flex-basis: 173px;
+            margin: 0 10px;
+            padding: 1px 0;
+            text-indent: -99999px;
+          }
+        }
+      }
+    }
+    &.secondary {
+      background-color: #dcdcdc;
+      font-size: 14px;
+      line-height: 14px;
+      justify-content: flex-end;
+      a {
+        border-radius: 4px;
+        color: #434343;
+        margin: 2px 2px 2px 0;
+        padding: 5px 12px;
+        white-space:nowrap;
+        &:hover {
+          background-color: #434343;
+          color: #dcdcdc;
+        }
+        &:before {
+          content: "Show ";
+        }
+        &.on {
+          background-color: #aaa;
+          &:before {
+            content: "Hide ";
+          }
+          &:hover {
+            background-color: #777;
+            color: #dcdcdc;
+          }
+        }
+      }
+    }
+  }
+}
+section {
+  display: flex;
+  height: 100vh;
+  & > div {
+    color: white;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    font: bold 28px Lato, sans-serif;
+    justify-content: center;
+    padding-top: 65px;
+    text-align: center;
+    &#map {
+      background-color: cornflowerblue;
+    }
+    &#lesson {
+      background-color: hotpink;
+    }
+    &#editor {
+      background-color: darkslateblue;
+    }
+    &#preview {
+      background-color: teal;
+    }
+  }
+}
