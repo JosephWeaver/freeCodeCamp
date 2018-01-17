@@ -1,0 +1,185 @@
+// https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css
+// https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js
+
+$color: #006400;
+* {
+  box-sizing: border-box;
+}
+body {
+  min-width: 584px;
+  overflow-x: hidden;
+}
+nav {
+  align-items: center;
+  background-color: $color;
+  border-bottom: 1px solid darken($color, 12);
+  border-top: 1px solid darken($color, 12);
+  display: flex;
+  font: bold 16px/16px "Lato", sans-serif;
+  height: 43px;
+  min-width: inherit;
+  position: fixed;
+  width: 100%;
+  a {
+    border-radius: 3px;
+    color: #efefef;
+    flex: 0;
+    margin: 2px;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    &:last-child {
+      margin-right: 5px;
+    }
+    &#logo {
+      font-size: 34px;
+      padding: 1px 5px 0;
+      @media all and (min-width: 684px){
+        background: url(https://s3.amazonaws.com/freecodecamp/freecodecamp_logo.svg) no-repeat center center;
+        background-size: contain;
+        flex-basis: 173px;
+        margin: 0 10px;
+        padding: 1px 0;
+        text-indent: -99999px;
+      }
+    }
+    &:not(#logo):hover {
+      background-color: #fefefe;
+      color: $color;
+    }
+  }
+  form {
+    flex: 1;
+    padding: 0 5px;
+    input {
+      border: 1px solid darken($color, 12);
+      border-radius: 3px;
+      font-size: 12px;
+      line-height: 18px;
+      max-width: 243px;
+      min-width: 172px;
+      padding: 5px 5px 4px 5px;
+      transition: max-width .2s;
+      width: 100%;
+      &:focus {
+        max-width: 343px;
+      }
+    }
+  }
+}
+#panels {
+  background-color: #dcdcdc;
+  display: flex;
+  height: 100vh;
+  .panel {
+    margin-top: 43px;
+  }
+  .title {
+    background: #dcdcdc;
+    border-left: 1px solid #434343;
+    border-right: 1px solid #434343;
+    color: #282828;
+    cursor: pointer;
+    height: calc(100vh - 43px);
+    transition: border .16s, width .16s;
+    width: 23px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    &:first-child {
+      border-left: 0;
+    }
+    &.preview.hidden {
+      border-right: 0;
+    }
+    span {
+      color: inherit;
+      display: inline-block;
+      font: bold 18px/21px "Lato", sans-serif;
+      letter-spacing: .28px;
+      height: 25px;
+      padding: 2px 5px;
+      text-decoration: none;
+      transform-origin: left top;
+      transition: transform .28s;
+      white-space: nowrap;
+      &:before {
+        content: "Show ";
+      }
+    }
+    &:not(.hidden){
+      border: 0;
+      width: 0;
+      span {
+        border: 0;
+        transform: translateX(2px);
+        width: 0;
+        &:before {
+          content: "";
+        }
+      }
+    }
+    &.hidden span {
+      transform: translate(22px, 2px) rotate(90deg) scale(.84);
+      &:before {
+        content: "";
+        width: 0;
+      }
+    }
+    &:not(.hidden), &:not(.hidden) span {
+      width: 0;
+      border: 0;
+    }
+    @media all and (max-width: 684px){
+      span {
+        transform: translate(22px, 2px) rotate(90deg) scale(.84) !important;
+      }
+    }
+  }
+  .content {
+    background: #efefef;
+    border-top: 1px solid #434343;
+    // box-shadow: 0 0 5px 0 rgba(128, 128, 128, .43) inset;
+    color: #282828;
+    flex: 1;
+    font: normal 14px Lato, sans-serif;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin-top: 68px;
+    padding: 15px;
+    transition: flex .28s, font-size .28s, padding .28s;
+    &.hidden {
+      flex: 0;
+      padding: 0;
+      width: 0;
+      & + .title {
+        border-left: 0;
+      }
+    }
+    &.dark {
+      background: #282828;
+      color: #efefef;
+    }
+    // &.lesson {
+    //   background-color: cornflowerblue;
+    //   color: white;
+    // }
+    // &.editor {
+    //   background-color: darkslateblue;
+    //   color: white;
+    // }
+    // &.preview {
+    //   background-color: teal;
+    //   color: white;
+    // }
+    p {
+      margin-top: 0;
+    }
+  }
+}
+
+
+
