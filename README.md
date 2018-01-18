@@ -43,8 +43,8 @@
 - 24 ✅ [Missing Letters](https://www.freecodecamp.org/challenges/missing-letters)
 - 25 ✅ [Boo Who](https://www.freecodecamp.org/challenges/boo-who)
 - 26 ✅ [Sorted Union](https://www.freecodecamp.org/challenges/sorted-union)
-- 27 🚧 [Convert HTML Entities](https://www.freecodecamp.org/challenges/convert-html-entities)
-- 28 ❌ Spinal Tap Case
+- 27 ✅ [Convert HTML Entities](https://www.freecodecamp.org/challenges/convert-html-entities)
+- 28 🚧 Spinal Tap Case
 - 29 ❌ Sum All Odd Fibonacci Numbers
 - 30 ❌ Sum All Primes
 - 31 ❌ Smallest Common Multiple
