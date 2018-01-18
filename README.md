@@ -46,8 +46,8 @@
 - 27 ✅ [Convert HTML Entities](https://www.freecodecamp.org/challenges/convert-html-entities)
 - 28 ✅ [Spinal Tap Case](https://www.freecodecamp.org/challenges/spinal-tap-case)
 - 29 ✅ [Sum All Odd Fibonacci Numbers](https://www.freecodecamp.org/challenges/sum-all-odd-fibonacci-numbers)
-- 30 🚧 Sum All Primes
-- 31 ❌ Smallest Common Multiple
+- 30 ✅ [Sum All Primes](https://www.freecodecamp.org/challenges/sum-all-primes)
+- 31 🚧 [Smallest Common Multiple](https://www.freecodecamp.org/challenges/smallest-common-multiple)
 - 32 ❌ Finders Keepers
 - 33 ❌ Drop it
 - 34 ❌ Steamroller
