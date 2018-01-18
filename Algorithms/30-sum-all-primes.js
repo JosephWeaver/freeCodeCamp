@@ -11,7 +11,7 @@ function sumPrimes(num){
         return false;
       }
     }
-    return x >= 2;
+    return x > 1;
   }).reduce(function(a, b){
     return a + b;
   });
