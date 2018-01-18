@@ -41,8 +41,8 @@
 - 22 ✅ [Pig Latin](https://www.freecodecamp.org/challenges/pig-latin)
 - 23 ✅ [DNA Pairing](https://www.freecodecamp.org/challenges/dna-pairing)
 - 24 ✅ [Missing Letters](https://www.freecodecamp.org/challenges/missing-letters)
-- 25 🚧 Boo Who
-- 26 ❌ Sorted Union
+- 25 ✅ [Boo Who](https://www.freecodecamp.org/challenges/boo-who)
+- 26 🚧 Sorted Union
 - 27 ❌ Convert HTML Entities
 - 28 ❌ Spinal Tap Case
 - 29 ❌ Sum All Odd Fibonacci Numbers
