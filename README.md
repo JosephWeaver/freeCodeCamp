@@ -45,7 +45,7 @@
 - 26 ✅ [Sorted Union](https://www.freecodecamp.org/challenges/sorted-union)
 - 27 ✅ [Convert HTML Entities](https://www.freecodecamp.org/challenges/convert-html-entities)
 - 28 ✅ [Spinal Tap Case](https://www.freecodecamp.org/challenges/spinal-tap-case)
-- 29 🚧 Sum All Odd Fibonacci Numbers
+- 29 🚧 [Sum All Odd Fibonacci Numbers](https://www.freecodecamp.org/challenges/sum-all-odd-fibonacci-numbers)
 - 30 ❌ Sum All Primes
 - 31 ❌ Smallest Common Multiple
 - 32 ❌ Finders Keepers
