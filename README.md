@@ -50,14 +50,14 @@
 - 31 ✅ [Smallest Common Multiple](https://www.freecodecamp.org/challenges/smallest-common-multiple)
 - 32 ✅ [Finders Keepers](https://www.freecodecamp.org/challenges/finders-keepers)
 - 33 ✅ [Drop it](https://www.freecodecamp.org/challenges/drop-it)
-- 34 🚧 [Steamroller](https://www.freecodecamp.org/challenges/steamroller)
+- 34 ✅ [Steamroller](https://www.freecodecamp.org/challenges/steamroller)
 - 35 ✅ [Binary Agents](https://www.freecodecamp.org/challenges/binary-agents)
 - 36 ✅ [Everything Be True](https://www.freecodecamp.org/challenges/everything-be-true)
-- 37 🚧 [Arguments Optional](https://www.freecodecamp.org/challenges/arguments-optional)
+- 37 ✅ [Arguments Optional](https://www.freecodecamp.org/challenges/arguments-optional)
 
 ### Advanced Algorithm Scripting
 
-- 38 ❌ Validate US Telephone Numbers
+- 38 🚧 Validate US Telephone Numbers
 - 39 ❌ Record Collection
 - 40 ❌ Symmetric Difference
 - 41 ❌ Exact Change
