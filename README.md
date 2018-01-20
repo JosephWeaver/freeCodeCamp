@@ -52,8 +52,8 @@
 - 33 ✅ [Drop it](https://www.freecodecamp.org/challenges/drop-it)
 - 34 🚧 [Steamroller](https://www.freecodecamp.org/challenges/steamroller)
 - 35 ✅ [Binary Agents](https://www.freecodecamp.org/challenges/binary-agents)
-- 36 🚧 [Everything Be True](https://www.freecodecamp.org/challenges/everything-be-true)
-- 37 ❌ [Arguments Optional](https://www.freecodecamp.org/challenges/arguments-optional)
+- 36 ✅ [Everything Be True](https://www.freecodecamp.org/challenges/everything-be-true)
+- 37 🚧 [Arguments Optional](https://www.freecodecamp.org/challenges/arguments-optional)
 
 ### Advanced Algorithm Scripting
 
