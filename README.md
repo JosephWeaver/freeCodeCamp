@@ -51,7 +51,7 @@
 - 32 ✅ [Finders Keepers](https://www.freecodecamp.org/challenges/finders-keepers)
 - 33 ✅ [Drop it](https://www.freecodecamp.org/challenges/drop-it)
 - 34 🚧 [Steamroller](https://www.freecodecamp.org/challenges/steamroller)
-- 35 ❌ Binary Agents
+- 35 ✅ [Binary Agents](https://www.freecodecamp.org/challenges/binary-agents)
 - 36 ❌ Everything Be True
 - 37 ❌ Arguments Optional
 
