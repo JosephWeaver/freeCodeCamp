@@ -60,7 +60,7 @@
 - 38 ✅ [Validate US Telephone Numbers](https://www.freecodecamp.org/challenges/validate-us-telephone-numbers)
 - 39 ✅ [Record Collection](https://www.freecodecamp.org/challenges/record-collection)
 - 40 ✅ [Symmetric Difference](https://www.freecodecamp.org/challenges/symmetric-difference)
-- 41 🚧 Exact Change
+- 41 🚧 [Exact Change](https://www.freecodecamp.org/challenges/exact-change)
 - 42 ❌ Inventory Update
 - 43 ❌ No repeats please
 - 44 ❌ Make a Person
