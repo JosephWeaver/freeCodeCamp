@@ -58,8 +58,8 @@
 ### Advanced Algorithm Scripting
 
 - 38 ✅ [Validate US Telephone Numbers](https://www.freecodecamp.org/challenges/validate-us-telephone-numbers)
-- 39 ❌ Record Collection
-- 40 ❌ Symmetric Difference
+- 39 ✅ [Record Collection](https://www.freecodecamp.org/challenges/record-collection)
+- 40 🚧 Symmetric Difference
 - 41 ❌ Exact Change
 - 42 ❌ Inventory Update
 - 43 ❌ No repeats please
