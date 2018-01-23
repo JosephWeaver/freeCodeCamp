@@ -1,65 +1,110 @@
 // https://www.freecodecamp.org/challenges/exact-change
 
+//////////////////////////////////////////////////////////////////////
+// a function to return the correct amount & denomination of change //
+// to view results click the "Console" button in the preview window //
+//////////////////////////////////////////////////////////////////////
+
+console.clear();
+
+// check cash register for amount of change I need to return to the customer
 function checkCashRegister(price, cash, cid){
 
-  var drawer = {
-        hundreds: round(cid[8][1]),
-        twenties: round(cid[7][1]),
-        tens:     round(cid[6][1]),
-        fives:    round(cid[5][1]),
-        singles:  round(cid[4][1]),
-        quarters: round(cid[3][1]),
-        dimes:    round(cid[2][1]),
-        nickels:  round(cid[1][1]),
-        pennies:  round(cid[0][1])
+  // declare vars
+  var change = [],
+      changeAmount = cash - price,
+      changeMade,
+      changeObject = {},
+      drawer = {
+        hundreds: cid[8][1],
+        twenties: cid[7][1],
+        tens:     cid[6][1],
+        fives:    cid[5][1],
+        singles:  cid[4][1],
+        quarters: cid[3][1],
+        dimes:    cid[2][1],
+        nickels:  cid[1][1],
+        pennies:  cid[0][1]
       },
-      changeObj = {},
-      change = [],
-      makeChangeFor = round(cash - price),
-      amountInDrawer = 0;
+      inDrawer = 0,
+      initialChangeAmount = changeAmount,
+      totalChange = 0;
 
-  for (var i = 0; i < cid.length; i++){ amountInDrawer += cid[i][1]; }
-  amountInDrawer = round(amountInDrawer);
+  // find total amount in drawer
+  for (var i = 0; i < cid.length; i++){
+    inDrawer += cid[i][1];
+  }
 
-  if (cash < price){ return "*patiently waits for more cash...*"; }
-  if (amountInDrawer < makeChangeFor){ return "Insufficient Funds"; }
-  if (amountInDrawer == makeChangeFor){ return "Closed"; }
-  return subtract(drawer, changeObj, change, makeChangeFor, amountInDrawer);
-
-  function round(value){ return (Math.round(value * 100) / 100); }
-  function subtract(drawer, changeObj, change, makeChangeFor, amountInDrawer){
-    function makeChangeForDenomination(name, amount){
-      while (makeChangeFor >= amount && amount <= drawer[name]){
-        if (changeObj[name])
-          changeObj[name] += amount;
-        else
-          changeObj[name] = amount;
-        makeChangeFor -= amount;
-        drawer[name] -= amount;
-      }
+  // handle routes and specify return values
+  if (cash < price){
+    return "*patiently waits for more cash...*";
+  }
+  if (inDrawer === changeAmount){
+    return "Closed";
+  }
+  if (inDrawer < changeAmount){
+    return "Insufficient Funds";
+  }
+  if (inDrawer >= changeAmount){
+    changeMade = makeChange(change, changeAmount, changeObject, drawer, inDrawer);
+    for (var j = 0; j < changeMade.length; j++){
+      totalChange += changeMade[j][1];
     }
-    makeChangeForDenomination("hundreds", 100);
-    makeChangeForDenomination("twenties",  20);
-    makeChangeForDenomination("tens",      10);
-    makeChangeForDenomination("fives",      5);
-    makeChangeForDenomination("singles",    1);
-    makeChangeForDenomination("quarters",   0.25);
-    makeChangeForDenomination("dimes",      0.1);
-    makeChangeForDenomination("nickels",    0.05);
-    makeChangeForDenomination("pennies",    0.01);
+    return initialChangeAmount > totalChange ? "Insufficient Funds" : changeMade;
+  }
 
-    if (changeObj.hundreds){  change.push(["ONE HUNDRED", Number(changeObj.hundreds)]); }
-    if (changeObj.twenties){  change.push(["TWENTY",      Number(changeObj.twenties)]); }
-    if (changeObj.tens){      change.push(["TEN",         Number(changeObj.tens)]); }
-    if (changeObj.fives){     change.push(["FIVE",        Number(changeObj.fives)]); }
-    if (changeObj.singles){   change.push(["ONE",         Number(changeObj.singles)]); }
-    if (changeObj.quarters){  change.push(["QUARTER",     Number(changeObj.quarters)]); }
-    if (changeObj.dimes){     change.push(["DIME",        Number(changeObj.dimes)]); }
-    if (changeObj.nickels){   change.push(["NICKEL",      Number(changeObj.nickels)]); }
-    if (changeObj.pennies){   change.push(["PENNY",       Number(changeObj.pennies)]); }
+  // declare functions
+  function makeChange(change, changeAmount, changeObject, drawer, inDrawer){
 
-    // return changeObj;
+    makeChangeForDenom("hundreds", 100);
+    makeChangeForDenom("twenties",  20);
+    makeChangeForDenom("tens",      10);
+    makeChangeForDenom("fives",      5);
+    makeChangeForDenom("singles",    1);
+    makeChangeForDenom("quarters",   0.25);
+    makeChangeForDenom("dimes",      0.1);
+    makeChangeForDenom("nickels",    0.05);
+    makeChangeForDenom("pennies",    0.01);
+
+    if (changeObject.hundreds){  change.push(["ONE HUNDRED", Number(changeObject.hundreds)]); }
+    if (changeObject.twenties){  change.push(["TWENTY",      Number(changeObject.twenties)]); }
+    if (changeObject.tens){      change.push(["TEN",         Number(changeObject.tens)]); }
+    if (changeObject.fives){     change.push(["FIVE",        Number(changeObject.fives)]); }
+    if (changeObject.singles){   change.push(["ONE",         Number(changeObject.singles)]); }
+    if (changeObject.quarters){  change.push(["QUARTER",     Number(changeObject.quarters)]); }
+    if (changeObject.dimes){     change.push(["DIME",        Number(changeObject.dimes)]); }
+    if (changeObject.nickels){   change.push(["NICKEL",      Number(changeObject.nickels)]); }
+    if (changeObject.pennies){   change.push(["PENNY",       Number(changeObject.pennies)]); }
+
     return change;
 
   }
+  function makeChangeForDenom(denomName, denomAmount){
+    while (changeAmount >= denomAmount && denomAmount <= drawer[denomName]){
+      if (!changeObject[denomName]) changeObject[denomName] = denomAmount;
+      else changeObject[denomName] += denomAmount;
+      drawer[denomName] -= denomAmount;
+      drawer[denomName] = round(drawer[denomName]);
+      changeAmount -= denomAmount;
+      changeAmount = round(changeAmount);
+    }
+  }
+  function round(value){
+    return Math.round(value * 100) / 100;
+  }
 }
+
+console.log(checkCashRegister(
+  3.26, // price of item
+  100.00, // cash they handed me
+  [["PENNY", 1.01],
+   ["NICKEL", 2.05],
+   ["DIME", 3.10],
+   ["QUARTER", 4.25],
+   ["ONE", 90.00],
+   ["FIVE", 55.00],
+   ["TEN", 20.00],
+   ["TWENTY", 60.00],
+   ["ONE HUNDRED", 100.00]]
+));
+// should return [["TWENTY", 60], ["TEN", 20], ["FIVE", 15], ["ONE", 1], ["QUARTER", 0.5], ["DIME", 0.2], ["PENNY", 0.04]]
