@@ -21,9 +21,9 @@ function checkCashRegister(price, cash, cid){
   for (var i = 0; i < cid.length; i++){ amountInDrawer += cid[i][1]; }
   amountInDrawer = round(amountInDrawer);
 
-  if (cash < price) return "*patiently waits for more cash...*";
-  if (amountInDrawer < makeChangeFor) return "Insufficient Funds";
-  if (amountInDrawer == makeChangeFor) return "Closed";
+  if (cash < price){ return "*patiently waits for more cash...*"; }
+  if (amountInDrawer < makeChangeFor){ return "Insufficient Funds"; }
+  if (amountInDrawer == makeChangeFor){ return "Closed"; }
   return subtract(drawer, changeObj, change, makeChangeFor, amountInDrawer);
 
   function round(value){ return (Math.round(value * 100) / 100); }
