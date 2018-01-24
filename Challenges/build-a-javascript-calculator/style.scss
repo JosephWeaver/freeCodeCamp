@@ -1,0 +1,88 @@
+
+
+$buttonColor: #282828;
+$textColor: #282828;
+$redButtonColor: #cc2843;
+$orangeButtonColor: #ffa800;
+$calculatorColor: #cdcdcd;
+body {
+  align-items: center;
+  display: flex;
+  font-family: "Orbitron", sans-serif;
+  height: 100vh;
+  justify-content: center;
+}
+.calculator {
+  background: $calculatorColor;
+  border-radius: 7px;
+  box-shadow: 2.8px 2.8px 28px 2.8px #282828;
+  flex-direction: column;
+  padding: 5px;
+  width: 300px;
+  div {
+    display: flex;
+    &#title {
+      padding: 4px;
+    }
+    &#screen {
+      background: darken($calculatorColor, 20%);
+        box-shadow: 0 0 10px 3px #777 inset;
+
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      margin: 2px;
+      padding: 8px;
+      div {
+        display: flex;
+        justify-content: flex-end;
+        &.answer {
+          font-size: 31px;
+        }
+        &.history {
+          color: lighten($buttonColor, 20%);
+        }
+      }
+    }
+    &.row {
+      &.last div {
+        flex-basis: 50%;
+      }
+    }
+    &.stack {
+      flex-direction: column;
+    }
+  }
+  button {
+    align-items: center;
+    background-color: $buttonColor;
+    border: 0;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    flex: 1;
+    font: bold 28px "Orbitron", sans-serif;
+    justify-content: center;
+    margin: 2px;
+    outline: none;
+    padding: 8px;
+    text-align: center;
+    &:hover {
+      background-color: lighten($buttonColor, 10);
+    }
+    &.red {
+      background-color: $redButtonColor;
+      text-shadow: 1px 1px 3px black;
+      &:hover {
+        background-color: darken($redButtonColor, 5);
+      }
+    }
+    &.orange {
+      background-color: $orangeButtonColor;
+      text-shadow: 1px 1px 3px black;
+    }
+    &:hover {
+        background-color: darken($orangeButtonColor, 5);
+    }
+  }
+}
