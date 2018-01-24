@@ -1,9 +1,11 @@
-
+// https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css
+// https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js
+// https://fonts.googleapis.com/css?family=Orbitron
 
 $buttonColor: #282828;
 $textColor: #282828;
 $redButtonColor: #cc2843;
-$orangeButtonColor: #ffa800;
+$orangeButtonColor: #ff8400;
 $calculatorColor: #cdcdcd;
 body {
   align-items: center;
@@ -26,7 +28,7 @@ body {
     }
     &#screen {
       background: darken($calculatorColor, 20%);
-        box-shadow: 0 0 10px 3px #777 inset;
+      box-shadow: 0 0 10px 3px #777 inset;
 
       border-radius: 4px;
       display: flex;
@@ -80,9 +82,9 @@ body {
     &.orange {
       background-color: $orangeButtonColor;
       text-shadow: 1px 1px 3px black;
-    }
-    &:hover {
-        background-color: darken($orangeButtonColor, 5);
+      &:hover {
+        background-color: adjust-hue($orangeButtonColor, 4.3);
+      }
     }
   }
 }
