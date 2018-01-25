@@ -6,7 +6,7 @@ $buttonColor: #282828;
 $textColor: #282828;
 $redButtonColor: #cc2843;
 $orangeButtonColor: #ff8400;
-$calculatorColor: #cdcdcd
+$calculatorColor: #cdcdcd;
 body {
   align-items: center;
   background-color: #434343;
@@ -25,12 +25,12 @@ body {
   div {
     display: flex;
     &#title {
-      // font: 800 22px "Khula";
       padding: 4px;
     }
     &#screen {
       background: darken($calculatorColor, 20%);
       box-shadow: 0 0 10px 3px #777 inset;
+
       border-radius: 4px;
       display: flex;
       flex-direction: column;
