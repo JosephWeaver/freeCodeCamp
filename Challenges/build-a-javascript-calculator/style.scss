@@ -77,14 +77,18 @@ body {
     outline: none;
     padding: 8px;
     text-align: center;
-      transition: border-bottom-width .05s, margin-top .05s;
-    &[value="+"],
-    &[value="-"],
-    &[value="x"],
-    &[value="/"],
-    &[value="="],
-    &[value="."]{
+    transition: border-bottom-width .05s, margin-top .05s;
+    &[value="+"], &[value="-"], &[value="x"], &[value="/"], &[value="."]{
+      background-color: lighten($buttonColor, 7);
+      color: #bbb;
       padding: 6px 8px 10px;
+      &:not(.pressed){
+        border-bottom: 3px solid darken($buttonColor, 3);
+      }
+      &.pressed {
+        border-bottom: 1px solid darken($buttonColor, 3);
+        margin-top: 4px;
+      }
     }
     &:hover {
       background-color: lighten($buttonColor, 10);
@@ -108,10 +112,15 @@ body {
       &.pressed {
         border-bottom: 1px solid darken($redButtonColor, 20);
       }
+      &[value="ce"]{
+        font-size: 25px;
+      }
     }
     &.orange {
       background-color: $orangeButtonColor;
       box-shadow: 0 0 1px 1px rgba(0, 0, 0, .28) inset;
+      font-size: 31px;
+      padding: 5px 8px 11px;
       text-shadow: 1px 1px 3px black;
       &:hover {
         background-color: adjust-hue($orangeButtonColor, 4.3);
