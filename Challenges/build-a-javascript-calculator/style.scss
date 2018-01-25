@@ -9,6 +9,7 @@ $orangeButtonColor: #ff8400;
 $calculatorColor: #cdcdcd;
 body {
   align-items: center;
+  background-color: #434343;
   display: flex;
   font-family: "Orbitron", sans-serif;
   height: 100vh;
@@ -38,10 +39,10 @@ body {
       div {
         display: flex;
         justify-content: flex-end;
-        &.answer {
+        &#answer {
           font-size: 31px;
         }
-        &.history {
+        &#history {
           color: lighten($buttonColor, 20%);
         }
       }
