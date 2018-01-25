@@ -1,6 +1,6 @@
 // https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css
 // https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js
-// https://fonts.googleapis.com/css?family=Orbitron|Khula:800
+// https://fonts.googleapis.com/css?family=Orbitron
 
 $buttonColor: #282828;
 $textColor: #282828;
@@ -14,6 +14,9 @@ body {
   font-family: "Orbitron", sans-serif;
   height: 100vh;
   justify-content: center;
+  min-width: 284px;
+  overflow: hidden;
+  user-select: none;
 }
 .calculator {
   background: $calculatorColor;
@@ -22,9 +25,9 @@ body {
               0px 0px 2.8px 2.8px rgba(0, 0, 0, .43) inset;
   border: 1px solid rgba(0, 0, 0, .72);
   flex-direction: column;
-  margin-bottom: 43px;
+  margin: 28px 28px 43px;
   padding: 8px;
-  width: 300px;
+  width: 343px;
   div {
     display: flex;
     &#title {
@@ -40,16 +43,22 @@ body {
       border-radius: 4px;
       display: flex;
       flex-direction: column;
-      margin: 2px;
+      margin: 2px 2px 5px;
       padding: 8px 12px;
       div {
         display: flex;
         justify-content: flex-end;
+        &#answer, &#history {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
         &#answer {
           font-size: 43px;
         }
         &#history {
           color: lighten($buttonColor, 16%);
+          padding: 0 3px 1px;
         }
       }
     }
@@ -77,10 +86,11 @@ body {
     outline: none;
     padding: 8px;
     text-align: center;
+    text-shadow: 1px 1px 3px black;
     transition: border-bottom-width .05s, margin-top .05s;
     &[value="+"], &[value="-"], &[value="x"], &[value="/"], &[value="."]{
       background-color: lighten($buttonColor, 7);
-      color: #bbb;
+      color: #ddd;
       padding: 6px 8px 10px;
       &:not(.pressed){
         border-bottom: 3px solid darken($buttonColor, 3);
@@ -102,7 +112,6 @@ body {
     }
     &.red {
       background-color: $redButtonColor;
-      text-shadow: 1px 1px 3px black;
       &:hover {
         background-color: darken($redButtonColor, 5);
       }
@@ -114,16 +123,16 @@ body {
       }
       &[value="ce"]{
         font-size: 25px;
+        letter-spacing: 1px;
       }
     }
     &.orange {
-      background-color: $orangeButtonColor;
+      background-color: adjust-hue($orangeButtonColor, 4.3);
       box-shadow: 0 0 1px 1px rgba(0, 0, 0, .28) inset;
       font-size: 31px;
       padding: 5px 8px 11px;
-      text-shadow: 1px 1px 3px black;
       &:hover {
-        background-color: adjust-hue($orangeButtonColor, 4.3);
+        background-color: $orangeButtonColor;
       }
       &:not(.pressed){
         border-bottom: 3px solid darken($orangeButtonColor, 20);
