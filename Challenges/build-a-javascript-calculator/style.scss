@@ -1,6 +1,6 @@
 // https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css
 // https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js
-// https://fonts.googleapis.com/css?family=Orbitron|Khula
+// https://fonts.googleapis.com/css?family=Orbitron|Khula:800
 
 $buttonColor: #282828;
 $textColor: #282828;
@@ -25,12 +25,14 @@ body {
   div {
     display: flex;
     &#title {
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 1px;
       padding: 4px;
     }
     &#screen {
       background: darken($calculatorColor, 20%);
       box-shadow: 0 0 10px 3px #777 inset;
-
       border-radius: 4px;
       display: flex;
       flex-direction: column;
