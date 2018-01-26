@@ -5,7 +5,6 @@
 $buttonColor: #282828;
 $textColor: #282828;
 $redButtonColor: #cc2843;
-$orangeButtonColor: #ff8400;
 $calculatorColor: #cdcdcd;
 body {
   align-items: center;
@@ -22,12 +21,12 @@ body {
   background: $calculatorColor;
   border-radius: 7px;
   box-shadow: 2.8px 2.8px 28px 2.8px rgba(0, 0, 0, .43),
-              0px 0px 2.8px 2.8px rgba(0, 0, 0, .43) inset;
+    0px 0px 4.3px 2.8px rgba(0, 0, 0, .43) inset;
   border: 1px solid rgba(0, 0, 0, .72);
   flex-direction: column;
   margin: 28px 28px 43px;
-  padding: 8px;
-  width: 343px;
+  padding: 12px;
+  width: 284px;
   div {
     display: flex;
     &#title {
@@ -37,9 +36,9 @@ body {
       padding: 4px;
     }
     &#screen {
-      background: darken($calculatorColor, 20%);
+      background: #B4BE84;
       box-shadow: 0 0 7px 3px rgba(0, 0, 0, .28) inset,
-                  0 0 1px 1px rgba(0, 0, 0, .28) inset;
+        0 0 1px 1px rgba(0, 0, 0, .28) inset;
       border-radius: 4px;
       display: flex;
       flex-direction: column;
@@ -92,6 +91,9 @@ body {
       background-color: lighten($buttonColor, 7);
       color: #ddd;
       padding: 6px 8px 10px;
+      &:hover {
+        background-color: lighten($buttonColor, 9);
+      }
       &:not(.pressed){
         border-bottom: 3px solid darken($buttonColor, 3);
       }
@@ -101,7 +103,7 @@ body {
       }
     }
     &:hover {
-      background-color: lighten($buttonColor, 10);
+      background-color: lighten($buttonColor, 2.8);
     }
     &:not(.pressed){
       border-bottom: 3px solid darken($buttonColor, 7);
@@ -113,7 +115,7 @@ body {
     &.red {
       background-color: $redButtonColor;
       &:hover {
-        background-color: darken($redButtonColor, 5);
+        background-color: darken($redButtonColor, 2.8);
       }
       &:not(.pressed){
         border-bottom: 3px solid darken($redButtonColor, 20);
@@ -121,24 +123,26 @@ body {
       &.pressed {
         border-bottom: 1px solid darken($redButtonColor, 20);
       }
-      &[value="ce"]{
+      &[value="ac"], &[value="ce"]{
         font-size: 25px;
         letter-spacing: 1px;
       }
     }
-    &.orange {
-      background-color: adjust-hue($orangeButtonColor, 4.3);
-      box-shadow: 0 0 1px 1px rgba(0, 0, 0, .28) inset;
+    &.light {
+      background-color: lighten($buttonColor, 43);
+      box-shadow: 0 1px 6px 1px rgba(0, 0, 0, .28) inset;
+      // color: $buttonColor;
       font-size: 31px;
       padding: 5px 8px 11px;
+      // text-shadow: none;
       &:hover {
-        background-color: $orangeButtonColor;
+        background-color: lighten($buttonColor, 43 - 2.8);
       }
       &:not(.pressed){
-        border-bottom: 3px solid darken($orangeButtonColor, 20);
+        border-bottom: 3px solid lighten($buttonColor, 7);
       }
       &.pressed {
-        border-bottom: 1px solid darken($orangeButtonColor, 20);
+        border-bottom: 1px solid lighten($buttonColor, 7);
       }
     }
   }
