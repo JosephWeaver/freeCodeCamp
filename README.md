@@ -62,7 +62,7 @@
 - 40 ✅ [Symmetric Difference](https://www.freecodecamp.org/challenges/symmetric-difference)
 - 41 ✅ [Exact Change](https://www.freecodecamp.org/challenges/exact-change)
 - 42 ✅ [Inventory Update](https://www.freecodecamp.org/challenges/inventory-update)
-- 43 🚧 No repeats please
+- 43 🚧 [No repeats please](https://www.freecodecamp.org/challenges/no-repeats-please)
 - 44 ❌ Make a Person
 - 45 ❌ Map the Debris
 - 46 ❌ Pairwise
