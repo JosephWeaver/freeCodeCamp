@@ -2,134 +2,130 @@
 
 $(()=>{
 
-  console.clear()
-
   const $answer = $("#answer"),
         $history = $("#history"),
-        $button = $("button")
+        $button = $("button");
 
   let clicked,
-      currentAnswer = "",
-      historyString = "",
-      history = [
-        // {
-        //   type: "num",
-        //   value: "3"
-        // },
-        // {
-        //   type: "num",
-        //   value: "3"
-        // },
-        // {
-        //   type: "op",
-        //   value: "*"
-        // },
-        // {
-        //   type: "num",
-        //   value: "3"
-        // }
-      ]
+      currAnswer = "",
+      currType,
+      currValue,
+      histString = "",
+      history = [],
+      prevType,
+      prevValue;
 
-  init()
+  init();
 
   function init(){
-    $button
-      .on("mousedown", function(){$(this).addClass("pressed")})
-      .on("mouseleave mouseup", function(){$(this).removeClass("pressed")})
-      .on("click", e => click(e.target.value))
+    console.clear();
+    $button.on("mousedown", function(){
+      $(this).addClass("pressed");
+    }).on("mouseleave mouseup", function(){
+      $(this).removeClass("pressed");
+    }).on("click", e => click(e.target.value));
   } // complete
   function click(clicked){
     if (history.length > 0){
-      let historyLength = history.length,
-          previousValue = history[historyLength].value,
-          previousType = getType(previousValue)
-      } // instantiate previous type and value (if they exist)
-    history.push({ type: getType(clicked), value: clicked }) // push clicked into history
-    updateDisplay(history) // update display with answer & history
+      prevValue = history[history.length - 1].value;
+      prevType = getType(prevValue);
+    } // set vars for previous type and value (if they exist)
+    let currType = getType(clicked), currValue = clicked; // set current type and value
+    history.push({ type: currType, value: currValue }); // push current val into history
+    updateDisplay(history, currType, currValue, prevType, prevValue); // update display
   } // complete
   function clear(last = null){
-    if (last){
-      let previousType = getType(history[history.length].value)
-      if (history.length > 0 && (previousType === "num" || previousType === "dec")) {
-          while (previousType === "num" || previousType === "dec"){
-            history.pop()
-            previousType = getType(history[history.length].value)
-          }
-        } else {
-          history.pop()
-        }
+    if (last === null){
+      history = [];
     } else {
-        history = []
+      // prevType = getType(history[history.length - 1].value);
+      if (history.length > 0 && (prevType === "num" || prevType === "dec")) {
+        while (prevType === "num" || prevType === "dec"){
+          history.pop();
+          prevType = getType(history[history.length - 1].value);
+        }
+      } else {
+        history.pop();
+      }
     }
-    updateDisplay(history)
+    updateDisplay(history);
+  } // complete
+  function createAnswer(){
+    let answerString = "";
+    for (let i = 0, length = history.length; i < length; i++){
+      answerString += history[i].value;
+    }
+    return answerString;
   } // complete
   function getType(item){
     switch(item){
-      case "c":
-        return "c"
-        break
+      case "ac":
+        return "ac";
       case "ce":
-        return "ce"
-        break
+        return "ce";
       case ".":
-        return "dec"
-        break
+        return "dec";
       case "=":
-        return "eq"
-        break
+        return "eq" ;
       default:
-        return "num"
+        return "num";
       case "+":
       case "-":
       case "x":
       case "/":
-        return "op"
-        break
+        return "op";
     }
   } // complete
-  // function makeHistory(history){
-  //   // for (var i = 0, len = history.length; i < len; i++){
-  //   //   switch(history[i].type){
-  //   //     case "op":
-  //   //       if (history[i - 1] > -1 && history[i - 1].type === "op"){ history.splice(history[i], 1); }
-  //   //       historyString += " " + history[i].value;
-  //   //       break
-  //   //     case "num":
-  //   //       historyString += history[i].value;
-  //   //     default:
-  //   //       break
-  //   //   }
-  //   // }
-  //   // historyString = $history.text() === "0" ? "" : $history.text()
-  //   // historyString += clicked
-  //   // $history.text(historyString)
-  // }
-  function updateDisplay(history){
-    let previousType
-    switch (getType(history[history.length].value)){
+  function updateDisplay(history, currType, currValue, prevType, prevValue){
+    switch (currType){
       case "eq":
-        // create answer from full history string
-        // display answer and history
-        break
-      case "c":
-        clear()
-        break
-      case "ce":
-        clear("entry")
-        break
-      case "op":
-        if (getType(history[history.length - 1].value) === "op"){
-          currentAnswer = history[history.length].value
-          history.pop().pop().push({ type: getType(currentAnswer), value: currentAnswer })
-    // historyString = $history.text() === "0" ? "" : $history.text()
-    // historyString += clicked
-    // $history.text(historyString)
-        } else {
-          historyString = history[history.length].value
-        }
-        break
-      case "num":
+        console.log("eq (" + currValue + ") pressed");
 
+        // for (let i = 0, length = history.length; i < length; i++){
+        //   histString += history[i].value
+        // }
+        currAnswer = createAnswer(); // create answer from full history string
+        console.log(currAnswer);
+
+        // $history.text(histString)
+        // $answer.text(currAnswer)
+
+        // display answer and history
+        break;
+      case "ac":
+        console.log("ac pressed");
+        clear();
+        break;
+      case "ce":
+        console.log("ce pressed");
+        clear("entry");
+        break;
+      case "op":
+        console.log("op (" + currValue + ") pressed");
+        // console.log(history);
+        if (prevType === "op"){
+          history.pop().pop().push({ type: currType, value: currValue });
+          console.log(history);
+          historyString = $history.text() === "0" ? "" : $history.text();
+          historyString += clicked;
+          $history.text(historyString);
+        } else {
+          historyString = history[history.length].value;
+        }
+        break;
+      case "dec":
+        console.log("dec (" + currValue + ") pressed");
+        break;
+      case "num":
+        console.log("num " + currValue + " pressed");
+        for (let i = history.length; i > 0; i++){
+          if (history[i].type === "num"){
+            currAnswer = history[i].value + currAnswer;
+          }
+          break;
+        }
+        break;
     }
+    console.log(histString, currAnswer);
   }
-})
+});
