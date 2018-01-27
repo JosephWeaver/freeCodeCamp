@@ -65,7 +65,7 @@
 - 43 ✅ [No repeats please](https://www.freecodecamp.org/challenges/no-repeats-please)
 - 44 ✅ [Make a Person](https://www.freecodecamp.org/challenges/make-a-person)
 - 45 ✅ [Map the Debris](https://www.freecodecamp.org/challenges/map-the-debris)
-- 46 ❌ Pairwise
+- 46 ✅ [Pairwise](https://www.freecodecamp.org/challenges/pairwise)
 
 ### Advanced Front-End Development Projects
 
