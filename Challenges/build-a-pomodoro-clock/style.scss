@@ -1,0 +1,56 @@
+// https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css
+// https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js
+// https://fonts.googleapis.com/css?family=Open+Sans:400,600
+
+body {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-family: "Open Sans", sans-serif;
+  height: 100vh;
+  justify-content: center;
+  min-width: 320px;
+  overflow-x: hidden;
+}
+.pomodoro-clock {
+  align-content: center;
+  background: url(http://joeweaver.me/codepenassets/freecodecamp/challenges/build-a-pomodoro-clock/images/tide-bg.png) no-repeat center center;
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  height: 512px;
+  justify-content: space-around;
+  max-height: 100%;
+  max-width: 100%;
+  width: 512px;
+}
+.timer {
+  text-align: center;
+  .session {
+    color: #FF8B8A;
+    font-size: 43px;
+    @media all and (max-width: 512px){
+      font-size: 8.4vw;
+    }
+  }
+  .time {
+    color: #FF6292;
+    font-weight: 600;
+    @media all and (max-width: 512px){
+      font-size: 2.8vw;
+    }
+    span {
+      font-weight: bold;
+    }
+  }
+}
+input[type=number]{
+  background-color: lighten(#FFB3CE, 10);
+  border: 0;
+  border-bottom: 2px solid #FF6292;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 7px;
+  text-align: center;
+  width: 43px;
+}
