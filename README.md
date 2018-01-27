@@ -63,8 +63,8 @@
 - 41 ✅ [Exact Change](https://www.freecodecamp.org/challenges/exact-change)
 - 42 ✅ [Inventory Update](https://www.freecodecamp.org/challenges/inventory-update)
 - 43 ✅ [No repeats please](https://www.freecodecamp.org/challenges/no-repeats-please)
-- 44 🚧 [Make a Person](https://www.freecodecamp.org/challenges/make-a-person)
-- 45 ❌ Map the Debris
+- 44 ✅ [Make a Person](https://www.freecodecamp.org/challenges/make-a-person)
+- 45 🚧 Map the Debris
 - 46 ❌ Pairwise
 
 ### Advanced Front-End Development Projects
