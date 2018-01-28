@@ -2,77 +2,146 @@
 // https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js
 // https://fonts.googleapis.com/css?family=Open+Sans:400,600
 
+* {
+  box-sizing: border-box;
+  outline: none;
+  user-select: none;
+}
 body {
   align-items: center;
+  background: radial-gradient(ellipse at center, rgba(255,179,206,0) 0%, rgba(255,180,199,0) 41%, rgba(255,181,189,0.43) 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   display: flex;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffb3ce', endColorstr='#6effb5bd', GradientType=1);
   flex-direction: column;
   font-family: "Open Sans", sans-serif;
   height: 100vh;
-  justify-content: center;
-  min-width: 320px;
+  justify-content: flex-start;
   overflow-x: hidden;
+  transition: background-color .2s;
 }
 .pomodoro {
-  height: 512px;
-    justify-content: space-around;
-    width: 512px;
+  margin: 43px;
+  width: 512px;
   .clock {
-    align-content: center;
-    background: url(http://joeweaver.me/codepenassets/freecodecamp/challenges/build-a-pomodoro-clock/images/tide-bg.png) no-repeat center center;
+    background: url(http://joeweaver.me/codepenassets/freecodecamp/challenges/build-a-pomodoro-clock/images/tide-bg3.png) no-repeat center center;
     background-size: contain;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
+    margin-bottom: -6.25vw;
     padding: 40vw 0;
-    width: 100%;
+    @media all and (min-width: 512px){
+      margin-bottom: -32px;
+      padding: 204px 0;
+    }
+    @media all and (max-width: 320px){
+      margin-bottom: -20px;
+      padding: 128px 0;
+    }
     .timer {
+      $hover: 5;
       background: -webkit-linear-gradient(#FF8B8A, #FF6292);
+      cursor: pointer;
       text-align: center;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      .session {
+      &:hover {
+        background: -webkit-linear-gradient(lighten(#FF8B8A, $hover), lighten(#FF6292, $hover));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .title {
         color: #FF8B8A;
         font-size: 28px;
-        letter-spacing: -1px;
-        margin-top: 3px;
+        line-height: 28px;
+        margin-top: 5px;
+        &:hover {
+          color: lighten(#FF8B8A, $hover);
+        }
         @media all and (max-width: 512px){
           font-size: 5.5vw;
+          line-height: 5.5vw;
         }
         @media all and (max-width: 320px){
           font-size: 18px;
+          line-height: 18px;
         }
       }
-      .time {
+      .countdown {
         color: #FF6292;
+        display: flex;
         font-size: 43px;
         font-weight: 600;
+        line-height: 43px;
+        &:hover .countdown {
+          color: lighten(#FF6292, $hover);
+        }
         @media all and (max-width: 512px){
           font-size: 8.4vw;
+          line-height: 8.4vw;
         }
         @media all and (max-width: 343px){
           font-size: 28px;
-          letter-spacing: 0;
+          line-height: 28px;
+        }
+        .minutes::after {
+          content: ":";
         }
       }
     }
   }
-}
-.changers {
-  background: -webkit-linear-gradient(#FF8B8A, #FF6292);
-  text-align: center;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-input[type=number]{
-  background-color: lighten(#FFB3CE, 10);
-  border: 0;
-  border-bottom: 2px solid #FF6292;
-  border-radius: 5px;
-  font-weight: bold;
-  margin: 5px;
-  padding: 7px;
-  text-align: center;
-  width: 43px;
-  -webkit-text-fill-color: #FF6292;
-
+  .options {
+    background: -webkit-linear-gradient(#FF8B8A, #FF6292);
+    color: #FF6292;
+    display: flex;
+    font-size: 28px;
+    font-weight: normal;
+    justify-content: center;
+    text-align: center;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    .fa-angle-double-up {
+      color: #FF7B8A;
+      cursor: pointer;
+    }
+    .fa-angle-double-down {
+      color: #FF6792;
+      cursor: pointer;
+    }
+    .session, .break {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    input[type=number]{
+      background-color: lighten(#FFB3CE, 10);
+      border: 0;
+      border-bottom: calc(3px + .28vw) solid #FF6292;
+      border-radius: 10px;
+      font: bold calc(21px + 1.43vw) "Open Sans", sans-serif;
+      margin: calc(5px + .43vw);
+      padding: calc(5px + .43vw);
+      text-align: center;
+      -webkit-text-fill-color: #FF6292;
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+      }
+      @media all and (min-width: 512px){
+        border-bottom: 4.43px solid #FF6292;
+        font: bold 28.43px "Open Sans", sans-serif;
+        margin: 7.2px;
+        padding: 7.2px;
+      }
+      @media all and (max-width: 320px){
+        border-bottom: 4px solid #FF6292;
+        font: bold 25.5px "Open Sans", sans-serif;
+        margin: 6.4px;
+        padding: 6.4px;
+      }
+    }
+  }
 }
