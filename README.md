@@ -70,6 +70,6 @@
 ### Advanced Front-End Development Projects
 
 - 07 🚧 [Build a JavaScript Calculator](https://codepen.io/JoeWeaver/full/jYoEdX)
-- 08 ❌ Build a Pomodoro Clock
+- 08 🚧 [Build a Pomodoro Clock](https://codepen.io/JoeWeaver/full/bLbbxK/)
 - 09 ❌ Build a Tic-Tac-Toe Game
 - 10 ❌ Build a Simon Game
