@@ -12,45 +12,67 @@ body {
   min-width: 320px;
   overflow-x: hidden;
 }
-.pomodoro-clock {
-  align-content: center;
-  background: url(http://joeweaver.me/codepenassets/freecodecamp/challenges/build-a-pomodoro-clock/images/tide-bg.png) no-repeat center center;
-  background-size: contain;
-  display: flex;
-  flex-direction: column;
+.pomodoro {
   height: 512px;
-  justify-content: space-around;
-  max-height: 100%;
-  max-width: 100%;
-  width: 512px;
+    justify-content: space-around;
+    width: 512px;
+  .clock {
+    align-content: center;
+    background: url(http://joeweaver.me/codepenassets/freecodecamp/challenges/build-a-pomodoro-clock/images/tide-bg.png) no-repeat center center;
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 40vw 0;
+    width: 100%;
+    .timer {
+      background: -webkit-linear-gradient(#FF8B8A, #FF6292);
+      text-align: center;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      .session {
+        color: #FF8B8A;
+        font-size: 28px;
+        letter-spacing: -1px;
+        margin-top: 3px;
+        @media all and (max-width: 512px){
+          font-size: 5.5vw;
+        }
+        @media all and (max-width: 320px){
+          font-size: 18px;
+        }
+      }
+      .time {
+        color: #FF6292;
+        font-size: 43px;
+        font-weight: 600;
+        @media all and (max-width: 512px){
+          font-size: 8.4vw;
+        }
+        @media all and (max-width: 343px){
+          font-size: 28px;
+          letter-spacing: 0;
+        }
+      }
+    }
+  }
 }
-.timer {
+.changers {
+  background: -webkit-linear-gradient(#FF8B8A, #FF6292);
   text-align: center;
-  .session {
-    color: #FF8B8A;
-    font-size: 43px;
-    @media all and (max-width: 512px){
-      font-size: 8.4vw;
-    }
-  }
-  .time {
-    color: #FF6292;
-    font-weight: 600;
-    @media all and (max-width: 512px){
-      font-size: 2.8vw;
-    }
-    span {
-      font-weight: bold;
-    }
-  }
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 input[type=number]{
   background-color: lighten(#FFB3CE, 10);
   border: 0;
   border-bottom: 2px solid #FF6292;
   border-radius: 5px;
+  font-weight: bold;
   margin: 5px;
   padding: 7px;
   text-align: center;
   width: 43px;
+  -webkit-text-fill-color: #FF6292;
+
 }
