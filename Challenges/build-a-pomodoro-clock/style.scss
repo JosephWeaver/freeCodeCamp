@@ -25,7 +25,7 @@ body {
   margin: 43px;
   width: 512px;
   .clock {
-    background: url(http://joeweaver.me/codepenassets/freecodecamp/challenges/build-a-pomodoro-clock/images/tide-bg3.png) no-repeat center center;
+    background: url(http://joeweaver.me/codepenassets/freecodecamp/challenges/build-a-pomodoro-clock/bg.png) no-repeat center center;
     background-size: contain;
     display: flex;
     justify-content: center;
@@ -122,8 +122,8 @@ body {
       border-bottom: calc(3px + .28vw) solid #FF6292;
       border-radius: 10px;
       font: bold calc(21px + 1.43vw) "Open Sans", sans-serif;
-      margin: calc(5px + .43vw);
-      padding: calc(5px + .43vw);
+      margin: calc(5px + .43vw) calc(3px + .43vw);
+      padding: calc(3px + .43vw) calc(5px + .43vw);
       text-align: center;
       -webkit-text-fill-color: #FF6292;
       &::-webkit-inner-spin-button,
@@ -133,14 +133,14 @@ body {
       @media all and (min-width: 512px){
         border-bottom: 4.43px solid #FF6292;
         font: bold 28.43px "Open Sans", sans-serif;
-        margin: 7.2px;
-        padding: 7.2px;
+        margin: 7.2px 5.2px;
+        padding: 5.2px 7.2px;
       }
       @media all and (max-width: 320px){
         border-bottom: 4px solid #FF6292;
         font: bold 25.5px "Open Sans", sans-serif;
-        margin: 6.4px;
-        padding: 6.4px;
+        margin: 6.4px 4.4px;
+        padding: 4.4px 6.4px;
       }
     }
   }
