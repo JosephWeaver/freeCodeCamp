@@ -3,19 +3,73 @@
 
 $(()=>{
 
-  // make font colors the right size on resize (smaller than they are now)
+  console.clear();
 
-  // make the inputs have gradient backgrounds
+  let $minutes = $("#minutes"),
+      $seconds = $("#seconds"),
+      $sessionInput = $("#sessionInput"),
+      $incrSession = $("#incrSession"),
+      $decrSession = $("#decrSession"),
+      $breakInput = $("#breakInput"),
+      $incrBreak = $("#incrBreak"),
+      $decrBreak = $("#decrBreak"),
+      sessionMax = 60,
+      sessionMin = 5,
+      breakMax = 10,
+      breakMin = 1,
+      currMinutes,
+      currSeconds,
+      fullMinutes,
+      fullSeconds,
+      isBreakTime,
+      isCountdown;
 
-  // make the "session" and "39 minutes remain" have gradient text!!
+  // gray out controls when counting down
+  // gray out countdown when not active
 
-  // get https://codepen.io/JoeWeaver/pen/MQgWva code to draw a pink circle around session
+  init();
 
-  // every second, pulse the window with 4 corner-originating gradient backgrounds
-  // http://www.colorzilla.com/gradient-editor/#ffb3ce+0,ffb3ce+100&1+0,0+28
-
-  // make input text color the same as the bottom border
-
-  // lots of other stuff
+  function init(){
+    $incrSession.click(()=>incrSession());
+    $decrSession.click(()=>decrSession());
+    $incrBreak.click(()=>incrBreak());
+    $decrBreak.click(()=>decrBreak());
+    $sessionInput.change(e=>updateSession(e.target.value));
+    $breakInput.change(e=>updateBreak(e.target.value));
+  }
+  function incrSession(){
+    let num = Number($sessionInput.val());
+    num = num + (num === sessionMax ? 0 : 1);
+    updateSession(num);
+    updateMinutes(num);
+  }
+  function decrSession(){
+    let num = Number($sessionInput.val());
+    num = num - (num === sessionMin ? 0 : 1);
+    updateSession(num);
+    updateMinutes(num);
+  }
+  function incrBreak(){
+    let num = Number($breakInput.val());
+    num = num + (num === breakMax ? 0 : 1);
+    updateBreak(num);
+  }
+  function decrBreak(){
+    let num = Number($breakInput.val());
+    num = num - (num === breakMin ? 0 : 1);
+    updateBreak(num);
+  }
+  function updateMinutes(num){
+    $minutes.text(num);
+  }
+  function updateSeconds(num){
+    $seconds.text(num);
+  }
+  function updateSession(num){
+    $sessionInput.val(num < sessionMin ? sessionMin : num > sessionMax ? sessionMax : num).blur();
+  }
+  function updateBreak(num){
+    $breakInput.val(num < breakMin ? breakMin : num > breakMax ? breakMax : num).blur();
+  }
 
 });

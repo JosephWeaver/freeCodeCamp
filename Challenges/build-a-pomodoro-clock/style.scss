@@ -9,7 +9,7 @@
 }
 body {
   align-items: center;
-  background: radial-gradient(ellipse at center, rgba(255,179,206,0) 0%, rgba(255,180,199,0) 41%, rgba(255,181,189,0.43) 100%);
+  background: radial-gradient(ellipse at center, rgba(255,179,206,0) 0%, rgba(255,180,199,0) 43%, rgba(255,181,189,0.43) 100%);
   background-attachment: fixed;
   background-repeat: no-repeat;
   display: flex;
@@ -41,13 +41,15 @@ body {
     }
     .timer {
       $hover: 5;
-      background: -webkit-linear-gradient(#FF8B8A, #FF6292);
+      align-items: center;
+      background: linear-gradient(#FF8B8A, #FF6292);
       cursor: pointer;
-      text-align: center;
+      display: flex;
+      flex-direction: column;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       &:hover {
-        background: -webkit-linear-gradient(lighten(#FF8B8A, $hover), lighten(#FF6292, $hover));
+        background: linear-gradient(darken(#FF8B8A, $hover), darken(#FF6292, $hover));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
@@ -85,14 +87,14 @@ body {
           font-size: 28px;
           line-height: 28px;
         }
-        .minutes::after {
+        #minutes::after {
           content: ":";
         }
       }
     }
   }
   .options {
-    background: -webkit-linear-gradient(#FF8B8A, #FF6292);
+    background: linear-gradient(#FF8B8A, #FF6292);
     color: #FF6292;
     display: flex;
     font-size: 28px;
@@ -117,7 +119,7 @@ body {
       -webkit-text-fill-color: transparent;
     }
     input[type=number]{
-      background-color: lighten(#FFB3CE, 10);
+      background: linear-gradient(lighten(#FF8B8A, 20), lighten(#FF6292, 22));
       border: 0;
       border-bottom: calc(3px + .28vw) solid #FF6292;
       border-radius: 10px;

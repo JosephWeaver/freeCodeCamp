@@ -8,21 +8,21 @@ Check it out at: https://tide.moreless.io/en/
     <div class="timer">
       <div class="title">Session</div>
       <div class="countdown">
-        <span class="minutes">28</span>
-        <span class="seconds">43</span>
+        <span id="minutes">28</span>
+        <span id="seconds">43</span>
       </div>
     </div>
   </div>
   <div class="options">
     <div class="session">
-      <i class="fas fa-angle-double-up"></i>
-      <input type="number" value="25" max="60" min="10">
-      <i class="fas fa-angle-double-down"></i>
+      <i id="incrSession" class="fas fa-angle-double-up"></i>
+      <input id="sessionInput" type="number" value="25" max="60" min="5">
+      <i id="decrSession" class="fas fa-angle-double-down"></i>
     </div>
     <div class="break">
-      <i class="fas fa-angle-double-up"></i>
-      <input type="number" value="5" max="10" min="3">
-      <i class="fas fa-angle-double-down"></i>
+      <i id="incrBreak" class="fas fa-angle-double-up"></i>
+      <input id="breakInput" type="number" value="5" max="10" min="1">
+      <i id="decrBreak" class="fas fa-angle-double-down"></i>
     </div>
   </div>
 </div>
