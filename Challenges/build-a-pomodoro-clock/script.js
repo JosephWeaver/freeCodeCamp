@@ -2,7 +2,7 @@
 
 $(()=>{
 
-  // make font colors the right size upon resize (smaller than they are now)
+  // make font colors the right size on resize (smaller than they are now)
 
   // make the inputs have gradient backgrounds
 
