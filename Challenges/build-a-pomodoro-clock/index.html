@@ -6,14 +6,23 @@ Check it out at: https://tide.moreless.io/en/
 <div class="pomodoro">
   <div class="clock">
     <div class="timer">
-      <div class="session">Session:</div>
-      <div class="time">
-        <span class="minutes">39</span>:<span class="seconds">39</span>
+      <div class="title">Session</div>
+      <div class="countdown">
+        <span class="minutes">28</span>
+        <span class="seconds">43</span>
       </div>
     </div>
   </div>
-  <div class="changers">
-    <div class="session-set">Session length: <input type="number" value="25"> min</div>
-    <div class="break-set">Break length: <input type="number" value="5"> min</div>
+  <div class="options">
+    <div class="session">
+      <i class="fas fa-angle-double-up"></i>
+      <input type="number" value="25" max="60" min="10">
+      <i class="fas fa-angle-double-down"></i>
+    </div>
+    <div class="break">
+      <i class="fas fa-angle-double-up"></i>
+      <input type="number" value="5" max="10" min="3">
+      <i class="fas fa-angle-double-down"></i>
+    </div>
   </div>
 </div>
