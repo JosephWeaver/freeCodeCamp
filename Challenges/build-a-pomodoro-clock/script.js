@@ -18,6 +18,7 @@ $(()=>{
       $start = $("#start"),
       $pause = $("#pause"),
       $reset = $("#reset"),
+      currentSession,
       sessionMax = 60,
       sessionLength = 30,
       sessionMin = 5,
@@ -48,9 +49,15 @@ $(()=>{
     });
     $pause.click(()=>{
       // pauseSession(sessionLength);
-      $clock.addClass("inactive");
+      // $clock.addClass("inactive");
       $start.show(); $pause.hide(); $reset.show();
-      $options.removeClass("inactive");
+      // $options.removeClass("inactive");
+    });
+    $reset.click(()=>{
+      clearInterval(currentSession);
+      // $clock.removeClass("inactive");
+      $start.show(); $pause.hide(); $reset.hide();
+      // $options.addClass("inactive");
     });
   }
   function incrSession(){
@@ -83,7 +90,7 @@ $(()=>{
   // startSession(sessionLength);
   function startSession(sessionLength){
     let deadline = new Date().getTime() + sessionLength * 60000,
-        session = setInterval(()=>{
+        currentSession = setInterval(()=>{
           let now = new Date().getTime(),
               timeLeft = deadline - now,
               minutesLeft = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60)),
@@ -92,10 +99,14 @@ $(()=>{
           document.getElementById("minutes").innerHTML = minutesLeft;
           document.getElementById("seconds").innerHTML = secondsLeft;
           if (timeLeft < 0) {
-            clearInterval(session);
-            document.getElementById("demo").innerHTML = "EXPIRED";
+            clearInterval(currentSession);
+            document.getElementById("minutes").innerHTML = "EXPIRED";
           }
         }, 1000);
+  }
+  function resetSession(){
+    clearInterval(currentSession);
+    startSession(sessionLength);
   }
   function updateMinutes(num){
     $minutes.text(num);
