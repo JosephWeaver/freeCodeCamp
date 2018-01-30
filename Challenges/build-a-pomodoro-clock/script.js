@@ -5,17 +5,24 @@ $(()=>{
 
   console.clear();
 
-  let $minutes = $("#minutes"),
-      $seconds = $("#seconds"),
-      $sessionInput = $("#sessionInput"),
+  let $sessionInput = $("#sessionInput"),
       $incrSession = $("#incrSession"),
       $decrSession = $("#decrSession"),
       $breakInput = $("#breakInput"),
       $incrBreak = $("#incrBreak"),
       $decrBreak = $("#decrBreak"),
+      $options = $(".options"),
+      $minutes = $("#minutes"),
+      $seconds = $("#seconds"),
+      $clock = $("#clock"),
+      $start = $("#start"),
+      $pause = $("#pause"),
+      $reset = $("#reset"),
       sessionMax = 60,
+      sessionLength = 30,
       sessionMin = 5,
       breakMax = 10,
+      breakLength = 5,
       breakMin = 1,
       currMinutes,
       currSeconds,
@@ -24,9 +31,6 @@ $(()=>{
       isBreakTime,
       isCountdown;
 
-  // gray out controls when counting down
-  // gray out countdown when not active
-
   init();
 
   function init(){
@@ -34,20 +38,34 @@ $(()=>{
     $decrSession.click(()=>decrSession());
     $incrBreak.click(()=>incrBreak());
     $decrBreak.click(()=>decrBreak());
-    $sessionInput.change(e=>updateSession(e.target.value));
-    $breakInput.change(e=>updateBreak(e.target.value));
+    $sessionInput.on("change", e=>updateSession(e.target.value));
+    $breakInput.on("change", e=>updateBreak(e.target.value));
+    $start.click(()=>{
+      startSession(sessionLength);
+      $clock.removeClass("inactive");
+      $start.hide(); $pause.show();
+      $options.addClass("inactive");
+    });
+    $pause.click(()=>{
+      // pauseSession(sessionLength);
+      $clock.addClass("inactive");
+      $start.show(); $pause.hide();
+      $options.removeClass("inactive");
+    });
   }
   function incrSession(){
     let num = Number($sessionInput.val());
     num = num + (num === sessionMax ? 0 : 1);
     updateSession(num);
     updateMinutes(num);
+    updateSeconds("00");
   }
   function decrSession(){
     let num = Number($sessionInput.val());
     num = num - (num === sessionMin ? 0 : 1);
     updateSession(num);
     updateMinutes(num);
+    updateSeconds("00");
   }
   function incrBreak(){
     let num = Number($breakInput.val());
@@ -58,6 +76,24 @@ $(()=>{
     let num = Number($breakInput.val());
     num = num - (num === breakMin ? 0 : 1);
     updateBreak(num);
+  }
+
+  // startSession(sessionLength);
+  function startSession(sessionLength){
+    let deadline = new Date().getTime() + sessionLength * 60000,
+        session = setInterval(()=>{
+          let now = new Date().getTime(),
+              timeLeft = deadline - now,
+              minutesLeft = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60)),
+              secondsLeft = Math.floor((timeLeft % (1000 * 60)) / 1000);
+          // console.log(minutesLeft, secondsLeft);
+          document.getElementById("minutes").innerHTML = minutesLeft;
+          document.getElementById("seconds").innerHTML = secondsLeft;
+          if (timeLeft < 0) {
+            clearInterval(session);
+            document.getElementById("demo").innerHTML = "EXPIRED";
+          }
+        }, 1000);
   }
   function updateMinutes(num){
     $minutes.text(num);
