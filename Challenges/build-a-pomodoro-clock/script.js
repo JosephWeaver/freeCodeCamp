@@ -43,19 +43,20 @@ $(()=>{
     $start.click(()=>{
       startSession(sessionLength);
       $clock.removeClass("inactive");
-      $start.hide(); $pause.show();
+      $start.hide(); $pause.show(); $reset.hide();
       $options.addClass("inactive");
     });
     $pause.click(()=>{
       // pauseSession(sessionLength);
       $clock.addClass("inactive");
-      $start.show(); $pause.hide();
+      $start.show(); $pause.hide(); $reset.show();
       $options.removeClass("inactive");
     });
   }
   function incrSession(){
     let num = Number($sessionInput.val());
     num = num + (num === sessionMax ? 0 : 1);
+    sessionLength = num;
     updateSession(num);
     updateMinutes(num);
     updateSeconds("00");
@@ -63,6 +64,7 @@ $(()=>{
   function decrSession(){
     let num = Number($sessionInput.val());
     num = num - (num === sessionMin ? 0 : 1);
+    sessionLength = num;
     updateSession(num);
     updateMinutes(num);
     updateSeconds("00");
