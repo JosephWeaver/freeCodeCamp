@@ -17,14 +17,21 @@ body {
   flex-direction: column;
   font-family: "Open Sans", sans-serif;
   height: 100vh;
-  justify-content: flex-start;
+  justify-content: center;
+  min-width: 184px;
   overflow-x: hidden;
   transition: background-color .2s;
 }
 .pomodoro {
-  margin: 43px;
-  width: 512px;
-  .clock {
+  margin-bottom: 28px;
+  max-width: 512px;
+  width: 100%;
+  #clock, .options {
+    &.inactive {
+      opacity: .43;
+    }
+  }
+  #clock {
     background: url(http://joeweaver.me/codepenassets/freecodecamp/challenges/build-a-pomodoro-clock/bg.png) no-repeat center center;
     background-size: contain;
     display: flex;
@@ -35,60 +42,105 @@ body {
       margin-bottom: -32px;
       padding: 204px 0;
     }
-    @media all and (max-width: 320px){
+    @media all and (max-width: 184px){
       margin-bottom: -20px;
-      padding: 128px 0;
+      margin-bottom: -11.5px;
+      padding: 73px 0;
     }
     .timer {
       $hover: 5;
       align-items: center;
-      background: linear-gradient(#FF8B8A, #FF6292);
+      // background: linear-gradient(#FF8B8A, #FF6292);
       cursor: pointer;
       display: flex;
       flex-direction: column;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      // -webkit-background-clip: text;
+      // -webkit-text-fill-color: transparent;
       &:hover {
-        background: linear-gradient(darken(#FF8B8A, $hover), darken(#FF6292, $hover));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        // background: linear-gradient(darken(#FF8B8A, $hover), darken(#FF6292, $hover));
+        // -webkit-background-clip: text;
+        // -webkit-text-fill-color: transparent;
       }
       .title {
         color: #FF8B8A;
         font-size: 28px;
         line-height: 28px;
         margin-top: 5px;
-        &:hover {
-          color: lighten(#FF8B8A, $hover);
-        }
         @media all and (max-width: 512px){
           font-size: 5.5vw;
           line-height: 5.5vw;
         }
-        @media all and (max-width: 320px){
-          font-size: 18px;
-          line-height: 18px;
+        @media all and (max-width: 184px){
+          font-size: 10px;
+          line-height: 10px;
         }
       }
       .countdown {
-        color: #FF6292;
+        color: #ff778d;
         display: flex;
         font-size: 43px;
         font-weight: 600;
         line-height: 43px;
-        &:hover .countdown {
-          color: lighten(#FF6292, $hover);
-        }
         @media all and (max-width: 512px){
           font-size: 8.4vw;
           line-height: 8.4vw;
         }
-        @media all and (max-width: 343px){
-          font-size: 28px;
-          line-height: 28px;
+        @media all and (max-width: 184px){
+          font-size: 15.4px;
+          line-height: 15.4px;
         }
         #minutes::after {
           content: ":";
+        }
+      }
+      .controls {
+        color: #FF6292;
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 15px;
+        margin-top: 5px;
+        text-transform: uppercase;
+        .fas, .svg-inline--fa {
+          position: relative;
+        }
+        #start {
+          .fa-play {
+            font-size: 77%;
+            top: -1px;
+          }
+        }
+        #pause {
+          display: none;
+            .fa-pause {
+              font-size: 90%;
+              top: -1px;
+              transform: scaleX(.84);
+            }
+          }
+        #reset {
+          display: none;
+          .fa-sync-alt {
+              font-size: 84%;
+          }
+        }
+        &:hover {
+          color: darken(#FF6292, $hover);
+        }
+        @media all and (max-width: 512px){
+          font-size: 5.5vw;
+          line-height: 5.5vw;
+          #start, #pause, #reset {
+            font-size: 3vw;
+            line-height: 3vw;
+          }
+        }
+        @media all and (max-width: 184px){
+          font-size: 10px;
+          line-height: 10px;
+          #start, #pause, #reset {
+            font-size: 5.5px;
+            line-height: 5.5px;
+          }
         }
       }
     }
@@ -138,11 +190,11 @@ body {
         margin: 7.2px 5.2px;
         padding: 5.2px 7.2px;
       }
-      @media all and (max-width: 320px){
-        border-bottom: 4px solid #FF6292;
-        font: bold 25.5px "Open Sans", sans-serif;
-        margin: 6.4px 4.4px;
-        padding: 4.4px 6.4px;
+      @media all and (max-width: 184px){
+        border-bottom: 3.5px solid #FF6292;
+        font: bold 23.6px "Open Sans", sans-serif;
+        margin: 5.7px 3.7px;
+        padding: 3.7px 5.7px;
       }
     }
   }
