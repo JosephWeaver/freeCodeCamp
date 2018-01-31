@@ -30,7 +30,8 @@ $(()=>{
       // fullMinutes,
       // fullSeconds,
       // isBreakTime,
-      isCountdown = false;
+      sessionCountingDown = false,
+      breakCountingDown = false;
 
   init();
 
@@ -42,14 +43,14 @@ $(()=>{
     // $sessionInput.on("change", e=>updateSession(e.target.value));
     // $breakInput.on("change", e=>updateBreak(e.target.value));
     $start.click(()=>{
-      isCountdown = true;
+      sessionCountingDown = true;
       startSession(sessionLength);
       $start.hide(); $pause.show(); $reset.hide();
       // $clock.removeClass("inactive");
       // $options.addClass("inactive");
     });
     $pause.click(()=>{
-      isCountdown = false;
+      sessionCountingDown = false;
       $start.show(); $pause.hide(); $reset.show();
       // pauseSession(sessionLength);
       // $clock.addClass("inactive");
@@ -98,8 +99,8 @@ $(()=>{
               minutesLeft = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60)),
               secondsLeft = Math.floor((timeLeft % (1000 * 60)) / 1000);
           // console.log(minutesLeft, secondsLeft);
-          if (isCountdown === true){
-            console.log(isCountdown);
+          if (sessionCountingDown === true){
+            console.log(sessionCountingDown);
             document.getElementById("minutes").innerHTML = minutesLeft < 10 ? + "0" + minutesLeft : minutesLeft;
             document.getElementById("seconds").innerHTML = secondsLeft < 10 ? + "0" + secondsLeft : secondsLeft;
           }
