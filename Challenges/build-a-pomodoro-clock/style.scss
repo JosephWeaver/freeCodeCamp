@@ -104,14 +104,11 @@ body {
         .fas, .svg-inline--fa {
           position: relative;
         }
-        #start, #unpause {
+        #start {
           .fa-play {
             font-size: 77%;
             top: -1px;
           }
-        }
-        #unpause {
-          display: none;
         }
         #pause {
           display: none;
