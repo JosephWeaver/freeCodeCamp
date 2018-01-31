@@ -6,57 +6,59 @@ $(()=>{
   console.clear();
 
   let $sessionInput = $("#sessionInput"),
-      $incrSession = $("#incrSession"),
-      $decrSession = $("#decrSession"),
-      $breakInput = $("#breakInput"),
-      $incrBreak = $("#incrBreak"),
-      $decrBreak = $("#decrBreak"),
-      $options = $(".options"),
+      // $incrSession = $("#incrSession"),
+      // $decrSession = $("#decrSession"),
+      // $breakInput = $("#breakInput"),
+      // $incrBreak = $("#incrBreak"),
+      // $decrBreak = $("#decrBreak"),
+      // $options = $(".options"),
       $minutes = $("#minutes"),
       $seconds = $("#seconds"),
-      $clock = $("#clock"),
+      // $clock = $("#clock"),
       $start = $("#start"),
       $pause = $("#pause"),
       $reset = $("#reset"),
       currentSession,
-      sessionMax = 60,
+      // sessionMax = 60,
       sessionLength = 30,
-      sessionMin = 5,
-      breakMax = 10,
+      // sessionMin = 5,
+      // breakMax = 10,
       breakLength = 5,
-      breakMin = 1,
+      // breakMin = 1,
       currMinutes,
       currSeconds,
-      fullMinutes,
-      fullSeconds,
-      isBreakTime,
-      isCountdown;
+      // fullMinutes,
+      // fullSeconds,
+      // isBreakTime,
+      isCountdown = false;
 
   init();
 
   function init(){
-    $incrSession.click(()=>incrSession());
-    $decrSession.click(()=>decrSession());
-    $incrBreak.click(()=>incrBreak());
-    $decrBreak.click(()=>decrBreak());
-    $sessionInput.on("change", e=>updateSession(e.target.value));
-    $breakInput.on("change", e=>updateBreak(e.target.value));
+    // $incrSession.click(()=>incrSession());
+    // $decrSession.click(()=>decrSession());
+    // $incrBreak.click(()=>incrBreak());
+    // $decrBreak.click(()=>decrBreak());
+    // $sessionInput.on("change", e=>updateSession(e.target.value));
+    // $breakInput.on("change", e=>updateBreak(e.target.value));
     $start.click(()=>{
+      isCountdown = true;
       startSession(sessionLength);
-      $clock.removeClass("inactive");
       $start.hide(); $pause.show(); $reset.hide();
-      $options.addClass("inactive");
+      // $clock.removeClass("inactive");
+      // $options.addClass("inactive");
     });
     $pause.click(()=>{
+      isCountdown = false;
+      $start.show(); $pause.hide(); $reset.show();
       // pauseSession(sessionLength);
       // $clock.addClass("inactive");
-      $start.show(); $pause.hide(); $reset.show();
       // $options.removeClass("inactive");
     });
     $reset.click(()=>{
       clearInterval(currentSession);
-      // $clock.removeClass("inactive");
       $start.show(); $pause.hide(); $reset.hide();
+      // $clock.removeClass("inactive");
       // $options.addClass("inactive");
     });
   }
@@ -96,8 +98,11 @@ $(()=>{
               minutesLeft = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60)),
               secondsLeft = Math.floor((timeLeft % (1000 * 60)) / 1000);
           // console.log(minutesLeft, secondsLeft);
-          document.getElementById("minutes").innerHTML = minutesLeft;
-          document.getElementById("seconds").innerHTML = secondsLeft;
+          if (isCountdown === true){
+            console.log(isCountdown);
+            document.getElementById("minutes").innerHTML = minutesLeft < 10 ? + "0" + minutesLeft : minutesLeft;
+            document.getElementById("seconds").innerHTML = secondsLeft < 10 ? + "0" + secondsLeft : secondsLeft;
+          }
           if (timeLeft < 0) {
             clearInterval(currentSession);
             document.getElementById("minutes").innerHTML = "EXPIRED";
