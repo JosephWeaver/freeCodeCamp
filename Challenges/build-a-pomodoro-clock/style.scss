@@ -99,15 +99,19 @@ body {
         font-weight: 700;
         line-height: 15px;
         margin-top: 5px;
+        text-align: center;
         text-transform: uppercase;
         .fas, .svg-inline--fa {
           position: relative;
         }
-        #start {
+        #start, #unpause {
           .fa-play {
             font-size: 77%;
             top: -1px;
           }
+        }
+        #unpause {
+          display: none;
         }
         #pause {
           display: none;
