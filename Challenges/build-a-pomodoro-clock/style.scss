@@ -26,11 +26,6 @@ body {
   margin-bottom: 28px;
   max-width: 512px;
   width: 100%;
-  #clock, #options {
-    &.inactive {
-      opacity: .43;
-    }
-  }
   #clock {
     background: url(http://joeweaver.me/codepenassets/freecodecamp/challenges/build-a-pomodoro-clock/bg.png) no-repeat center center;
     background-size: contain;
@@ -65,7 +60,7 @@ body {
         color: #FF8B8A;
         font-size: 28px;
         line-height: 28px;
-        margin-top: 5px;
+        margin: 3px 0 4px;
         @media all and (max-width: 512px){
           font-size: 5.5vw;
           line-height: 5.5vw;
@@ -111,20 +106,29 @@ body {
           }
         }
         #pause {
-          display: none;
-            .fa-pause {
-              font-size: 90%;
-              top: -1px;
-              transform: scaleX(.84);
-            }
+          .fa-pause {
+            font-size: 90%;
+            top: -1px;
+            transform: scaleX(.84);
           }
+        }
         #reset {
-          display: none;
           margin-top: 3px;
           position: absolute;
           .fa-sync-alt {
-              font-size: 84%;
+            font-size: 84%;
           }
+        }
+        &.reset {
+          #pause { display: none; }
+          #reset { display: none; }
+        }
+        &.started {
+          #start { display: none; }
+          #reset { display: none; }
+        }
+        &.paused {
+          #pause { display: none; }
         }
         &:hover {
           color: darken(#FF6292, $hover);
