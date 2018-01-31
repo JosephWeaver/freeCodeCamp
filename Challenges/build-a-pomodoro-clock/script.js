@@ -89,26 +89,19 @@ $(()=>{
     num = num - (num === breakMin ? 0 : 1);
     updateBreak(num);
   }
-
-  // startSession(sessionLength);
   function startSession(sessionLength){
-    let deadline = new Date().getTime() + sessionLength * 60000,
-        currentSession = setInterval(()=>{
-          let now = new Date().getTime(),
-              timeLeft = deadline - now,
-              minutesLeft = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60)),
-              secondsLeft = Math.floor((timeLeft % (1000 * 60)) / 1000);
-          // console.log(minutesLeft, secondsLeft);
-          if (sessionCountingDown === true){
-            console.log(sessionCountingDown);
-            document.getElementById("minutes").innerHTML = minutesLeft < 10 ? + "0" + minutesLeft : minutesLeft;
-            document.getElementById("seconds").innerHTML = secondsLeft < 10 ? + "0" + secondsLeft : secondsLeft;
-          }
-          if (timeLeft < 0) {
-            clearInterval(currentSession);
-            document.getElementById("minutes").innerHTML = "EXPIRED";
-          }
-        }, 1000);
+    let timeLeft = sessionLength * 60;
+    currentSession = setInterval(()=>{
+      let minLeft = Math.floor(timeLeft / 60);
+      let secLeft = timeLeft - minLeft * 60;
+      document.getElementById("minutes").innerHTML = minLeft < 10 ? "0" + minLeft : minLeft;
+      document.getElementById("seconds").innerHTML = secLeft < 10 ? "0" + secLeft : secLeft;
+      console.log(minLeft, secLeft);
+      if (timeLeft < 1) {
+        clearInterval(currentSession);
+      }
+      timeLeft--;
+    }, 1);
   }
   function resetSession(){
     clearInterval(currentSession);
