@@ -162,6 +162,14 @@ body {
     text-align: center;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    .option-title {
+      color: #FF6792;
+      font-size: 14px;
+      font-weight: bold;
+      margin-top: 8px;
+      margin-bottom: -6px;
+      text-transform: uppercase;
+    }
     .fa-angle-double-up {
       color: #FF7B8A;
       cursor: pointer;
