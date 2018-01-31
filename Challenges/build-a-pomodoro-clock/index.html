@@ -22,14 +22,22 @@
     <div id="session">
       <i id="incrSession" class="fas fa-angle-double-up"></i>
       <span class="option-title">Session</span>
-      <input id="sessionInput" type="number" value="30" max="60" min="5" disabled>
+      <input id="sessionInput" type="number" value="30" max="60" min="5">
       <i id="decrSession" class="fas fa-angle-double-down"></i>
     </div>
     <div id="break">
       <i id="incrBreak" class="fas fa-angle-double-up"></i>
       <span class="option-title">Break</span>
-      <input id="breakInput" type="number" value="5" max="10" min="1" disabled>
+      <input id="breakInput" type="number" value="5" max="10" min="1">
       <i id="decrBreak" class="fas fa-angle-double-down"></i>
     </div>
   </div>
 </div>
+<div id="audio-selector">
+  <div id="forest" class="theme"><!--🌲 -->Forest</div>
+  <div id="ocean" class="theme"><!--🌊 -->Ocean</div>
+  <div id="rainy" class="selected theme"><!--🌧 -->Rainy</div>
+  <div id="peace" class="theme"><!--🧘 -->Peace</div>
+  <div id="cafe" class="theme"><!--☕ -->Caf&eacute;</div>
+</div>
+<audio loop autoplay="true" src="http://joeweaver.me/codepenassets/freecodecamp/challenges/build-a-pomodoro-clock/rain.mp3">

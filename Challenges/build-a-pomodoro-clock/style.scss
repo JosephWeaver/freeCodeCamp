@@ -23,7 +23,7 @@ body {
   transition: background-color .2s;
 }
 #pomodoro {
-  margin-bottom: 28px;
+  margin-bottom: 43px;
   max-width: 512px;
   width: 100%;
   #clock {
@@ -45,22 +45,14 @@ body {
     #timer {
       $hover: 5;
       align-items: center;
-      // background: linear-gradient(#FF8B8A, #FF6292);
       cursor: pointer;
       display: flex;
       flex-direction: column;
-      // -webkit-background-clip: text;
-      // -webkit-text-fill-color: transparent;
-      &:hover {
-        // background: linear-gradient(darken(#FF8B8A, $hover), darken(#FF6292, $hover));
-        // -webkit-background-clip: text;
-        // -webkit-text-fill-color: transparent;
-      }
       #title {
         color: #FF8B8A;
         font-size: 28px;
         line-height: 28px;
-        margin: 3px 0 4px;
+        margin: 3px 0 1px;
         @media all and (max-width: 512px){
           font-size: 5.5vw;
           line-height: 5.5vw;
@@ -89,7 +81,10 @@ body {
         }
       }
       #controls {
+        align-items: center;
+        display: flex;
         color: #FF6292;
+        flex-direction: column;
         font-size: 15px;
         font-weight: 700;
         line-height: 15px;
@@ -99,10 +94,16 @@ body {
         .fas, .svg-inline--fa {
           position: relative;
         }
+        #start, #pause, #reset {
+          white-space: nowrap;
+        }
         #start {
           .fa-play {
             font-size: 77%;
             top: -1px;
+          }
+          &:hover {
+            color: darken(#FF6292, $hover);
           }
         }
         #pause {
@@ -111,27 +112,43 @@ body {
             top: -1px;
             transform: scaleX(.84);
           }
+          &:hover {
+            color: darken(#FF6292, $hover);
+          }
         }
         #reset {
-          margin-top: 3px;
           position: absolute;
+          margin-top: 17.56px;
+          transition: margin-top .43s, opacity .43s;
           .fa-sync-alt {
             font-size: 84%;
           }
+          &:hover {
+            color: darken(#FF6292, $hover);
+          }
         }
         &.reset {
-          #pause { display: none; }
-          #reset { display: none; }
+          #pause {
+            display: none;
+          }
+          #reset {
+            margin-top: 0;
+            opacity: 0;
+            z-index: -1;
+          }
         }
         &.started {
-          #start { display: none; }
-          #reset { display: none; }
+          #start {
+            display: none;
+          }
+          #reset {
+            opacity: 0;
+          }
         }
         &.paused {
-          #pause { display: none; }
-        }
-        &:hover {
-          color: darken(#FF6292, $hover);
+          #pause {
+            display: none;
+          }
         }
         @media all and (max-width: 512px){
           font-size: 5.5vw;
@@ -139,6 +156,9 @@ body {
           #start, #pause, #reset {
             font-size: 3vw;
             line-height: 3vw;
+          }
+          #reset {
+            margin-top: 3.43vw;
           }
         }
         @media all and (max-width: 184px){
@@ -148,22 +168,23 @@ body {
             font-size: 5.5px;
             line-height: 5.5px;
           }
+          #reset {
+            margin-top: 6.31px;
+          }
         }
       }
     }
   }
   #options {
-    background: linear-gradient(#FF8B8A, #FF6292);
     color: #FF6292;
     display: flex;
     font-size: 28px;
     font-weight: normal;
     justify-content: center;
+    margin-bottom: 28px;
     text-align: center;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     .option-title {
-      color: #FF6792;
+      color: #FF6F8A;
       font-size: 14px;
       font-weight: bold;
       margin-top: 8px;
@@ -171,30 +192,28 @@ body {
       text-transform: uppercase;
     }
     .fa-angle-double-up {
-      color: #FF7B8A;
+      color: #FF848A;
       cursor: pointer;
     }
     .fa-angle-double-down {
-      color: #FF6792;
+      color: #FF5792;
       cursor: pointer;
     }
     #session, #break {
       align-items: center;
       display: flex;
       flex-direction: column;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
     }
     input[type=number]{
       background: linear-gradient(lighten(#FF8B8A, 20), lighten(#FF6292, 22));
       border: 0;
       border-bottom: calc(3px + .28vw) solid #FF6292;
       border-radius: 10px;
+      color: #FF6292;
       font: bold calc(21px + 1.43vw) "Open Sans", sans-serif;
       margin: calc(5px + .43vw) calc(3px + .43vw);
       padding: calc(3px + .43vw) calc(5px + .43vw);
       text-align: center;
-      -webkit-text-fill-color: #FF6292;
       &::-webkit-inner-spin-button,
       &::-webkit-outer-spin-button {
         -webkit-appearance: none;
@@ -211,6 +230,48 @@ body {
         margin: 5.7px 3.7px;
         padding: 3.7px 5.7px;
       }
+    }
+  }
+}
+audio {
+  display: none;
+}
+#audio-selector {
+  display: flex;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  .theme {
+    background: linear-gradient(to bottom, rgba(255,99,127,0.28) 0%, rgba(255,99,127,0.28) 1%, rgba(255,98,143,0) 84%, rgba(255,98,146,0) 100%);
+    color: darken(desaturate(#FF7B8A, 30), 10);
+    cursor: pointer;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#47ff637f', endColorstr='#00ff6292', GradientType=0);
+    flex: 1 1 25%;
+    font: 600 calc(9px + 1vw) "Open Sans", sans-serif;
+    margin: 0 2px 0 0;
+    padding: 2vw 1vw 5vw;
+    text-align: center;
+    transition: all .43s;
+    white-space: nowrap;
+    &:last-child {
+      margin-right: 0;
+    }
+    &:hover, &.selected {
+      background: linear-gradient(to bottom, rgba(255,99,127,0.43) 0%, rgba(255,99,127,0.43) 1%, rgba(255,98,143,0) 84%, rgba(255,98,146,0) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6eff637f', endColorstr='#00ff6292', GradientType=0);
+    }
+    @media all and (min-width: 512px){
+      font-size: 15.33px;
+      padding: 9px 5px 25px;
+    }
+  }
+  @media all and (max-width: 300px){
+    flex-wrap: wrap;
+    .theme {
+      flex: 1 0 100%;
+      font-size: 14px;
+      padding: 7px;
     }
   }
 }
