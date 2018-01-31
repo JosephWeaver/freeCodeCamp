@@ -6,30 +6,31 @@ $(()=>{
   console.clear();
 
   let $sessionInput = $("#sessionInput"),
-      // $incrSession = $("#incrSession"),
-      // $decrSession = $("#decrSession"),
-      // $breakInput = $("#breakInput"),
-      // $incrBreak = $("#incrBreak"),
-      // $decrBreak = $("#decrBreak"),
-      // $options = $(".options"),
+      $incrSession = $("#incrSession"),
+      $decrSession = $("#decrSession"),
+      $breakInput = $("#breakInput"),
+      $incrBreak = $("#incrBreak"),
+      $decrBreak = $("#decrBreak"),
+      $options = $("#options"),
       $minutes = $("#minutes"),
       $seconds = $("#seconds"),
-      // $clock = $("#clock"),
+      $clock = $("#clock"),
       $start = $("#start"),
       $pause = $("#pause"),
       $reset = $("#reset"),
       currentSession,
-      // sessionMax = 60,
+      currentBreak,
+      sessionMax = 60,
       sessionLength = 30,
-      // sessionMin = 5,
-      // breakMax = 10,
+      sessionMin = 5,
+      breakMax = 10,
       breakLength = 5,
-      // breakMin = 1,
+      breakMin = 1,
       currMinutes,
       currSeconds,
-      // fullMinutes,
-      // fullSeconds,
-      // isBreakTime,
+      fullMinutes,
+      fullSeconds,
+      isBreakTime,
       sessionCountingDown = false,
       breakCountingDown = false;
 
@@ -45,22 +46,25 @@ $(()=>{
     $start.click(()=>{
       sessionCountingDown = true;
       startSession(sessionLength);
-      $start.hide(); $pause.show(); $reset.hide();
-      // $clock.removeClass("inactive");
-      // $options.addClass("inactive");
+      $start.hide();
+      $unpause.show();
+      $pause.show();
+      $reset.hide();
+      $clock.removeClass("inactive");
+      $options.addClass("inactive");
     });
     $pause.click(()=>{
       sessionCountingDown = false;
       $start.show(); $pause.hide(); $reset.show();
-      // pauseSession(sessionLength);
-      // $clock.addClass("inactive");
-      // $options.removeClass("inactive");
+      pauseSession(sessionLength);
+      $clock.addClass("inactive");
+      $options.removeClass("inactive");
     });
     $reset.click(()=>{
       clearInterval(currentSession);
       $start.show(); $pause.hide(); $reset.hide();
-      // $clock.removeClass("inactive");
-      // $options.addClass("inactive");
+      $clock.removeClass("inactive");
+      $options.addClass("inactive");
     });
   }
   function incrSession(){
@@ -94,14 +98,34 @@ $(()=>{
     currentSession = setInterval(()=>{
       let minLeft = Math.floor(timeLeft / 60);
       let secLeft = timeLeft - minLeft * 60;
-      document.getElementById("minutes").innerHTML = minLeft < 10 ? "0" + minLeft : minLeft;
-      document.getElementById("seconds").innerHTML = secLeft < 10 ? "0" + secLeft : secLeft;
-      console.log(minLeft, secLeft);
       if (timeLeft < 1) {
+        startBreak(breakLength);
         clearInterval(currentSession);
       }
-      timeLeft--;
+      if (sessionCountingDown === true){
+        document.getElementById("minutes").innerHTML = minLeft < 10 ? "0" + minLeft : minLeft;
+        document.getElementById("seconds").innerHTML = secLeft < 10 ? "0" + secLeft : secLeft;
+        timeLeft--;
+      }
     }, 1);
+  }
+  function startBreak(breakLength){
+    let timeLeft = breakLength * 60;
+    currentBreak = setInterval(()=>{
+      let minLeft = Math.floor(timeLeft / 60);
+      let secLeft = timeLeft - minLeft * 60;
+      document.getElementById("minutes").innerHTML = minLeft < 10 ? "0" + minLeft : minLeft;
+      document.getElementById("seconds").innerHTML = secLeft < 10 ? "0" + secLeft : secLeft;
+      if (timeLeft < 1) {
+        startSession(sessionLength);
+        clearInterval(currentBreak);
+      }
+      if (sessionCountingDown === true){
+        document.getElementById("minutes").innerHTML = minLeft < 10 ? "0" + minLeft : minLeft;
+        document.getElementById("seconds").innerHTML = secLeft < 10 ? "0" + secLeft : secLeft;
+        timeLeft--;
+      }
+    }, 30);
   }
   function resetSession(){
     clearInterval(currentSession);
