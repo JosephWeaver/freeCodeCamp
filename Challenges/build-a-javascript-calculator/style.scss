@@ -1,6 +1,6 @@
 // https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css
 // https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js
-// https://fonts.googleapis.com/css?family=Orbitron
+// https://fonts.googleapis.com/css?family=Orbitron|Roboto
 
 $buttonColor: #282828;
 $textColor: #282828;
@@ -8,9 +8,10 @@ $redButtonColor: #cc2843;
 $calculatorColor: #cdcdcd;
 body {
   align-items: center;
-  background-color: #434343;
+  background: rgb(204, 204, 204) url(http://www.joeweaver.me/codepenassets/freecodecamp/challenges/build-a-javascript-calculator/desk.jpg) no-repeat center center;
+  background-size: cover;
   display: flex;
-  font-family: "Orbitron", sans-serif;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#848484', GradientType=1);
   height: 100vh;
   justify-content: center;
   min-width: 284px;
@@ -19,21 +20,38 @@ body {
 }
 .calculator {
   background: $calculatorColor;
-  border-radius: 7px;
-  box-shadow: 2.8px 2.8px 28px 2.8px rgba(0, 0, 0, .43),
+  border-radius: 12px;
+  box-shadow: 1px 1px 16px 2.8px rgba(0, 0, 0, .84),
     0px 0px 4.3px 2.8px rgba(0, 0, 0, .43) inset;
-  border: 1px solid rgba(0, 0, 0, .72);
+  border: 1px solid rgba(0, 0, 0, .69);
   flex-direction: column;
-  margin: 28px 28px 43px;
+  margin: 28px;
   padding: 12px;
-  width: 284px;
+  width: 243px;
   div {
     display: flex;
+    &#solar-power {
+      border-radius: 2px;
+      box-shadow: 0 0 2px black;
+      margin: 2px auto 8px;
+      overflow: hidden;
+      width: 43%;
+      .panel {
+        flex: 1;
+        height: 7px;
+        width: 20%;
+        background: #1E1C1D;
+        border-left: 1px solid #3E3C3D;
+        &:first-child {
+          border-left: 0;
+        }
+      }
+    }
     &#title {
-      font-size: 20px;
-      font-weight: bold;
-      letter-spacing: 1px;
-      padding: 4px;
+      font: bold 11px "Orbitron", sans-serif;
+      justify-content: center;
+      margin-bottom: 7px;
+      text-transform: uppercase;
     }
     &#screen {
       background: #B4BE84;
@@ -41,6 +59,7 @@ body {
         0 0 1px 1px rgba(0, 0, 0, .28) inset;
       border-radius: 4px;
       display: flex;
+      font-family: "Orbitron", sans-serif;
       flex-direction: column;
       margin: 2px 2px 5px;
       padding: 8px 12px;
@@ -79,18 +98,18 @@ body {
     color: #fff;
     cursor: pointer;
     flex: 1;
-    font: bold 28px "Orbitron", sans-serif;
+    font: 28px "Roboto", sans-serif;
     justify-content: center;
     margin: 2px;
     outline: none;
-    padding: 8px;
+    padding: 2px;
     text-align: center;
     text-shadow: 1px 1px 3px black;
     transition: border-bottom-width .05s, margin-top .05s;
     &[value="+"], &[value="-"], &[value="x"], &[value="/"], &[value="."]{
       background-color: lighten($buttonColor, 7);
-      color: #ddd;
-      padding: 6px 8px 10px;
+      color: #efefef;
+      padding: 1px 2px 3px;
       &:hover {
         background-color: lighten($buttonColor, 9);
       }
@@ -125,21 +144,18 @@ body {
       }
       &[value="ac"], &[value="ce"]{
         font-size: 25px;
-        letter-spacing: 1px;
       }
     }
     &.light {
       background-color: lighten($buttonColor, 43);
       box-shadow: 0 1px 6px 1px rgba(0, 0, 0, .28) inset;
-      // color: $buttonColor;
       font-size: 31px;
       padding: 5px 8px 11px;
-      // text-shadow: none;
       &:hover {
         background-color: lighten($buttonColor, 43 - 2.8);
       }
       &:not(.pressed){
-        border-bottom: 3px solid lighten($buttonColor, 7);
+        border-bottom: 3px solid lighten($buttonColor, 18);
       }
       &.pressed {
         border-bottom: 1px solid lighten($buttonColor, 7);
