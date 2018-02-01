@@ -31,14 +31,14 @@ body {
   div {
     display: flex;
     &#solar-power {
-      border-radius: 2px;
+      border-radius: 3px;
       box-shadow: 0 0 2px black;
       margin: 2px auto 8px;
       overflow: hidden;
       width: 43%;
       .panel {
         flex: 1;
-        height: 7px;
+        height: 12px;
         width: 20%;
         background: #1E1C1D;
         border-left: 1px solid #3E3C3D;
@@ -77,6 +77,22 @@ body {
         &#history {
           color: lighten($buttonColor, 16%);
           padding: 0 3px 1px;
+          .eq {
+            color: lighten($buttonColor, 16%);
+
+          }
+          .num {
+
+          }
+          .dec {
+
+          }
+          .op {
+            margin: 0 0 0 5px;
+          }
+          .op + .num {
+            margin: 0 0 0 5px;
+          }
         }
       }
     }
