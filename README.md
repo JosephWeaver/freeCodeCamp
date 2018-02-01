@@ -71,5 +71,5 @@
 
 - 07 ✅ [Build a JavaScript Calculator](https://codepen.io/JoeWeaver/full/jYoEdX)
 - 08 ✅ [Build a Pomodoro Clock](https://codepen.io/JoeWeaver/full/bLbbxK)
-- 09 ❌ Build a Tic-Tac-Toe Game
+- 09 🚧 [Build a Tic-Tac-Toe Game](https://codepen.io/JoeWeaver/full/rJOJpz)
 - 10 ❌ Build a Simon Game
