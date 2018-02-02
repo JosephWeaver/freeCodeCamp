@@ -1,6 +1,6 @@
 // https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css
 // https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js
-// https://fonts.googleapis.com/css?family=Open+Sans:400,600
+// https://fonts.googleapis.com/css?family=Baloo+Tammudu
 
 * {
   box-sizing: border-box;
@@ -60,7 +60,6 @@ h2 .devils {
   height: 100px;
 }
 #board {
-  background: green;
   height: 300px;
   margin: 0 auto;
   width: 300px;
@@ -77,6 +76,3 @@ h2 .devils {
 .winning:hover, .selected:hover {
   background: darken(#43e384, 7);
 }
-
-
-
