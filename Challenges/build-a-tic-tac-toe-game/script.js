@@ -1,5 +1,4 @@
 // https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js
-// https://use.fontawesome.com/releases/v5.0.6/js/all.js
 
 $(()=>{
 
@@ -36,10 +35,11 @@ $(()=>{
     });
   }
   function startGame(){
-    for (let i = 0; i < 9; i++){
-      let board = "<div id='sq" + i + "><span>Play Here</span></div>";
+    let board = "";
+    for (let i = 1; i <= 9; i++){
+      board += "<div id='sq" + i + "'><span>Play Here</span></div>\n";
     }
-    // $board.html(board);
+    $board.html(board);
     console.log(board);
   }
   function yourTurn(side){
