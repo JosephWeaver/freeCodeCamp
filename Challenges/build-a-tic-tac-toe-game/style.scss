@@ -2,3 +2,81 @@
 // https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js
 // https://fonts.googleapis.com/css?family=Open+Sans:400,600
 
+* {
+  box-sizing: border-box;
+}
+body {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 43px;
+  height: 100vh;
+  justify-content: center;
+}
+h1, h2 {
+  margin: 0 0 7px;
+  text-align: center;
+}
+h1 {
+  font: normal 43px/43px "Baloo Tammudu", sans-serif;
+}
+h2 {
+  font: normal 31px/31px "Baloo Tammudu", sans-serif;
+}
+h2 .angels {
+  color: #00BCF2;
+}
+h2 .devils {
+  color: ##F03A17;
+}
+#choose, #play {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+}
+#choices, #board {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  user-select: none;
+}
+#choices div, #board div {
+  align-items: center;
+  background: #e4e4e4;
+  border-radius: 13px;
+  display: flex;
+  flex: 0 1 calc(33% - 3px);
+  justify-content: center;
+  margin: 2px;
+}
+#choices div:hover, #board div:hover {
+  background: #dcdcdc;
+}
+#choices {
+  width: 300px;
+}
+#choices div {
+  cursor: pointer;
+  height: 100px;
+}
+#board {
+  background: green;
+  height: 300px;
+  margin: 0 auto;
+  width: 300px;
+}
+#board div:not(.played){
+  cursor: pointer;
+  font-size: 25px;
+  opacity: .5;
+  text-transform: uppercase;
+}
+.winning, .selected {
+  background: #43e384;
+}
+.winning:hover, .selected:hover {
+  background: darken(#43e384, 7);
+}
+
+
+
