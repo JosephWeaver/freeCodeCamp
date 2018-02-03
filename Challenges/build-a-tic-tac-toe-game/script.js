@@ -37,7 +37,7 @@ $(()=>{
   function startGame(){
     let board = "";
     for (let i = 1; i <= 9; i++){
-      board += "<div id='sq" + i + "'><span>Play Here</span></div>\n";
+      board += "<div id='sq" + i + "'><span>Play<br>Here</span></div>\n";
     }
     $board.html(board);
     console.log(board);
