@@ -35,18 +35,21 @@ $(()=>{
       $choose.fadeOut(function(){
         $play.css("display", "flex").hide().fadeIn();
       });
-      startGame()
+      startGame();
+    });
+    $("body").dblclick(function(){
+      resetGame();
     });
   }
   function startGame(){
     let board = "";
     $board.fadeIn();
+    playMove();
+  }
+  function playMove(){
     $square.on("click", function(e){
       $(this).html(side == "angel" ? angel : devil).addClass("played");
     });
-  }
-  function playMove(){
-    $square.click
   }
   function yourTurn(side){
     $message.html("<span class='" + side + "s'>" + cap(side) + "s</span> go first: Your turn!");
