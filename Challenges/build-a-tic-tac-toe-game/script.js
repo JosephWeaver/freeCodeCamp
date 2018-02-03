@@ -24,13 +24,14 @@ $(()=>{
   init();
 
   function init(){
-    $choose.show();
+    $choose.fadeIn();
     $choice.click(e => {
       side = e.target.id;
       yourTurn(side);
       $(e.target).addClass("selected");
-      $choose.hide();
-      $play.css("display", "flex");
+      $choose.fadeOut(function(){
+        $play.css("display", "flex").hide().fadeIn();
+      });
       startGame()
     });
   }
@@ -40,7 +41,6 @@ $(()=>{
       board += "<div id='sq" + i + "'><span>Play<br>Here</span></div>\n";
     }
     $board.html(board);
-    console.log(board);
   }
   function yourTurn(side){
     $message.html("<span class='" + side + "s'>" + cap(side) + "s</span> go first! Your turn!");
