@@ -4,6 +4,7 @@
 
 * {
   box-sizing: border-box;
+  user-select: none;
 }
 body {
   align-items: center;
@@ -46,7 +47,6 @@ h2 .devils {
   border-radius: 7px;
   display: flex;
   flex: 0 1 calc(33.333% - 4px);
-  height: calc(33.333% - 4px);
   justify-content: center;
   margin: 2px;
   transition: background .43s;
@@ -59,6 +59,7 @@ h2 .devils {
 }
 #choices div {
   cursor: pointer;
+  height: 100px;
 }
 #board {
   height: 320px;
@@ -66,6 +67,7 @@ h2 .devils {
   width: 320px;
 }
 #board div {
+  height: calc(33.333% - 4px);
   text-align: center;
 }
 #board div:not(.played){
