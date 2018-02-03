@@ -15,10 +15,13 @@ $(()=>{
     [3, 5, 7]
   ],
       $board = $("#board"),
+      $square = $("#board div"),
       $choose = $("#choose"),
       $choice = $("#choices div"),
       $play = $("#play"),
       $message = $play.children("h2"),
+      angel = "😇",
+      devil = "😈",
       side;
 
   init();
@@ -37,15 +40,21 @@ $(()=>{
   }
   function startGame(){
     let board = "";
-    for (let i = 1; i <= 9; i++){
-      board += "<div id='sq" + i + "'><span>Play<br>Here</span></div>\n";
-    }
-    $board.html(board);
+    $board.fadeIn();
+    $square.on("click", function(e){
+      $(this).html(side == "angel" ? angel : devil).addClass("played");
+    });
+  }
+  function playMove(){
+    $square.click
   }
   function yourTurn(side){
-    $message.html("<span class='" + side + "s'>" + cap(side) + "s</span> go first! Your turn!");
+    $message.html("<span class='" + side + "s'>" + cap(side) + "s</span> go first: Your turn!");
   }
-  function cap(str) {
+  function resetGame(){
+    $square.html("<span>Play<br>Here</span>").removeClass("played");
+  }
+  function cap(str){
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
