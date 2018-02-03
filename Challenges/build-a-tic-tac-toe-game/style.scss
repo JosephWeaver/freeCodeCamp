@@ -45,7 +45,8 @@ h2 .devils {
   background: #e4e4e4;
   border-radius: 7px;
   display: flex;
-  flex: 0 1 calc(33% - 3px);
+  flex: 0 1 calc(33.333% - 4px);
+  height: calc(33.333% - 4px);
   justify-content: center;
   margin: 2px;
   transition: background .43s;
@@ -54,16 +55,15 @@ h2 .devils {
   background: #dcdcdc;
 }
 #choices {
-  width: 300px;
+  width: 330px;
 }
 #choices div {
   cursor: pointer;
-  height: 100px;
 }
 #board {
-  height: 300px;
+  height: 320px;
   margin: 0 auto;
-  width: 300px;
+  width: 320px;
 }
 #board div {
   text-align: center;
