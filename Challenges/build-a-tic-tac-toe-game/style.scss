@@ -43,11 +43,12 @@ h2 .devils {
 #choices div, #board div {
   align-items: center;
   background: #e4e4e4;
-  border-radius: 13px;
+  border-radius: 7px;
   display: flex;
   flex: 0 1 calc(33% - 3px);
   justify-content: center;
   margin: 2px;
+  transition: background .43s;
 }
 #choices div:hover, #board div:hover {
   background: #dcdcdc;
@@ -64,11 +65,23 @@ h2 .devils {
   margin: 0 auto;
   width: 300px;
 }
+#board div {
+  text-align: center;
+}
 #board div:not(.played){
   cursor: pointer;
   font-size: 25px;
-  opacity: .5;
+  opacity: .43;
   text-transform: uppercase;
+}
+#board div span {
+  color: #e4e4e4;
+  font-size: 15px;
+  font-weight: bold;
+  transition: color .28s;
+}
+#board div:hover span {
+  color: #777;
 }
 .winning, .selected {
   background: #43e384;
