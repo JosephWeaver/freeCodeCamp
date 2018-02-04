@@ -76,6 +76,12 @@ h2 .devils {
   opacity: .43;
   text-transform: uppercase;
 }
+#board .angel, #board .angel:hover {
+  background: #a0eaff;
+}
+#board .devil, #board .devil:hover {
+  background: #ff9d8c;
+}
 #board div span {
   color: #e4e4e4;
   font-size: 15px;
