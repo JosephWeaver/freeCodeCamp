@@ -8,7 +8,7 @@
 }
 body {
   align-items: center;
-  display: flex;
+  display: none;
   flex-direction: column;
   font-size: 43px;
   height: 100vh;
@@ -31,9 +31,11 @@ h2 .devils {
   color: #F03A17;
 }
 #choose, #play {
-  display: none;
   flex-direction: column;
   justify-content: center;
+}
+#play {
+  display: none;
 }
 #choices, #board {
   display: flex;
@@ -41,7 +43,7 @@ h2 .devils {
   justify-content: center;
   user-select: none;
 }
-#choices div, #board div {
+.choice, .square {
   align-items: center;
   background: #e4e4e4;
   border-radius: 7px;
@@ -51,13 +53,13 @@ h2 .devils {
   margin: 2px;
   transition: background .43s;
 }
-#choices div:hover, #board div:hover {
+.choice:hover, .square:hover {
   background: #dcdcdc;
 }
 #choices {
   width: 330px;
 }
-#choices div {
+.choice {
   cursor: pointer;
   height: 100px;
 }
@@ -66,34 +68,32 @@ h2 .devils {
   margin: 0 auto;
   width: 320px;
 }
-#board div {
+.square {
   height: calc(33.333% - 4px);
   text-align: center;
 }
-#board div:not(.played){
+.square:not(.played){
   cursor: pointer;
   font-size: 25px;
   opacity: .43;
   text-transform: uppercase;
 }
-#board .angel, #board .angel:hover {
+.square.angel, .square.angel:hover {
   background: #a0eaff;
 }
-#board .devil, #board .devil:hover {
+.square.devil, .square.devil:hover {
   background: #ff9d8c;
 }
-#board div span {
-  color: #e4e4e4;
+.square:hover:before {
   font-size: 15px;
   font-weight: bold;
   transition: color .28s;
-}
-#board div:hover span {
+  content: "Play Here";
   color: #777;
 }
-.winning, .selected {
+.square.winning, .square.selected {
   background: #43e384;
 }
-.winning:hover, .selected:hover {
-  background: darken(#43e384, 7);
+.square.winning:hover, .square.selected:hover {
+  background: #31d369;
 }
