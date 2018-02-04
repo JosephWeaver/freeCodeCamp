@@ -86,7 +86,7 @@ $(()=>{
   }
   function whoseTurn(){
     $message.html(p1side == "angel" ? "<span class='angels'>Angels</span> first &ndash; your turn!" : "Sorry, <span class='angels'>Angels</span> always go first!");
-    computerPlayMove();
+    computerPlay();
   }
   function winMessage(){
     // show win message
