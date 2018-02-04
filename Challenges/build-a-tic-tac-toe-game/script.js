@@ -22,7 +22,7 @@ $(()=>{
       $choose = $("#choose"),
       $message = $("#play h2"),
       $play = $("#play"),
-      $square = $("#board div"),
+      $square = $(".square"),
       player1side, // angel / devil
       player2side, // devil / angel
       winningCombos = [
