@@ -63,6 +63,12 @@ h2 .devils {
   cursor: pointer;
   height: 100px;
 }
+#angel.selected {
+  background: #a0eaff;
+}
+#devil.selected {
+  background: #ff9d8c;
+}
 #board {
   height: 320px;
   margin: 0 auto;
@@ -76,7 +82,6 @@ h2 .devils {
   cursor: pointer;
   font-size: 25px;
   opacity: .43;
-  text-transform: uppercase;
 }
 .square.angel, .square.angel:hover {
   background: #a0eaff;
@@ -84,12 +89,14 @@ h2 .devils {
 .square.devil, .square.devil:hover {
   background: #ff9d8c;
 }
-.square:hover:before {
+.square:not(.played):hover:before {
+  color: #777;
+  content: "Play Here";
   font-size: 15px;
   font-weight: bold;
+  padding: 28px;
+  text-transform: uppercase;
   transition: color .28s;
-  content: "Play Here";
-  color: #777;
 }
 .square.winning, .square.selected {
   background: #43e384;
