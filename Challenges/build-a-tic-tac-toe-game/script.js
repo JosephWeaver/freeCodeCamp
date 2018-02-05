@@ -70,7 +70,7 @@ $(()=>{
       if(someoneWon()){
         winMessage();
       } else {
-        turnChange()
+        turnChange();
       }
     }
   }
@@ -129,8 +129,5 @@ $(()=>{
     console.log("win!");
     // show win message
   }
-
-  // playSquare(1, "angel");
-  // console.log(checkSquare(1));
 
 });
