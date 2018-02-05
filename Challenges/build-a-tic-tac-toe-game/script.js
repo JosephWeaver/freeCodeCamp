@@ -50,7 +50,6 @@ $(()=>{
   playSquare(1, "angel");
   console.log(checkSquare(1));
 
-
   function chooseSide(e){
     side1 = e.target.id;
     whoseTurn();
