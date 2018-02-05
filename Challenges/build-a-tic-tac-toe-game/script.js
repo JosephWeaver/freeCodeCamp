@@ -23,6 +23,7 @@ $(()=>{
       $message = $("#play h2"),
       $play = $("#play"),
       $square = $(".square"),
+      player,
       side1,
       side2,
       winningCombos = [
@@ -36,7 +37,6 @@ $(()=>{
         [3, 5, 7]
       ];
 
-
   init();
 
   function init(){
@@ -47,10 +47,6 @@ $(()=>{
   function checkSquare(num){
     return boardState["square" + num];
   }
-
-  playSquare(1, "angel");
-  console.log(checkSquare(1));
-
   function chooseSide(e){
     side1 = e.target.id;
     whoseTurn();
@@ -60,35 +56,12 @@ $(()=>{
     });
     startGame();
   }
-  function computerPlay(){
-    // computer plays move
-  }
-  function someoneWon(){
-    winningCombos = [
-      [1, 2, 3],
-      [4, 5, 6],
-      [7, 8, 9],
-      [1, 4, 7],
-      [2, 5, 8],
-      [3, 6, 9],
-      [1, 5, 9],
-      [3, 5, 7]
-    ];
-    if ($("#square1").text() === $("#square2").text() && $("#square2").text() === $("#square3").text() && $("#square3").text() !== "empty"){
-      return true;
-    }
-
-    // check win condition
-    return false;
-  }
   function chooseSquare(){
     // computer chooses which square to play
   }
-
-  $square.on("click", function(e){
-    playMove("player1", "devil", e.target.id);
-  });
-
+  function computerPlay(){
+    // computer plays move
+  }
   function playMove(player, side, square){
     if (!$("#" + square).hasClass("played")){
       $("#" + square).html(side1 == "angel" ? angel : devil)
@@ -97,7 +70,7 @@ $(()=>{
       if(someoneWon()){
         winMessage();
       } else {
-        turnChange();
+        turnChange()
       }
     }
   }
@@ -120,14 +93,35 @@ $(()=>{
       square9: "empty"
     };
   }
+  function someoneWon(){
+    let combos = [
+      [1, 2, 3],
+      [4, 5, 6],
+      [7, 8, 9],
+      [1, 4, 7],
+      [2, 5, 8],
+      [3, 6, 9],
+      [1, 5, 9],
+      [3, 5, 7]
+    ];
+    if ($("#square1").text() === $("#square2").text() && $("#square2").text() === $("#square3").text() && $("#square3").text() !== "empty"){
+      return true;
+    }
+
+    // check win condition
+    return false;
+  }
   function startGame(){
     $board.fadeIn();
-    playMove();
+    $square.on("click", function(e){
+      playMove(player, devil, e.target.id);
+    });
   }
   function turnChange(){
     side1 = side1 == "angel" ? "devil" : "angel";
   }
   function whoseTurn(){
+    player = side1 == "angel" ? angel : devil;
     $message.html(side1 == "angel" ? "<span class='angels'>Angels</span> first &ndash; your turn!" : "Sorry, <span class='angels'>Angels</span> always go first!");
     computerPlay();
   }
@@ -135,5 +129,8 @@ $(()=>{
     console.log("win!");
     // show win message
   }
+
+  // playSquare(1, "angel");
+  // console.log(checkSquare(1));
 
 });
