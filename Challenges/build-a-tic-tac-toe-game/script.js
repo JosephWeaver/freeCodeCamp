@@ -71,12 +71,12 @@ $(()=>{
   }
 
   $square.on("click", function(e){
-    playMove(player1, "angel", 3);
+    playMove("player1", "angel", e.target.id);
   });
 
   function playMove(player, side, square){
-    if (!$(this).hasClass("played")){
-      $(this).html(side1 == "angel" ? angel : devil)
+    if (!$("#" + square).hasClass("played")){
+      $("#" + square).html(side1 == "angel" ? angel : devil)
         .addClass(side1 == "angel" ? "angel" : "devil")
         .addClass("played");
       if(someoneWon()){
