@@ -71,7 +71,7 @@ $(()=>{
   }
 
   $square.on("click", function(e){
-    playMove(player1, "angel", );
+    playMove(player1, "angel", 3);
   });
 
   function playMove(player, side, square){
