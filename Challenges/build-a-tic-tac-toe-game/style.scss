@@ -23,12 +23,12 @@ h1 {
 }
 h2 {
   font: normal 31px/31px "Baloo Tammudu", sans-serif;
-}
-h2 .angels {
-  color: #00BCF2;
-}
-h2 .devils {
-  color: #F03A17;
+  .angels {
+    color: #00BCF2;
+  }
+  .devils {
+    color: #F03A17;
+  }
 }
 #choose, #play {
   flex-direction: column;
@@ -43,6 +43,14 @@ h2 .devils {
   justify-content: center;
   user-select: none;
 }
+#choices {
+  width: 330px;
+}
+#board {
+  height: 320px;
+  margin: 0 auto;
+  width: 320px;
+}
 .choice, .square {
   align-items: center;
   background: #e4e4e4;
@@ -52,55 +60,53 @@ h2 .devils {
   justify-content: center;
   margin: 2px;
   transition: background .43s;
-}
-.choice:hover, .square:hover {
-  background: #dcdcdc;
-}
-#choices {
-  width: 330px;
+  &:hover {
+    background: #dcdcdc;
+  }
 }
 .choice {
   cursor: pointer;
   height: 100px;
+}
+.square {
+  height: calc(33.333% - 4px);
+  text-align: center;
+  &:not(.played){
+    cursor: pointer;
+    font-size: 25px;
+    opacity: .43;
+    &:hover:before {
+      color: #777;
+      content: "Play Here";
+      font-size: 15px;
+      font-weight: bold;
+      padding: 28px;
+      text-transform: uppercase;
+      transition: color .28s;
+    }
+  }
+  &.angel {
+    &, &:hover {
+      background: #a0eaff;
+    }
+  }
+  &.devil {
+    &, &:hover {
+      background: #ff9d8c;
+    }
+  }
+  &.winning,
+  &.selected {
+    background: #43e384;
+    &:hover {
+      background: #31d369;
+    }
+  }
+
 }
 #angel.selected {
   background: #a0eaff;
 }
 #devil.selected {
   background: #ff9d8c;
-}
-#board {
-  height: 320px;
-  margin: 0 auto;
-  width: 320px;
-}
-.square {
-  height: calc(33.333% - 4px);
-  text-align: center;
-}
-.square:not(.played){
-  cursor: pointer;
-  font-size: 25px;
-  opacity: .43;
-}
-.square.angel, .square.angel:hover {
-  background: #a0eaff;
-}
-.square.devil, .square.devil:hover {
-  background: #ff9d8c;
-}
-.square:not(.played):hover:before {
-  color: #777;
-  content: "Play Here";
-  font-size: 15px;
-  font-weight: bold;
-  padding: 28px;
-  text-transform: uppercase;
-  transition: color .28s;
-}
-.square.winning, .square.selected {
-  background: #43e384;
-}
-.square.winning:hover, .square.selected:hover {
-  background: #31d369;
 }
