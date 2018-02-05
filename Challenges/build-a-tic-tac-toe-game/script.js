@@ -36,6 +36,7 @@ $(()=>{
         [3, 5, 7]
       ];
 
+
   init();
 
   function init(){
@@ -73,6 +74,9 @@ $(()=>{
       [1, 5, 9],
       [3, 5, 7]
     ];
+    if ($("#square1").text() === $("#square2").text() && $("#square2").text() === $("#square3").text() && $("#square3").text() !== "empty"){
+      return true;
+    }
 
     // check win condition
     return false;
@@ -128,6 +132,7 @@ $(()=>{
     computerPlay();
   }
   function winMessage(){
+    console.log("win!");
     // show win message
   }
 
