@@ -23,8 +23,8 @@ $(()=>{
       $message = $("#play h2"),
       $play = $("#play"),
       $square = $(".square"),
-      p1side,
-      p2side,
+      side1,
+      side2,
       winningCombos = [
         [1, 2, 3],
         [4, 5, 6],
@@ -43,8 +43,16 @@ $(()=>{
     $("body").dblclick(() => resetGame()); // hidden reset function
     $choice.click(e => chooseSide(e)); // player chooses their side
   }
+  function checkSquare(num){
+    return boardState["square" + num];
+  }
+
+  playSquare(1, "angel");
+  console.log(checkSquare(1));
+
+
   function chooseSide(e){
-    p1side = e.target.id;
+    side1 = e.target.id;
     whoseTurn();
     $(e.target).addClass("selected");
     $choose.fadeOut(function(){
@@ -59,33 +67,54 @@ $(()=>{
     // check win condition
     return false;
   }
-  function playMove(){
-    $square.on("click", function(e){
-      if (!$(this).hasClass("played")){
-        $(this).html(p1side == "angel" ? angel : devil)
-          .addClass(p1side == "angel" ? "angel" : "devil")
-          .addClass("played");
-        if(someoneWon()){
-          winMessage();
-        } else {
-          turnChange();
-        }
+  function chooseSquare(){
+    // computer chooses which square to play
+  }
+
+  $square.on("click", function(e){
+    playMove(player1, "angel", );
+  });
+
+  function playMove(player, side, square){
+    if (!$(this).hasClass("played")){
+      $(this).html(side1 == "angel" ? angel : devil)
+        .addClass(side1 == "angel" ? "angel" : "devil")
+        .addClass("played");
+      if(someoneWon()){
+        winMessage();
+      } else {
+        turnChange();
       }
-    });
+    }
+  }
+  function playSquare(num, side){
+    boardState["square" + num] = side.toString();
   }
   function resetGame(){
     $square.html("").removeClass("played angel devil");
-    p1side = undefined;
+    side1 = undefined;
+    side2 = undefined;
+    boardState = {
+      square1: "empty",
+      square2: "empty",
+      square3: "empty",
+      square4: "empty",
+      square5: "empty",
+      square6: "empty",
+      square7: "empty",
+      square8: "empty",
+      square9: "empty"
+    };
   }
   function startGame(){
     $board.fadeIn();
     playMove();
   }
   function turnChange(){
-    p1side = p1side == "angel" ? "devil" : "angel";
+    side1 = side1 == "angel" ? "devil" : "angel";
   }
   function whoseTurn(){
-    $message.html(p1side == "angel" ? "<span class='angels'>Angels</span> first &ndash; your turn!" : "Sorry, <span class='angels'>Angels</span> always go first!");
+    $message.html(side1 == "angel" ? "<span class='angels'>Angels</span> first &ndash; your turn!" : "Sorry, <span class='angels'>Angels</span> always go first!");
     computerPlay();
   }
   function winMessage(){
