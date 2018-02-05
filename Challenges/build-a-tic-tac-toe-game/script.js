@@ -63,6 +63,17 @@ $(()=>{
     // computer plays move
   }
   function someoneWon(){
+    winningCombos = [
+      [1, 2, 3],
+      [4, 5, 6],
+      [7, 8, 9],
+      [1, 4, 7],
+      [2, 5, 8],
+      [3, 6, 9],
+      [1, 5, 9],
+      [3, 5, 7]
+    ];
+
     // check win condition
     return false;
   }
@@ -71,7 +82,7 @@ $(()=>{
   }
 
   $square.on("click", function(e){
-    playMove("player1", "angel", e.target.id);
+    playMove("player1", "devil", e.target.id);
   });
 
   function playMove(player, side, square){
