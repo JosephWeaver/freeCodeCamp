@@ -1,21 +1,22 @@
 // https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js
 
-// $(()=>{
-
 console.clear();
 
 init();
 
 function init(){
-  const body = document.getElementsByTagName("body")[0];
-  let Game = function(){
-    this.addTitle = body => {
+  const t3 = document.createElement("div");
+  t3.setAttribute("id", "t3");
+  document.body.appendChild(t3);
+  const Game = function(){
+    this.addTitle = t3 => {
+      const game = document.getElementsByTagName("body")[0];
       let title = "<h1 id='title'>Tic-Tac-Toe</h1>";
-      body.innerHTML += title;
+      t3.innerHTML += title;
     };
-    this.addChoices = body => {
+    this.addChoices = t3 => {
       let choices;
-      choices =  "<div id='choose'>";
+      choices =  "<div id='choices'>";
       choices += "  <h2>Choose opponent:</h2>";
       choices += "  <div id='opponent'>";
       choices += "    <div class='choice' id='human'>🙂</div>";
@@ -26,29 +27,33 @@ function init(){
       choices += "    <div class='choice' id='devil'>😈</div>";
       choices += "  </div>";
       choices += "</div>";
-      body.innerHTML += choices;
+      t3.innerHTML += choices;
     };
-    this.addBoard = body => {
+    this.addBoard = t3 => {
       let gameBoard;
-      // gameBoard =  "<div id='play'>";
-      // gameBoard += "  <h2>Who goes first?</h2>";
       gameBoard += "  <div id='board'>";
       for (let i = 1; i <= 9; i++){
         gameBoard += "    <div class='square' id='square" + i + "'></div>";
       }
       gameBoard += "  </div>";
-      // gameBoard += "</div>";
-      body.innerHTML += gameBoard;
+      t3.innerHTML += gameBoard;
     };
-  },
-      game = new Game();
+    this.update = (el, content) => {
+      document.getElementsByTagName(el)[0].innerHTML = content;
+    };
+    this.updateH2 = content => {
+      this.update("h2", content);
+    };
+  };
+  let game = new Game();
 
-  game.addTitle(body);
-  game.addChoices(body);
-  game.addBoard(body);
+  game.addTitle(t3);
+  game.addChoices(t3);
+  game.addBoard(t3);
 
-
-
+  // --------------------------------------------------------
+  // CREATE BOTH PLAYER 1 AND PLAYER 2 AS OBJECTS. AYYYYYYYYY
+  // --------------------------------------------------------
 
 
   // $("body").css("display", "flex").hide().fadeIn(); // show bodyy
@@ -90,8 +95,6 @@ function init(){
 //       [1, 5, 9],
 //       [3, 5, 7]
 //     ];
-
-// });
 
 //   function chooseSide(e){
 //     side1 = e.target.id;
