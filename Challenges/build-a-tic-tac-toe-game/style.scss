@@ -6,23 +6,22 @@
   box-sizing: border-box;
   user-select: none;
 }
-body {
+#t3 {
   align-items: center;
-  display: none;
   flex-direction: column;
   font-size: 43px;
   height: 100vh;
   justify-content: center;
-}
-h1, h2 {
-  margin: 0 0 7px;
-  text-align: center;
+  margin: 0 auto;
+  width: 320px;
 }
 h1 {
   font: normal 43px/43px "Baloo Tammudu", sans-serif;
+  text-align: center;
 }
 h2 {
   font: normal 31px/31px "Baloo Tammudu", sans-serif;
+  text-align: center;
   .angels {
     color: #00BCF2;
   }
@@ -30,26 +29,11 @@ h2 {
     color: #F03A17;
   }
 }
-#choose, #play {
-  flex-direction: column;
-  justify-content: center;
-}
-#play {
-  display: none;
-}
-#choices, #board {
+#board {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  user-select: none;
-}
-#choices {
-  width: 330px;
-}
-#board {
   height: 320px;
   margin: 0 auto;
-  width: 320px;
 }
 .choice, .square {
   align-items: center;
@@ -108,4 +92,7 @@ h2 {
 }
 #devil.selected {
   background: #ff9d8c;
+}
+.invis {
+  display: none;
 }
