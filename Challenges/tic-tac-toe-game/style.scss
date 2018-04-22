@@ -1,0 +1,332 @@
+// https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css
+// https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js
+// https://fonts.googleapis.com/css?family=Lato|Oswald:600
+
+// variables
+$angelColor: #00bcf2;
+$devilColor: #f03a17;
+$devilColor2: #ad12cc;
+
+// type selectors
+* {
+  box-sizing: border-box;
+  user-select: none;
+}
+body {
+  align-items: center;
+  background: #092756;
+  background: linear-gradient(to bottom, rgba(57,173,219,.25) 0%, rgba(42,60,87,.4) 100%), linear-gradient(135deg, #670d10 0%, #092756 100%);
+  color: #efefef;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  overflow: hidden;
+}
+h1, h2 {
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+}
+h1 {
+  font: normal 43px "Oswald", sans-serif;
+  letter-spacing: -2px;
+  text-align: center;
+  &:hover {
+    span:not(.icon) {
+      font-size: 47px;
+      margin: 0 .28px 0 0;
+      padding-top: 2px;
+      position: relative;
+      top: 2px;
+      transform: skew(-15deg);
+    }
+    span.icon {
+      position: relative;
+      -webkit-animation: rotate 1s infinite linear;
+      animation: rotate 1s infinite linear;
+    }
+  }
+  span {
+    background: #fff;
+    border-radius: 1px;
+    color: #22202C;
+    display: inline-block;
+    line-height: 100%;
+    margin: 0 3px;
+    padding: 0 8px 4px 6px;
+    transition: all .05s;
+    &.icon {
+      background: none;
+      font-size: 18px;
+      height: 24px;
+      line-height: 21px;
+      margin: 0 -17px;
+      padding: 0;
+      position: relative;
+      text-align: left;
+      top: -10px;
+      width: 24px;
+      z-index: 2;
+    }
+  }
+}
+h2 {
+  font: bold 15px Lato, sans-serif;
+  letter-spacing: 1px;
+  margin: 16px 0 3px;
+  text-align: center;
+  word-spacing: 2px;
+  &#messages {
+    height: 25px;
+    margin-bottom: 15px;
+    &.devilsWin {
+      #new-game {
+        background: $devilColor;
+        &:hover {
+          background: $angelColor;
+        }
+      }
+    }
+  }
+  .angels {
+    color: $angelColor;
+  }
+  .devils {
+    color: $devilColor;
+  }
+}
+
+// id selectors
+#app {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 43px;
+  justify-content: flex-end;
+  margin: 0 auto;
+  max-width: 320px;
+  min-width: 320px;
+  transition: filter .28s ease-in, opacity .28s ease-in;
+  @media screen and (max-width: 300px), screen and (max-height: 420px) {
+    filter: blur(21px);
+    opacity: .84;
+    pointer-events: none;
+    transition: filter .28s ease-out, opacity .28s ease-out;
+  }
+}
+#choices {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+#computer {
+  pointer-events: none; // computer isn't ready yet! human is selected by default
+}
+#board, #opponent, #side {
+  display: flex;
+  overflow: hidden;
+  transition: all .28s;
+}
+#board {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 8px;
+  width: 274px;
+  &.angelToPlay {
+    .square:not(.played):hover:before {
+      content: "😇?";
+    }
+  }
+  &.devilToPlay {
+    .square:not(.played):hover:before {
+      content: "😈?";
+    }
+  }
+}
+#confetti {
+  height: 100vh;
+  position: absolute;
+  width: 100vw;
+  z-index: -1;
+}
+#new-game {
+  background: $angelColor;
+  border: 0;
+  border-radius: 2px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font: normal "Oswald", sans-serif;
+  outline: none;
+  padding: 2px 5px 3px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 1px 1px 1px black;
+  text-transform: uppercase;
+  &:hover {
+    background: $devilColor;
+  }
+}
+#screen-height,
+#screen-size,
+#screen-width {
+  align-items: center;
+  display: none;
+  font: normal 10vw/120% "Oswald", sans-serif;
+  height: 100vh;
+  justify-content: center;
+  left: 0;
+  padding: 0 16vw;
+  position: absolute;
+  text-align: center;
+  text-shadow: 1px 1px 5px #000;
+  text-transform: uppercase;
+  top: 0;
+  width: 100vw;
+}
+#start-game {
+    background: #09f;
+    border: 0;
+    border-radius: 2px;
+    color: #fff;
+    cursor: pointer;
+    font: normal 28px "Oswald", sans-serif;
+    margin: 12px 0 -20px;
+    outline: none;
+    padding: 2px 0 3px;
+    text-align: center;
+    text-shadow: 1px 1px 1px black;
+    text-transform: uppercase;
+    width: 172px;
+    &:hover {
+      background: $devilColor;
+    }
+    &.disabled {
+      background: #848484;
+      color: #434343;
+      opacity: .28;
+      pointer-events: none;
+      text-shadow: none;
+    }
+  }
+
+// class selectors
+.choice, .square {
+  align-items: center;
+  background: rgba(0, 0, 0, .28);
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  margin: 2px;
+  text-shadow: 0 0 22px rgba(255, 255, 255, .28);
+  transition: background .43s, text-shadow .43s;
+  &:hover {
+    background: rgba(255, 255, 255, .28);
+    text-shadow: 0 0 22px rgba(255, 255, 255, .28);
+  }
+  &.chosen {
+    background: rgba(255, 255, 255, .43);
+    text-shadow: 0 0 22px rgba(0, 0, 0, .43);
+  }
+}
+.choice {
+  cursor: pointer;
+  height: 84px;
+  width: 84px;
+}
+.hidden {
+  &, & * {
+    height: 0;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+    position: relative;
+    z-index: -1;
+  }
+}
+.mac {
+  background: linear-gradient(to bottom, rgba(57,173,219,.25) 0%, rgba(42,60,87,.4) 100%), linear-gradient(135deg, #560d28 10%, #092756 100%);
+  h2 .devils {
+    color: $devilColor2;
+  }
+  #choices #start-game:hover, #new-game:hover {
+    background: $devilColor2;
+  }
+  .square.devil {
+    &, &:hover {
+      background: rgba($devilColor2, .28);
+    }
+  }
+  #messages.devilsWin #new-game {
+    background: $devilColor2;
+  }
+}
+.square {
+  flex: 0 1 84px;
+  height: 84px;
+  text-align: center;
+  &:not(.played){
+    cursor: pointer;
+    font-size: 25px;
+    opacity: .84;
+    &:hover:before {
+      color: rgba(255, 255, 255, 0.84);
+      content: "Game Over";
+      font-size: 18px;
+      font-weight: bold;
+      padding: 11px;
+      text-transform: uppercase;
+      transition: color .28s;
+    }
+  }
+  &.angel {
+    &, &:hover {
+      background: rgba($angelColor, .28);
+    }
+  }
+  &.devil {
+    &, &:hover {
+      background: rgba($devilColor, .28);
+    }
+  }
+  &.winning {
+    background: #43e384 !important;
+    &:hover {
+      background: #31d369 !important;
+    }
+  }
+}
+
+// media queries
+@media screen and (max-width: 300px){
+  #screen-width {
+    display: flex;
+  }
+}
+@media screen and (max-height: 420px){
+  #screen-height {
+    display: flex;
+    font-size: 30px;
+    max-height: 100vh;
+  }
+}
+@media screen and (max-width: 300px) and (max-height: 420px){
+  #screen-height, #screen-width {
+    display: none;
+  }
+  #screen-size {
+    display: flex;
+  }
+}
+
+// animations
+@-webkit-keyframes rotate {
+  0%   { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(359deg); }
+}
+@keyframes rotate {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(359deg); }
+}

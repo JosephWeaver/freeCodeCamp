@@ -1,0 +1,113 @@
+// https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css
+// https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js
+
+body {
+	background: #1377b3;
+	font-family: "Muli", sans-serif;
+	font-weight: 700;
+ 	margin-top: 43px;
+}
+h1, h2 {
+	font-weight: 900;
+	text-transform: uppercase;
+}
+h1 {
+	color: #025894 !important;
+	font-size: calc(20px + 6vw) !important;
+	letter-spacing: -.43vw;
+	margin: 0 0 8px;
+}
+h2 {
+	color: #b31313;
+	font-size: calc(20px + 4vw);
+	letter-spacing: -.28vw;
+	margin: 0 0 43px;
+}
+h3 {
+	font-size: 43px;
+	&.text-center {
+		margin-bottom: 28px;
+		margin-top: 43px;
+		& + div.text-center {
+			font-size: 18px;
+			margin-bottom: 28px;
+		}
+	}
+}
+h4 {
+	margin: 43px;
+}
+.jumbotron {
+	background: #15B0F0;
+	overflow: hidden;
+	a {
+		color: #fff;
+		&:focus {
+			color: #fff;
+		}
+		&:hover {
+			color: #025884;
+			text-decoration: underline;
+		}
+	}
+	blockquote {
+		background: #025884;
+		border-left-color: #b31313;
+		color: #fff;
+		margin: 32px -28px 70px;
+		padding: 28px;
+		cite {
+			display: block;
+			margin: 8px 43px;
+			text-align: right;
+		}
+	}
+	.thumbnail {
+		background: #1377b3;
+		border: 0;
+		border-radius: 16px;
+		margin: auto;
+		width: 95%;
+		.caption {
+			color: #fff !important;
+			font-size: calc(15px + .84vw);
+			margin: 2vw 2vw;
+		}
+		.img {
+			background-image: url(http://www.joeweaver.me/codepenassets/freecodecamp/tributepageforrichardpetty/RichardPetty1985Pocono.jpg);
+			background-position: center top;
+			background-size: cover;
+			border-radius: 8px;
+			padding-top: 84%;
+			margin: 2.8% auto 0;
+			width: 95%;
+		}
+	}
+	.timeline, .records, .achievements, .awards {
+		strong {
+			font-size: 150%;
+			font-weight: 900;
+			position: relative;
+			top: 2px;
+		}
+		li {
+			margin-bottom: 8px;
+			ul {
+				margin: 15px 0;
+			}
+			b {
+				font-weight: 900;
+			}
+		}
+	}
+}
+footer {
+	color: #a5e0F0;
+	margin-bottom: 43px;
+	a {
+		color: #fff;
+		&:hover {
+			color: #a5e0F0 !important;
+		}
+	}
+}
