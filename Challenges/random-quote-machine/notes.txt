@@ -1,0 +1,11 @@
+https://www.freecodecamp.org/challenges/build-a-random-quote-machine
+
+Objective: Build a CodePen.io app that is functionally similar to: https://codepen.io/FreeCodeCamp/full/ONjoLe
+
+Use whichever libraries or APIs you need. Give it your own personal style.
+
+Fulfill the below user stories: - User Story: I can click a button to show me a new random quote. - User Story: I can press a button to tweet out a quote.
+
+Remember to use Read-Search-Ask if you get stuck.
+
+You can get feedback on your project by sharing it with your friends on Facebook.
